@@ -1,0 +1,3253 @@
+{
+    "inputs": [
+        "pnb.bank.in"
+    ],
+    "generated_at_utc": "2026-03-20T06:33:59.058011+00:00",
+    "enumeration_enabled": true,
+    "tools_used": [
+        "subfinder"
+    ],
+    "count_assets": 270,
+    "subdomains": [
+        {
+            "fqdn": "aafip.pnb.bank.in",
+            "ips": [
+                "103.109.224.159"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057369+00:00"
+        },
+        {
+            "fqdn": "aafip.pnb.bank.in",
+            "ips": [
+                "103.109.225.159"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057369+00:00"
+        },
+        {
+            "fqdn": "aafiu.pnb.bank.in",
+            "ips": [
+                "103.109.224.188"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057404+00:00"
+        },
+        {
+            "fqdn": "aafiu.pnb.bank.in",
+            "ips": [
+                "103.109.225.188"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057404+00:00"
+        },
+        {
+            "fqdn": "ams.pnb.bank.in",
+            "ips": [
+                "103.109.224.217"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057410+00:00"
+        },
+        {
+            "fqdn": "ams.pnb.bank.in",
+            "ips": [
+                "103.109.225.217"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057410+00:00"
+        },
+        {
+            "fqdn": "analytics.pnb.bank.in",
+            "ips": [
+                "103.109.224.105"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057413+00:00"
+        },
+        {
+            "fqdn": "apicasa.pnb.bank.in",
+            "ips": [
+                "103.109.227.85"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057416+00:00"
+        },
+        {
+            "fqdn": "apim.pnb.bank.in",
+            "ips": [
+                "103.109.224.51"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057418+00:00"
+        },
+        {
+            "fqdn": "apim.pnb.bank.in",
+            "ips": [
+                "103.109.225.51"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057418+00:00"
+        },
+        {
+            "fqdn": "apitrk.pnb.bank.in",
+            "ips": [
+                "1.7.178.30"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057421+00:00"
+        },
+        {
+            "fqdn": "applications.pnb.bank.in",
+            "ips": [
+                "103.109.224.21"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057422+00:00"
+        },
+        {
+            "fqdn": "applications.pnb.bank.in",
+            "ips": [
+                "103.109.225.21"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057422+00:00"
+        },
+        {
+            "fqdn": "apply.creditcard.pnb.bank.in",
+            "ips": [
+                "103.109.224.168"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057425+00:00"
+        },
+        {
+            "fqdn": "apply.creditcard.pnb.bank.in",
+            "ips": [
+                "103.109.225.168"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057425+00:00"
+        },
+        {
+            "fqdn": "apps.pnb.bank.in",
+            "ips": [
+                "103.109.224.126"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057427+00:00"
+        },
+        {
+            "fqdn": "apptrk.pnb.bank.in",
+            "ips": [
+                "1.7.178.30"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057429+00:00"
+        },
+        {
+            "fqdn": "atmmonitoring.pnb.bank.in",
+            "ips": [
+                "103.109.224.215"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057431+00:00"
+        },
+        {
+            "fqdn": "atmmonitoring.pnb.bank.in",
+            "ips": [
+                "103.109.225.215"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057431+00:00"
+        },
+        {
+            "fqdn": "bbps.pnb.bank.in",
+            "ips": [
+                "103.26.98.137"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057434+00:00"
+        },
+        {
+            "fqdn": "bcportal.pnbfikiosk.pnb.bank.in",
+            "ips": [
+                "103.109.224.233"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057436+00:00"
+        },
+        {
+            "fqdn": "bcportal.pnbfikiosk.pnb.bank.in",
+            "ips": [
+                "103.109.225.233"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057436+00:00"
+        },
+        {
+            "fqdn": "cbdcr.pnb.bank.in",
+            "ips": [
+                "103.109.224.212"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057438+00:00"
+        },
+        {
+            "fqdn": "cbdcr.pnb.bank.in",
+            "ips": [
+                "103.109.225.212"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057438+00:00"
+        },
+        {
+            "fqdn": "cgps.pnb.bank.in",
+            "ips": [
+                "103.109.224.178"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057440+00:00"
+        },
+        {
+            "fqdn": "cgps.pnb.bank.in",
+            "ips": [
+                "103.109.225.178"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057440+00:00"
+        },
+        {
+            "fqdn": "cgrms.pnb.bank.in",
+            "ips": [
+                "103.109.224.183"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057442+00:00"
+        },
+        {
+            "fqdn": "ckycr-admin.pnb.bank.in",
+            "ips": [
+                "103.109.224.195"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057445+00:00"
+        },
+        {
+            "fqdn": "ckycr-admin.pnb.bank.in",
+            "ips": [
+                "103.109.225.195"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057445+00:00"
+        },
+        {
+            "fqdn": "corpmbs.pnb.bank.in",
+            "ips": [
+                "103.109.224.193"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057447+00:00"
+        },
+        {
+            "fqdn": "corpmbs.pnb.bank.in",
+            "ips": [
+                "103.109.225.193"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057447+00:00"
+        },
+        {
+            "fqdn": "creditcard.pnb.bank.in",
+            "ips": [
+                "103.109.224.169"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057449+00:00"
+        },
+        {
+            "fqdn": "creditcard.pnb.bank.in",
+            "ips": [
+                "103.109.225.169"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057449+00:00"
+        },
+        {
+            "fqdn": "data-agg.pnb.bank.in",
+            "ips": [
+                "103.109.224.106"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057451+00:00"
+        },
+        {
+            "fqdn": "data-agg.pnb.bank.in",
+            "ips": [
+                "103.109.225.106"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057451+00:00"
+        },
+        {
+            "fqdn": "dcms.pnb.bank.in",
+            "ips": [
+                "1.7.88.227"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057453+00:00"
+        },
+        {
+            "fqdn": "depository.pnb.bank.in",
+            "ips": [
+                "103.109.224.185"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057455+00:00"
+        },
+        {
+            "fqdn": "depository.pnb.bank.in",
+            "ips": [
+                "103.109.225.185"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057455+00:00"
+        },
+        {
+            "fqdn": "digi2wl.pnb.bank.in",
+            "ips": [
+                "103.109.224.211"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057457+00:00"
+        },
+        {
+            "fqdn": "digi2wl.pnb.bank.in",
+            "ips": [
+                "103.109.225.211"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057457+00:00"
+        },
+        {
+            "fqdn": "digidairykcc.pnb.bank.in",
+            "ips": [
+                "103.109.224.237"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057460+00:00"
+        },
+        {
+            "fqdn": "digidairykcc.pnb.bank.in",
+            "ips": [
+                "103.109.225.237"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057460+00:00"
+        },
+        {
+            "fqdn": "digiel.pnb.bank.in",
+            "ips": [
+                "103.109.224.130"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057462+00:00"
+        },
+        {
+            "fqdn": "digiel.pnb.bank.in",
+            "ips": [
+                "103.109.225.130"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057462+00:00"
+        },
+        {
+            "fqdn": "digigodam.pnb.bank.in",
+            "ips": [
+                "103.109.224.237"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057464+00:00"
+        },
+        {
+            "fqdn": "digigodam.pnb.bank.in",
+            "ips": [
+                "103.109.225.237"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057464+00:00"
+        },
+        {
+            "fqdn": "digigoldloan.pnb.bank.in",
+            "ips": [
+                "103.109.224.84"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057467+00:00"
+        },
+        {
+            "fqdn": "digigoldloan.pnb.bank.in",
+            "ips": [
+                "103.109.225.84"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057467+00:00"
+        },
+        {
+            "fqdn": "digigoldloan.pnb.bank.in",
+            "ips": [
+                "2001:df1:1580::224:bc"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057467+00:00"
+        },
+        {
+            "fqdn": "digigoldloan.pnb.bank.in",
+            "ips": [
+                "2001:df1:1580::225:bc"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057467+00:00"
+        },
+        {
+            "fqdn": "digigrihavatika.pnb.bank.in",
+            "ips": [
+                "103.109.224.237"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057468+00:00"
+        },
+        {
+            "fqdn": "digigrihavatika.pnb.bank.in",
+            "ips": [
+                "103.109.225.237"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057468+00:00"
+        },
+        {
+            "fqdn": "digihltopup.pnb.bank.in",
+            "ips": [
+                "103.109.224.246"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057470+00:00"
+        },
+        {
+            "fqdn": "digihltopup.pnb.bank.in",
+            "ips": [
+                "103.109.225.246"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057470+00:00"
+        },
+        {
+            "fqdn": "digihltopup.pnb.bank.in",
+            "ips": [
+                "2001:df1:1580::224:a1"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057470+00:00"
+        },
+        {
+            "fqdn": "digihltopup.pnb.bank.in",
+            "ips": [
+                "2001:df1:1580::225:a1"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057470+00:00"
+        },
+        {
+            "fqdn": "digihome.pnb.bank.in",
+            "ips": [
+                "103.109.224.246"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057472+00:00"
+        },
+        {
+            "fqdn": "digihome.pnb.bank.in",
+            "ips": [
+                "103.109.225.246"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057472+00:00"
+        },
+        {
+            "fqdn": "digihome.pnb.bank.in",
+            "ips": [
+                "2001:df1:1580::224:a1"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057472+00:00"
+        },
+        {
+            "fqdn": "digihome.pnb.bank.in",
+            "ips": [
+                "2001:df1:1580::225:a1"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057472+00:00"
+        },
+        {
+            "fqdn": "digikccreview.pnb.bank.in",
+            "ips": [
+                "103.109.224.237"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057474+00:00"
+        },
+        {
+            "fqdn": "digikccreview.pnb.bank.in",
+            "ips": [
+                "103.109.225.237"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057474+00:00"
+        },
+        {
+            "fqdn": "digimsme.pnb.bank.in",
+            "ips": [
+                "103.109.224.246"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057477+00:00"
+        },
+        {
+            "fqdn": "digimsme.pnb.bank.in",
+            "ips": [
+                "103.109.225.246"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057477+00:00"
+        },
+        {
+            "fqdn": "digimsme.pnb.bank.in",
+            "ips": [
+                "2001:df1:1580::224:a1"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057477+00:00"
+        },
+        {
+            "fqdn": "digimsme.pnb.bank.in",
+            "ips": [
+                "2001:df1:1580::225:a1"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057477+00:00"
+        },
+        {
+            "fqdn": "diginri.pnb.bank.in",
+            "ips": [
+                "103.109.224.237"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057479+00:00"
+        },
+        {
+            "fqdn": "diginri.pnb.bank.in",
+            "ips": [
+                "103.109.225.237"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057479+00:00"
+        },
+        {
+            "fqdn": "digirenewal.pnb.bank.in",
+            "ips": [
+                "103.109.224.8"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057481+00:00"
+        },
+        {
+            "fqdn": "digirenewal.pnb.bank.in",
+            "ips": [
+                "103.109.225.8"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057481+00:00"
+        },
+        {
+            "fqdn": "digisuryaghar.pnb.bank.in",
+            "ips": [
+                "103.109.224.89"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057483+00:00"
+        },
+        {
+            "fqdn": "digisuryaghar.pnb.bank.in",
+            "ips": [
+                "103.109.225.89"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057483+00:00"
+        },
+        {
+            "fqdn": "digisuryaghar.pnb.bank.in",
+            "ips": [
+                "2001:df1:1580::224:57"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057483+00:00"
+        },
+        {
+            "fqdn": "digisuryaghar.pnb.bank.in",
+            "ips": [
+                "2001:df1:1580::225:57"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057483+00:00"
+        },
+        {
+            "fqdn": "digitalbanking.pnb.bank.in",
+            "ips": [
+                "103.109.224.57"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057485+00:00"
+        },
+        {
+            "fqdn": "digitalbanking.pnb.bank.in",
+            "ips": [
+                "103.109.225.57"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057485+00:00"
+        },
+        {
+            "fqdn": "digitallending.pnb.bank.in",
+            "ips": [
+                "103.109.224.236"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057487+00:00"
+        },
+        {
+            "fqdn": "digivishwakarma.pnb.bank.in",
+            "ips": [
+                "103.109.224.8"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057489+00:00"
+        },
+        {
+            "fqdn": "digivishwakarma.pnb.bank.in",
+            "ips": [
+                "103.109.225.8"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057489+00:00"
+        },
+        {
+            "fqdn": "digivl.pnb.bank.in",
+            "ips": [
+                "103.109.224.211"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057491+00:00"
+        },
+        {
+            "fqdn": "digivl.pnb.bank.in",
+            "ips": [
+                "103.109.225.211"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057491+00:00"
+        },
+        {
+            "fqdn": "dpip.pnb.bank.in",
+            "ips": [
+                "103.109.224.102"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057492+00:00"
+        },
+        {
+            "fqdn": "dpip.pnb.bank.in",
+            "ips": [
+                "103.109.225.102"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057492+00:00"
+        },
+        {
+            "fqdn": "drm.pnb.bank.in",
+            "ips": [
+                "103.109.224.97"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057495+00:00"
+        },
+        {
+            "fqdn": "drms.pnb.bank.in",
+            "ips": [
+                "1.7.88.227"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057496+00:00"
+        },
+        {
+            "fqdn": "dsj.pnb.bank.in",
+            "ips": [
+                "103.109.224.100"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057498+00:00"
+        },
+        {
+            "fqdn": "dsj.pnb.bank.in",
+            "ips": [
+                "103.109.225.100"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057498+00:00"
+        },
+        {
+            "fqdn": "eboard.pnb.bank.in",
+            "ips": [
+                "103.109.224.184"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057500+00:00"
+        },
+        {
+            "fqdn": "eboard.pnb.bank.in",
+            "ips": [
+                "103.109.225.184"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057500+00:00"
+        },
+        {
+            "fqdn": "edge.pnb.bank.in",
+            "ips": [
+                "103.122.156.66"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057503+00:00"
+        },
+        {
+            "fqdn": "edge.pnb.bank.in",
+            "ips": [
+                "103.122.156.69"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057503+00:00"
+        },
+        {
+            "fqdn": "egstxp.pnb.bank.in",
+            "ips": [
+                "103.109.224.246"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057505+00:00"
+        },
+        {
+            "fqdn": "egstxp.pnb.bank.in",
+            "ips": [
+                "103.109.225.246"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057505+00:00"
+        },
+        {
+            "fqdn": "egstxp.pnb.bank.in",
+            "ips": [
+                "2001:df1:1580::224:a1"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057505+00:00"
+        },
+        {
+            "fqdn": "egstxp.pnb.bank.in",
+            "ips": [
+                "2001:df1:1580::225:a1"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057505+00:00"
+        },
+        {
+            "fqdn": "email.pnb.bank.in",
+            "ips": [
+                "1.6.46.95"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057507+00:00"
+        },
+        {
+            "fqdn": "emandate.pnb.bank.in",
+            "ips": [
+                "103.109.224.229"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057508+00:00"
+        },
+        {
+            "fqdn": "emandate.pnb.bank.in",
+            "ips": [
+                "103.109.225.229"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057508+00:00"
+        },
+        {
+            "fqdn": "eots.pnb.bank.in",
+            "ips": [
+                "103.109.224.126"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057510+00:00"
+        },
+        {
+            "fqdn": "epayment.pnb.bank.in",
+            "ips": [
+                "103.109.224.239"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057512+00:00"
+        },
+        {
+            "fqdn": "epayment.pnb.bank.in",
+            "ips": [
+                "103.109.225.239"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057512+00:00"
+        },
+        {
+            "fqdn": "etender.pnb.bank.in",
+            "ips": [
+                "103.109.224.164"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057514+00:00"
+        },
+        {
+            "fqdn": "etender.pnb.bank.in",
+            "ips": [
+                "103.109.225.164"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057514+00:00"
+        },
+        {
+            "fqdn": "fastag.pnb.bank.in",
+            "ips": [
+                "13.206.38.27"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057516+00:00"
+        },
+        {
+            "fqdn": "fastag.pnb.bank.in",
+            "ips": [
+                "13.235.41.34"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057516+00:00"
+        },
+        {
+            "fqdn": "fastag.pnb.bank.in",
+            "ips": [
+                "43.204.120.250"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057516+00:00"
+        },
+        {
+            "fqdn": "feepayment.pnb.bank.in",
+            "ips": [
+                "103.109.224.67"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057518+00:00"
+        },
+        {
+            "fqdn": "feepayment.pnb.bank.in",
+            "ips": [
+                "103.109.225.67"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057518+00:00"
+        },
+        {
+            "fqdn": "giftcorpbanking.pnb.bank.in",
+            "ips": [
+                "103.109.224.254"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057521+00:00"
+        },
+        {
+            "fqdn": "giftcorpbanking.pnb.bank.in",
+            "ips": [
+                "103.109.225.254"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057521+00:00"
+        },
+        {
+            "fqdn": "giftretailbanking.pnb.bank.in",
+            "ips": [
+                "103.109.224.3"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057522+00:00"
+        },
+        {
+            "fqdn": "giftretailbanking.pnb.bank.in",
+            "ips": [
+                "103.109.225.3"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057522+00:00"
+        },
+        {
+            "fqdn": "gstsahay.pnb.bank.in",
+            "ips": [
+                "103.109.224.246"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057524+00:00"
+        },
+        {
+            "fqdn": "gstsahay.pnb.bank.in",
+            "ips": [
+                "103.109.225.246"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057524+00:00"
+        },
+        {
+            "fqdn": "gstsahay.pnb.bank.in",
+            "ips": [
+                "2001:df1:1580::224:a1"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057524+00:00"
+        },
+        {
+            "fqdn": "gstsahay.pnb.bank.in",
+            "ips": [
+                "2001:df1:1580::225:a1"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057524+00:00"
+        },
+        {
+            "fqdn": "hrms.pnb.bank.in",
+            "ips": [
+                "103.109.224.186"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057527+00:00"
+        },
+        {
+            "fqdn": "hrms.pnb.bank.in",
+            "ips": [
+                "103.109.225.186"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057527+00:00"
+        },
+        {
+            "fqdn": "ibanking.pnb.bank.in",
+            "ips": [
+                "103.109.227.175"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057529+00:00"
+        },
+        {
+            "fqdn": "icorp.pnb.bank.in",
+            "ips": [
+                "103.109.227.173"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057531+00:00"
+        },
+        {
+            "fqdn": "icorpplus.pnb.bank.in",
+            "ips": [
+                "103.109.224.65"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057533+00:00"
+        },
+        {
+            "fqdn": "icorpplus.pnb.bank.in",
+            "ips": [
+                "103.109.225.65"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057533+00:00"
+        },
+        {
+            "fqdn": "images.pnb.bank.in",
+            "ips": [
+                "1.7.178.31"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057535+00:00"
+        },
+        {
+            "fqdn": "instaloans.pnb.bank.in",
+            "ips": [
+                "103.109.224.158"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057537+00:00"
+        },
+        {
+            "fqdn": "instaloans.pnb.bank.in",
+            "ips": [
+                "103.109.225.158"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057537+00:00"
+        },
+        {
+            "fqdn": "insurance.pnb.bank.in",
+            "ips": [
+                "103.109.224.21"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057538+00:00"
+        },
+        {
+            "fqdn": "insurance.pnb.bank.in",
+            "ips": [
+                "103.109.225.21"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057538+00:00"
+        },
+        {
+            "fqdn": "iretail.pnb.bank.in",
+            "ips": [
+                "103.109.227.174"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057540+00:00"
+        },
+        {
+            "fqdn": "kc.pnb.bank.in",
+            "ips": [
+                "103.109.224.154"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057543+00:00"
+        },
+        {
+            "fqdn": "kyc360.pnb.bank.in",
+            "ips": [
+                "103.109.224.8"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057545+00:00"
+        },
+        {
+            "fqdn": "kyc360.pnb.bank.in",
+            "ips": [
+                "103.109.225.8"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057545+00:00"
+        },
+        {
+            "fqdn": "lens.pnb.bank.in",
+            "ips": [
+                "103.109.224.160"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057547+00:00"
+        },
+        {
+            "fqdn": "lens2.pnb.bank.in",
+            "ips": [
+                "103.109.224.124"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057549+00:00"
+        },
+        {
+            "fqdn": "lens2.pnb.bank.in",
+            "ips": [
+                "103.109.225.124"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057549+00:00"
+        },
+        {
+            "fqdn": "lens2.pnb.bank.in",
+            "ips": [
+                "2001:df1:1580::224:fc"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057549+00:00"
+        },
+        {
+            "fqdn": "lens2.pnb.bank.in",
+            "ips": [
+                "2001:df1:1580::225:fc"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057549+00:00"
+        },
+        {
+            "fqdn": "lens2preprod.pnb.bank.in",
+            "ips": [
+                "103.109.224.122"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057551+00:00"
+        },
+        {
+            "fqdn": "lens2preprod.pnb.bank.in",
+            "ips": [
+                "103.109.225.122"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057551+00:00"
+        },
+        {
+            "fqdn": "lens2preprod.pnb.bank.in",
+            "ips": [
+                "2001:df1:1580::224:fe"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057551+00:00"
+        },
+        {
+            "fqdn": "lens2preprod.pnb.bank.in",
+            "ips": [
+                "2001:df1:1580::225:fe"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057551+00:00"
+        },
+        {
+            "fqdn": "lensconnect.pnb.bank.in",
+            "ips": [
+                "103.109.224.125"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057553+00:00"
+        },
+        {
+            "fqdn": "lensconnect.pnb.bank.in",
+            "ips": [
+                "103.109.225.125"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057553+00:00"
+        },
+        {
+            "fqdn": "lensconnect.pnb.bank.in",
+            "ips": [
+                "2001:df1:1580::224:fb"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057553+00:00"
+        },
+        {
+            "fqdn": "lensconnect.pnb.bank.in",
+            "ips": [
+                "2001:df1:1580::225:fb"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057553+00:00"
+        },
+        {
+            "fqdn": "lensconnectpreprod.pnb.bank.in",
+            "ips": [
+                "103.109.224.123"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057555+00:00"
+        },
+        {
+            "fqdn": "lensconnectpreprod.pnb.bank.in",
+            "ips": [
+                "103.109.225.123"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057555+00:00"
+        },
+        {
+            "fqdn": "lensconnectpreprod.pnb.bank.in",
+            "ips": [
+                "2001:df1:1580::224:fd"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057555+00:00"
+        },
+        {
+            "fqdn": "lensconnectpreprod.pnb.bank.in",
+            "ips": [
+                "2001:df1:1580::225:fd"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057555+00:00"
+        },
+        {
+            "fqdn": "loanrepay.pnb.bank.in",
+            "ips": [
+                "103.109.225.21"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057557+00:00"
+        },
+        {
+            "fqdn": "locate.pnb.bank.in",
+            "ips": [
+                "13.235.139.120"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057559+00:00"
+        },
+        {
+            "fqdn": "locate.pnb.bank.in",
+            "ips": [
+                "3.6.136.194"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057559+00:00"
+        },
+        {
+            "fqdn": "lockeragreement.pnb.bank.in",
+            "ips": [
+                "103.109.224.39"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057560+00:00"
+        },
+        {
+            "fqdn": "lockeragreement.pnb.bank.in",
+            "ips": [
+                "103.109.225.39"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057560+00:00"
+        },
+        {
+            "fqdn": "mbs.pnb.bank.in",
+            "ips": [
+                "103.109.224.151"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057562+00:00"
+        },
+        {
+            "fqdn": "mbs.pnb.bank.in",
+            "ips": [
+                "103.109.225.151"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057562+00:00"
+        },
+        {
+            "fqdn": "mcaapi.pnb.bank.in",
+            "ips": [
+                "103.109.227.36"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057565+00:00"
+        },
+        {
+            "fqdn": "mdcportal.pnb.bank.in",
+            "ips": [
+                "103.109.224.139"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057567+00:00"
+        },
+        {
+            "fqdn": "mdcportal.pnb.bank.in",
+            "ips": [
+                "103.109.225.139"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057567+00:00"
+        },
+        {
+            "fqdn": "mdm.pnb.bank.in",
+            "ips": [
+                "103.109.224.157"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057569+00:00"
+        },
+        {
+            "fqdn": "meet.pnb.bank.in",
+            "ips": [
+                "103.122.156.66"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057571+00:00"
+        },
+        {
+            "fqdn": "meet.pnb.bank.in",
+            "ips": [
+                "103.122.156.69"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057571+00:00"
+        },
+        {
+            "fqdn": "mobapps.pnb.bank.in",
+            "ips": [
+                "103.109.224.153"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057573+00:00"
+        },
+        {
+            "fqdn": "mobapps.pnb.bank.in",
+            "ips": [
+                "103.109.225.153"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057573+00:00"
+        },
+        {
+            "fqdn": "mosmtp.pnb.bank.in",
+            "ips": [
+                "1.7.178.49"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057575+00:00"
+        },
+        {
+            "fqdn": "mtdapimbs.pnb.bank.in",
+            "ips": [
+                "103.109.224.63"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057577+00:00"
+        },
+        {
+            "fqdn": "mtdapimbs.pnb.bank.in",
+            "ips": [
+                "103.109.225.63"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057577+00:00"
+        },
+        {
+            "fqdn": "mtdrelmbs.pnb.bank.in",
+            "ips": [
+                "103.109.224.62"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057580+00:00"
+        },
+        {
+            "fqdn": "mtdrelmbs.pnb.bank.in",
+            "ips": [
+                "103.109.225.62"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057580+00:00"
+        },
+        {
+            "fqdn": "mtdstmbs.pnb.bank.in",
+            "ips": [
+                "103.109.224.70"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057581+00:00"
+        },
+        {
+            "fqdn": "mtdstmbs.pnb.bank.in",
+            "ips": [
+                "103.109.225.70"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057581+00:00"
+        },
+        {
+            "fqdn": "mvc.pnb.bank.in",
+            "ips": [
+                "103.109.224.200"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057583+00:00"
+        },
+        {
+            "fqdn": "mvc.pnb.bank.in",
+            "ips": [
+                "103.109.225.200"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057583+00:00"
+        },
+        {
+            "fqdn": "mvcapi.pnb.bank.in",
+            "ips": [
+                "103.109.224.200"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057585+00:00"
+        },
+        {
+            "fqdn": "mvcapi.pnb.bank.in",
+            "ips": [
+                "103.109.225.200"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057585+00:00"
+        },
+        {
+            "fqdn": "mypnb.pnb.bank.in",
+            "ips": [
+                "103.109.225.21"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057587+00:00"
+        },
+        {
+            "fqdn": "netc.pnb.bank.in",
+            "ips": [
+                "172.184.12.111"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057589+00:00"
+        },
+        {
+            "fqdn": "netc.pnb.bank.in",
+            "ips": [
+                "172.184.12.143"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057589+00:00"
+        },
+        {
+            "fqdn": "netc.pnb.bank.in",
+            "ips": [
+                "172.184.12.164"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057589+00:00"
+        },
+        {
+            "fqdn": "netcm2p.pnb.bank.in",
+            "ips": [
+                "172.184.12.111"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057591+00:00"
+        },
+        {
+            "fqdn": "netcm2p.pnb.bank.in",
+            "ips": [
+                "172.184.12.143"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057591+00:00"
+        },
+        {
+            "fqdn": "netcm2p.pnb.bank.in",
+            "ips": [
+                "172.184.12.164"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057591+00:00"
+        },
+        {
+            "fqdn": "npciservices.pnb.bank.in",
+            "ips": [
+                "103.109.224.229"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057594+00:00"
+        },
+        {
+            "fqdn": "npciservices.pnb.bank.in",
+            "ips": [
+                "103.109.225.229"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057594+00:00"
+        },
+        {
+            "fqdn": "p22cucm1-expwaye1.pnb.bank.in",
+            "ips": [
+                "103.122.156.69"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057595+00:00"
+        },
+        {
+            "fqdn": "p22cucm1-expwaye2.pnb.bank.in",
+            "ips": [
+                "103.122.156.66"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057597+00:00"
+        },
+        {
+            "fqdn": "pabl.pnb.bank.in",
+            "ips": [
+                "103.109.224.246"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057599+00:00"
+        },
+        {
+            "fqdn": "pabl.pnb.bank.in",
+            "ips": [
+                "103.109.225.246"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057599+00:00"
+        },
+        {
+            "fqdn": "pabl.pnb.bank.in",
+            "ips": [
+                "2001:df1:1580::224:a1"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057599+00:00"
+        },
+        {
+            "fqdn": "pabl.pnb.bank.in",
+            "ips": [
+                "2001:df1:1580::225:a1"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057599+00:00"
+        },
+        {
+            "fqdn": "payapps.pnb.bank.in",
+            "ips": [
+                "103.109.224.15"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057601+00:00"
+        },
+        {
+            "fqdn": "payapps.pnb.bank.in",
+            "ips": [
+                "103.109.225.15"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057601+00:00"
+        },
+        {
+            "fqdn": "pfms.pnb.bank.in",
+            "ips": [
+                "103.109.224.178"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057603+00:00"
+        },
+        {
+            "fqdn": "pfms.pnb.bank.in",
+            "ips": [
+                "103.109.225.178"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057603+00:00"
+        },
+        {
+            "fqdn": "pfmsrrb.pnb.bank.in",
+            "ips": [
+                "103.109.224.220"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057605+00:00"
+        },
+        {
+            "fqdn": "pfmsrrb.pnb.bank.in",
+            "ips": [
+                "103.109.225.220"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057605+00:00"
+        },
+        {
+            "fqdn": "pnb.bank.in",
+            "ips": [
+                "49.50.72.184"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057609+00:00"
+        },
+        {
+            "fqdn": "pnbapps.pnb.bank.in",
+            "ips": [
+                "103.109.224.236"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057611+00:00"
+        },
+        {
+            "fqdn": "pnbapps.pnb.bank.in",
+            "ips": [
+                "103.109.225.236"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057611+00:00"
+        },
+        {
+            "fqdn": "pnbfirst.pnb.bank.in",
+            "ips": [
+                "45.60.3.89"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057613+00:00"
+        },
+        {
+            "fqdn": "pnbinsightx.pnb.bank.in",
+            "ips": [
+                "103.109.224.172"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057615+00:00"
+        },
+        {
+            "fqdn": "pnbinsightx.pnb.bank.in",
+            "ips": [
+                "103.109.225.172"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057615+00:00"
+        },
+        {
+            "fqdn": "pnbnet.pnb.bank.in",
+            "ips": [
+                "103.109.224.142"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057617+00:00"
+        },
+        {
+            "fqdn": "pnbnet.pnb.bank.in",
+            "ips": [
+                "103.109.225.142"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057617+00:00"
+        },
+        {
+            "fqdn": "pnbtfr.pnb.bank.in",
+            "ips": [
+                "103.109.224.177"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057619+00:00"
+        },
+        {
+            "fqdn": "pnbtfr.pnb.bank.in",
+            "ips": [
+                "103.109.225.177"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057619+00:00"
+        },
+        {
+            "fqdn": "pnbuniv.pnb.bank.in",
+            "ips": [
+                "103.109.224.132"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057621+00:00"
+        },
+        {
+            "fqdn": "pnbuniv.pnb.bank.in",
+            "ips": [
+                "103.109.225.132"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057621+00:00"
+        },
+        {
+            "fqdn": "pnbvkyc.pnb.bank.in",
+            "ips": [
+                "4.187.129.133"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057623+00:00"
+        },
+        {
+            "fqdn": "puducherrydat.pnb.bank.in",
+            "ips": [
+                "103.109.224.99"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057625+00:00"
+        },
+        {
+            "fqdn": "puducherrydat.pnb.bank.in",
+            "ips": [
+                "103.109.225.99"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057625+00:00"
+        },
+        {
+            "fqdn": "puducherrydatapi.pnb.bank.in",
+            "ips": [
+                "103.109.224.99"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057627+00:00"
+        },
+        {
+            "fqdn": "puducherrydatapi.pnb.bank.in",
+            "ips": [
+                "103.109.225.99"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057627+00:00"
+        },
+        {
+            "fqdn": "rekyc.pnb.bank.in",
+            "ips": [
+                "103.109.224.69"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057629+00:00"
+        },
+        {
+            "fqdn": "rekyc.pnb.bank.in",
+            "ips": [
+                "103.109.225.69"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057629+00:00"
+        },
+        {
+            "fqdn": "rekycrrb.pnb.bank.in",
+            "ips": [
+                "103.109.224.104"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057631+00:00"
+        },
+        {
+            "fqdn": "rekycrrb.pnb.bank.in",
+            "ips": [
+                "103.109.225.104"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057631+00:00"
+        },
+        {
+            "fqdn": "retmbs.pnb.bank.in",
+            "ips": [
+                "103.109.224.171"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057633+00:00"
+        },
+        {
+            "fqdn": "retmbs.pnb.bank.in",
+            "ips": [
+                "103.109.225.171"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057633+00:00"
+        },
+        {
+            "fqdn": "rewardz.pnb.bank.in",
+            "ips": [
+                "202.65.143.115"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057635+00:00"
+        },
+        {
+            "fqdn": "rrbapps.pnb.bank.in",
+            "ips": [
+                "103.109.224.247"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057637+00:00"
+        },
+        {
+            "fqdn": "rrbapps.pnb.bank.in",
+            "ips": [
+                "103.109.225.247"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057637+00:00"
+        },
+        {
+            "fqdn": "saral.creditcard.pnb.bank.in",
+            "ips": [
+                "103.109.224.231"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057639+00:00"
+        },
+        {
+            "fqdn": "saral.creditcard.pnb.bank.in",
+            "ips": [
+                "103.109.225.231"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057639+00:00"
+        },
+        {
+            "fqdn": "securedc.pnb.bank.in",
+            "ips": [
+                "1.6.46.84"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057641+00:00"
+        },
+        {
+            "fqdn": "securedc.pnb.bank.in",
+            "ips": [
+                "115.249.110.107"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057641+00:00"
+        },
+        {
+            "fqdn": "securedr.pnb.bank.in",
+            "ips": [
+                "1.7.178.10"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057643+00:00"
+        },
+        {
+            "fqdn": "secureportal.pnb.bank.in",
+            "ips": [
+                "103.109.224.23"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057645+00:00"
+        },
+        {
+            "fqdn": "secureportal.pnb.bank.in",
+            "ips": [
+                "2001:df1:1580::224:100"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057645+00:00"
+        },
+        {
+            "fqdn": "share.pnb.bank.in",
+            "ips": [
+                "103.109.224.149"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057647+00:00"
+        },
+        {
+            "fqdn": "slbcbengal.pnb.bank.in",
+            "ips": [
+                "49.50.72.207"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057649+00:00"
+        },
+        {
+            "fqdn": "slbcchandigarh.pnb.bank.in",
+            "ips": [
+                "49.50.72.144"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057651+00:00"
+        },
+        {
+            "fqdn": "slbcdataportal.pnb.bank.in",
+            "ips": [
+                "49.50.81.102"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057653+00:00"
+        },
+        {
+            "fqdn": "slbcdelhi.pnb.bank.in",
+            "ips": [
+                "49.50.81.77"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057655+00:00"
+        },
+        {
+            "fqdn": "slbcharyana.pnb.bank.in",
+            "ips": [
+                "49.50.64.18"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057657+00:00"
+        },
+        {
+            "fqdn": "slbcpunjab.pnb.bank.in",
+            "ips": [
+                "49.50.79.57"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057659+00:00"
+        },
+        {
+            "fqdn": "slbctripura.pnb.bank.in",
+            "ips": [
+                "49.50.72.143"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057661+00:00"
+        },
+        {
+            "fqdn": "smbmbs.pnb.bank.in",
+            "ips": [
+                "103.109.224.14"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057663+00:00"
+        },
+        {
+            "fqdn": "smbmbs.pnb.bank.in",
+            "ips": [
+                "103.109.225.14"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057663+00:00"
+        },
+        {
+            "fqdn": "soa.pnb.bank.in",
+            "ips": [
+                "103.109.227.46"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057665+00:00"
+        },
+        {
+            "fqdn": "stpcreditcard.pnb.bank.in",
+            "ips": [
+                "103.109.224.112"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057669+00:00"
+        },
+        {
+            "fqdn": "stpcreditcard.pnb.bank.in",
+            "ips": [
+                "103.109.225.112"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057669+00:00"
+        },
+        {
+            "fqdn": "stpcreditcard.pnb.bank.in",
+            "ips": [
+                "2001:df1:1580::224:68"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057669+00:00"
+        },
+        {
+            "fqdn": "stpcreditcard.pnb.bank.in",
+            "ips": [
+                "2001:df1:1580::225:68"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057669+00:00"
+        },
+        {
+            "fqdn": "svanidhi.pnb.bank.in",
+            "ips": [
+                "103.109.224.100"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057671+00:00"
+        },
+        {
+            "fqdn": "svanidhi.pnb.bank.in",
+            "ips": [
+                "103.109.225.100"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057671+00:00"
+        },
+        {
+            "fqdn": "tab.pnb.bank.in",
+            "ips": [
+                "103.109.224.113"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057673+00:00"
+        },
+        {
+            "fqdn": "tab.pnb.bank.in",
+            "ips": [
+                "103.109.225.113"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057673+00:00"
+        },
+        {
+            "fqdn": "tncorpmbs.pnb.bank.in",
+            "ips": [
+                "103.109.224.75"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057675+00:00"
+        },
+        {
+            "fqdn": "tncorpmbs.pnb.bank.in",
+            "ips": [
+                "103.109.225.75"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057675+00:00"
+        },
+        {
+            "fqdn": "tnretmbs.pnb.bank.in",
+            "ips": [
+                "103.109.224.91"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057677+00:00"
+        },
+        {
+            "fqdn": "tnretmbs.pnb.bank.in",
+            "ips": [
+                "103.109.225.91"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057677+00:00"
+        },
+        {
+            "fqdn": "tractorexpress.pnb.bank.in",
+            "ips": [
+                "103.109.224.90"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057678+00:00"
+        },
+        {
+            "fqdn": "tractorexpress.pnb.bank.in",
+            "ips": [
+                "103.109.225.90"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057678+00:00"
+        },
+        {
+            "fqdn": "tractorexpress.pnb.bank.in",
+            "ips": [
+                "2001:df1:1580::224:11"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057678+00:00"
+        },
+        {
+            "fqdn": "tractorexpress.pnb.bank.in",
+            "ips": [
+                "2001:df1:1580::225:11"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057678+00:00"
+        },
+        {
+            "fqdn": "udaan.pnb.bank.in",
+            "ips": [
+                "103.109.224.152"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057681+00:00"
+        },
+        {
+            "fqdn": "udaan.pnb.bank.in",
+            "ips": [
+                "103.109.225.152"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057681+00:00"
+        },
+        {
+            "fqdn": "upi.pnb.bank.in",
+            "ips": [
+                "103.109.224.129"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057682+00:00"
+        },
+        {
+            "fqdn": "upi.pnb.bank.in",
+            "ips": [
+                "103.109.225.129"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057682+00:00"
+        },
+        {
+            "fqdn": "wcw.pnb.bank.in",
+            "ips": [
+                "103.109.224.200"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057684+00:00"
+        },
+        {
+            "fqdn": "wcw.pnb.bank.in",
+            "ips": [
+                "103.109.225.200"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057684+00:00"
+        },
+        {
+            "fqdn": "wcwapi.pnb.bank.in",
+            "ips": [
+                "103.109.224.200"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057686+00:00"
+        },
+        {
+            "fqdn": "wcwapi.pnb.bank.in",
+            "ips": [
+                "103.109.225.200"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057686+00:00"
+        },
+        {
+            "fqdn": "webapi.pnb.bank.in",
+            "ips": [
+                "103.109.224.236"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057688+00:00"
+        },
+        {
+            "fqdn": "webapi.pnb.bank.in",
+            "ips": [
+                "103.109.225.236"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057688+00:00"
+        },
+        {
+            "fqdn": "weblens.pnb.bank.in",
+            "ips": [
+                "103.109.224.53"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057689+00:00"
+        },
+        {
+            "fqdn": "weblens.pnb.bank.in",
+            "ips": [
+                "103.109.225.53"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057689+00:00"
+        },
+        {
+            "fqdn": "www.hrms.pnb.bank.in",
+            "ips": [
+                "103.109.224.186"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057691+00:00"
+        },
+        {
+            "fqdn": "www.hrms.pnb.bank.in",
+            "ips": [
+                "103.109.225.186"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057691+00:00"
+        },
+        {
+            "fqdn": "www.pnb.bank.in",
+            "ips": [
+                "49.50.72.184"
+            ],
+            "sources": [
+                "subfinder"
+            ],
+            "asset_type": "domain",
+            "status": "resolved",
+            "resolved_at_utc": "2026-03-20T06:33:59.057694+00:00"
+        }
+    ]
+}
