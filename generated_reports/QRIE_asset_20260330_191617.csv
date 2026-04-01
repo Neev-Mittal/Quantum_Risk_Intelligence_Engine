@@ -1,0 +1,461 @@
+QRIE Report — Punjab National Bank
+Generated: 2026-03-30 19:16:17
+
+═══ Asset Inventory Report ═══
+
+Total Assets,451
+
+asset,ip,port,asset_type,tls_version,cipher_suite,key_exchange,key_size,pfs_status,issuer_ca,valid_to,scan_status,hei_score,risk_category
+aa.pnbuat.bank.in,103.109.225.189,443,Web Server,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-07-08T23:59:59+00:00,ok,45.0,Moderate
+aafip.pnb.bank.in,103.109.225.159,443,Api,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-09-01T23:59:59+00:00,ok,45.0,Moderate
+aafiu.pnb.bank.in,103.109.225.188,443,Api,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-09-01T23:59:59+00:00,ok,45.0,Moderate
+admin.netpnb.com,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+ams.pnb.bank.in,103.109.224.217,443,Web Server,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GlobalSign GCC R3 EV TLS CA 2025,2027-03-16T07:01:12+00:00,ok,45.0,Moderate
+ams.pnbuat.bank.in,103.109.224.141,443,Web Server,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GlobalSign GCC R3 EV TLS CA 2025,2027-02-16T10:36:16+00:00,ok,35.0,Moderate
+analytics.pnb.bank.in,103.109.224.105,443,Unknown,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-09-02T23:59:59+00:00,ok,45.0,Moderate
+analytics.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+api.pnb.bank.in,,443,Unknown,,,,,Unknown,—,,error,80.0,Critical
+apicasa.pnb.bank.in,103.109.227.85,443,Unknown,,,,,Unknown,—,,error,80.0,Critical
+apim.pnb.bank.in,103.109.224.51,443,Api,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-07-22T23:59:59+00:00,ok,45.0,Moderate
+apim.pnbuat.bank.in,103.109.227.177,443,Api,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-06-29T23:59:59+00:00,ok,45.0,Moderate
+apipnbpfms.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+apitestpfms.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+apitrk.pnb.bank.in,1.7.178.30,443,Unknown,TLSv1.2,ECDHE-RSA-AES256-GCM-SHA384,ECDHE,2048,Yes,GlobalSign GCC R3 EV TLS CA 2025,2026-10-27T11:36:01+00:00,ok,45.0,Moderate
+applications.pnb.bank.in,103.109.224.21,443,Unknown,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-07-22T23:59:59+00:00,ok,45.0,Moderate
+applications.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+apply.creditcard.pnb.bank.in,103.109.224.168,443,Web Application,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-09-24T23:59:59+00:00,ok,45.0,Moderate
+apps.pnb.bank.in,103.109.224.126,443,Unknown,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-07-22T23:59:59+00:00,ok,45.0,Moderate
+apps.pnbuat.bank.in,103.109.224.48,443,Web Application,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-06-29T23:59:59+00:00,ok,45.0,Moderate
+apptrk.pnb.bank.in,1.7.178.30,443,Unknown,TLSv1.2,ECDHE-RSA-AES128-GCM-SHA256,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-09-10T23:59:59+00:00,ok,45.0,Moderate
+atmmonitoring.pnb.bank.in,103.109.227.48,443,Web Application,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-08-25T23:59:59+00:00,ok,45.0,Moderate
+atmmonitoring.pnbuat.bank.in,103.109.225.252,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+banking.netpnb.com,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+banking.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+bbps.pnb.bank.in,103.26.98.137,443,Unknown,TLSv1.2,ECDHE-RSA-AES128-GCM-SHA256,ECDHE,2048,Yes,GlobalSign GCC R3 EV TLS CA 2025,2026-10-28T07:41:12+00:00,ok,45.0,Moderate
+bbps.pnbuat.bank.in,45.249.110.212,443,Web Application,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GlobalSign GCC R3 EV TLS CA 2025,2026-10-28T07:41:01+00:00,ok,45.0,Moderate
+bcportal.pnbfikiosk.pnb.bank.in,103.109.224.233,443,Unknown,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GlobalSign GCC R3 EV TLS CA 2025,2026-10-27T11:46:07+00:00,ok,45.0,Moderate
+bcportaluat.pnbfikiosk.pnb.bank.in,,443,Unknown,,,,,Unknown,—,,error,80.0,Critical
+bcportaluat.pnbfikiosk.pnbuat.bank.in,103.109.225.68,443,Web Application,TLSv1.3,TLS_AES_256_GCM_SHA384,ECDHE,2048,Yes,GlobalSign GCC R3 EV TLS CA 2025,2026-10-28T05:51:01+00:00,ok,45.0,Moderate
+beta.pnbindia.in,49.50.77.157,443,Api,TLSv1.3,TLS_AES_256_GCM_SHA384,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-06-09T23:59:59+00:00,ok,48.0,Moderate
+bureauone.pnb.bank.in,,443,Unknown,,,,,Unknown,—,,error,80.0,Critical
+bureauone.pnbuat.bank.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+bureauonerrb.pnb.bank.in,,443,Unknown,,,,,Unknown,—,,error,80.0,Critical
+bureauonerrb.pnbuat.bank.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+cbdcr.pnb.bank.in,103.109.224.212,443,Web Application,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-08-27T23:59:59+00:00,ok,45.0,Moderate
+cbdcr.pnbuat.bank.in,2403:9140::227:7,443,Web Application,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-08-27T23:59:59+00:00,ok,45.0,Moderate
+ccms.pnb.bank.in,,443,Unknown,,,,,Unknown,—,,error,80.0,Critical
+cgps.pnb.bank.in,103.109.225.178,443,Web Application,,,,,Unknown,—,,error,80.0,Critical
+cgrms.pnb.bank.in,103.109.224.183,443,Unknown,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-07-22T23:59:59+00:00,ok,45.0,Moderate
+ckycr-admin.pnb.bank.in,103.109.225.195,443,Web Application,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-07-27T23:59:59+00:00,ok,45.0,Moderate
+ckycr-admin.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+ckycr-admin.pnbuat.bank.in,103.109.225.55,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+collab-edge.pnb.bank.in,,443,Unknown,,,,,Unknown,—,,error,80.0,Critical
+corpmbs.pnb.bank.in,103.109.225.193,443,Api,TLSv1.2,ECDHE-RSA-CHACHA20-POLY1305,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-08-18T23:59:59+00:00,ok,45.0,Moderate
+corpmbs.pnbuat.bank.in,103.109.225.33,443,Web Server,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-07-06T23:59:59+00:00,ok,45.0,Moderate
+creditcard.pnb.bank.in,103.109.225.169,443,Web Application,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-09-24T23:59:59+00:00,ok,45.0,Moderate
+data-agg.pnb.bank.in,103.109.225.106,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+data-agg.pnbuat.bank.in,103.109.227.101,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+dbpvkyc.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+dcms.pnb.bank.in,1.7.88.227,443,Unknown,,,,,Unknown,—,,error,80.0,Critical
+depository.pnb.bank.in,103.109.225.185,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+depository.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+depository.pnbuat.bank.in,103.109.225.32,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+dev.netpnb.com,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+dev.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+digi2wl.pnb.bank.in,103.109.225.211,443,Unknown,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-10-13T23:59:59+00:00,ok,35.0,Moderate
+digi2wl.pnbuat.bank.in,103.109.225.83,443,Web Application,TLSv1.3,TLS_AES_256_GCM_SHA384,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-07-02T23:59:59+00:00,ok,45.0,Moderate
+digiagrimudra.pnbuat.bank.in,103.109.225.234,443,Ssl Certificate,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GlobalSign GCC R3 EV TLS CA 2025,2027-04-14T07:31:25+00:00,ok,45.0,Moderate
+digiagriprimeplus.pnb.bank.in,,443,Unknown,,,,,Unknown,—,,error,80.0,Critical
+digiagriprimeplus.pnbuat.bank.in,103.109.224.234,443,Ssl Certificate,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GlobalSign GCC R3 EV TLS CA 2025,2027-04-14T07:31:15+00:00,ok,45.0,Moderate
+digidairykcc.pnb.bank.in,103.109.225.237,443,Unknown,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-08-03T23:59:59+00:00,ok,35.0,Moderate
+digidairykcc.pnbuat.bank.in,2001:df1:1580::225:1,443,Web Application,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-07-02T23:59:59+00:00,ok,35.0,Moderate
+digiel.pnb.bank.in,103.109.224.130,443,Web Application,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-08-12T23:59:59+00:00,ok,35.0,Moderate
+digiel.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+digiel.pnbuat.bank.in,103.109.225.82,443,Web Application,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-07-02T23:59:59+00:00,ok,35.0,Moderate
+digifarmstay.pnb.bank.in,,443,Unknown,,,,,Unknown,—,,error,80.0,Critical
+digifarmstay.pnbuat.bank.in,2001:df1:1580::224:98,443,Ssl Certificate,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GlobalSign GCC R3 EV TLS CA 2025,2027-04-07T09:51:15+00:00,ok,45.0,Moderate
+digigodam.pnb.bank.in,103.109.225.237,443,Api,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-09-03T23:59:59+00:00,ok,35.0,Moderate
+digigodam.pnbuat.bank.in,2001:df1:1580::224:1,443,Web Application,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-07-02T23:59:59+00:00,ok,35.0,Moderate
+digigold.pnbuat.bank.in,103.109.225.210,443,Ssl Certificate,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-07-07T23:59:59+00:00,ok,45.0,Moderate
+digigoldloan.pnb.bank.in,2001:df1:1580::225:bc,443,Web Application,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-08-11T23:59:59+00:00,ok,35.0,Moderate
+digigoldloan.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+digigrihavatika.pnb.bank.in,103.109.225.237,443,Api,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GlobalSign GCC R3 EV TLS CA 2025,2027-02-02T07:56:04+00:00,ok,35.0,Moderate
+digigrihavatika.pnbuat.bank.in,103.109.224.121,443,Web Application,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GlobalSign GCC R3 EV TLS CA 2025,2027-01-13T11:51:02+00:00,ok,45.0,Moderate
+digihltopup.pnb.bank.in,2001:df1:1580::224:a1,443,Api,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GlobalSign GCC R3 EV TLS CA 2025,2026-12-21T08:01:14+00:00,ok,45.0,Moderate
+digihltopup.pnbuat.bank.in,103.109.225.234,443,Ssl Certificate,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GlobalSign GCC R3 EV TLS CA 2025,2026-12-21T08:01:19+00:00,ok,35.0,Moderate
+digihome.pnb.bank.in,2001:df1:1580::224:a1,443,Api,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-08-12T23:59:59+00:00,ok,35.0,Moderate
+digihome.pnbuat.bank.in,2001:df1:1580::225:53,443,Ssl Certificate,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-07-02T23:59:59+00:00,ok,35.0,Moderate
+digihomecrg.pnbuat.bank.in,103.109.225.234,443,Ssl Certificate,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GlobalSign GCC R3 EV TLS CA 2025,2027-02-18T08:41:04+00:00,ok,35.0,Moderate
+digikccreview.pnb.bank.in,103.109.224.237,443,Unknown,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-09-09T23:59:59+00:00,ok,35.0,Moderate
+digikccreview.pnbuat.bank.in,2001:df1:1580::225:1,443,Web Application,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-07-02T23:59:59+00:00,ok,35.0,Moderate
+digikisanvaahan.pnb.bank.in,,443,Unknown,,,,,Unknown,—,,error,80.0,Critical
+digikisanvaahan.pnbuat.bank.in,2001:df1:1580::224:98,443,Ssl Certificate,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GlobalSign GCC R3 EV TLS CA 2025,2027-04-08T08:26:07+00:00,ok,45.0,Moderate
+digilocker.pnb.bank.in,,443,Unknown,,,,,Unknown,—,,error,80.0,Critical
+digilocker.pnbindia.in,103.109.225.241,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+digimsme.pnb.bank.in,2001:df1:1580::225:a1,443,Api,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-08-12T23:59:59+00:00,ok,35.0,Moderate
+digimsme.pnbuat.bank.in,2001:df1:1580::225:53,443,Ssl Certificate,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-07-02T23:59:59+00:00,ok,35.0,Moderate
+diginri.pnb.bank.in,103.109.225.237,443,Unknown,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GlobalSign GCC R3 EV TLS CA 2025,2026-10-27T06:11:07+00:00,ok,35.0,Moderate
+diginri.pnbuat.bank.in,2001:df1:1580::224:1,443,Web Application,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GlobalSign GCC R3 EV TLS CA 2025,2026-10-27T07:46:15+00:00,ok,35.0,Moderate
+digirenewal.pnb.bank.in,103.109.225.8,443,Unknown,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GlobalSign GCC R3 EV TLS CA 2025,2026-10-27T07:41:29+00:00,ok,45.0,Moderate
+digirenewal.pnbuat.bank.in,2001:df1:1580::225:28,443,Ssl Certificate,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-07-02T23:59:59+00:00,ok,35.0,Moderate
+digishramsaathi.pnbuat.bank.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+digisuryaghar.pnb.bank.in,2001:df1:1580::224:57,443,Web Application,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-08-11T23:59:59+00:00,ok,45.0,Moderate
+digisuryaghar.pnbuat.bank.in,2001:df1:1580::224:98,443,Ssl Certificate,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-07-07T23:59:59+00:00,ok,35.0,Moderate
+digitalapi.pnbuat.bank.in,103.109.225.48,443,Api,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-07-22T23:59:59+00:00,ok,45.0,Moderate
+digitalbanking.pnb.bank.in,103.109.225.57,443,Web Application,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-08-10T23:59:59+00:00,ok,45.0,Moderate
+digitalbanking.pnbuat.bank.in,103.109.224.88,443,Web Application,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-07-02T23:59:59+00:00,ok,35.0,Moderate
+digitalca-vcs.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+digitalca.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+digitallending.pnb.bank.in,103.109.224.236,443,Unknown,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-07-21T23:59:59+00:00,ok,45.0,Moderate
+digitallending.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+digitnri.pnbuat.bank.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+digiuat.pnbindia.in,103.109.225.210,443,Web Application,TLSv1.2,ECDHE-RSA-AES128-GCM-SHA256,ECDHE,2048,Yes,localhost.localdomain,2034-08-27T09:34:02+00:00,ok,45.0,Moderate
+digivishwakarma.pnb.bank.in,103.109.225.8,443,Unknown,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-09-16T23:59:59+00:00,ok,45.0,Moderate
+digivishwakarma.pnbuat.bank.in,2001:df1:1580::224:28,443,Ssl Certificate,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-07-02T23:59:59+00:00,ok,35.0,Moderate
+digivkyc.pnb.bank.in,,443,Unknown,,,,,Unknown,—,,error,80.0,Critical
+digivkyc.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+digivl.pnb.bank.in,103.109.225.211,443,Web Application,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-08-12T23:59:59+00:00,ok,35.0,Moderate
+digivl.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+digivl.pnbuat.bank.in,103.109.225.83,443,Web Application,TLSv1.3,TLS_AES_256_GCM_SHA384,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-07-02T23:59:59+00:00,ok,45.0,Moderate
+dpip.pnb.bank.in,103.109.224.102,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+drm.pnb.bank.in,103.109.224.97,443,Unknown,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,Thawte TLS RSA CA G1,2026-09-11T23:59:59+00:00,ok,45.0,Moderate
+drms.pnb.bank.in,1.7.88.227,443,Unknown,,,,,Unknown,—,,error,80.0,Critical
+dsj.pnb.bank.in,103.109.225.100,443,Web Application,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GlobalSign GCC R3 EV TLS CA 2025,2027-01-25T06:06:12+00:00,ok,45.0,Moderate
+dsj.pnbuat.bank.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+eboard.pnb.bank.in,103.109.225.184,443,Ssl Certificate,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-07-21T23:59:59+00:00,ok,45.0,Moderate
+eboard.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+eboard.pnbuat.bank.in,103.109.224.7,443,Web Server,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-07-17T23:59:59+00:00,ok,35.0,Moderate
+eboardtest.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+edge.pnb.bank.in,103.122.156.66,443,Web Application,TLSv1.3,TLS_AES_256_GCM_SHA384,ECDHE,4096,Yes,GeoTrust EV RSA CA G2,2026-08-27T23:59:59+00:00,ok,45.0,Moderate
+egodam.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+egstxp.pnb.bank.in,2001:df1:1580::225:a1,443,Api,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-08-12T23:59:59+00:00,ok,35.0,Moderate
+egstxp.pnbuat.bank.in,2001:df1:1580::225:53,443,Ssl Certificate,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-07-02T23:59:59+00:00,ok,35.0,Moderate
+elvkyc.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+email.pnb.bank.in,1.6.46.95,443,Unknown,,,,,Unknown,—,,error,80.0,Critical
+emandate.pnb.bank.in,103.109.225.229,443,Unknown,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-07-22T23:59:59+00:00,ok,45.0,Moderate
+eots.pnb.bank.in,103.109.224.126,443,Unknown,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-07-22T23:59:59+00:00,ok,45.0,Moderate
+epayment.pnb.bank.in,103.109.225.239,443,Web Application,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-07-21T23:59:59+00:00,ok,45.0,Moderate
+epayment.pnbuat.bank.in,2001:df1:1580::224:6,443,Web Application,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-06-29T23:59:59+00:00,ok,35.0,Moderate
+etender.pnb.bank.in,103.109.225.164,443,Web Application,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-09-08T23:59:59+00:00,ok,45.0,Moderate
+fastag-branch.pnb.bank.in,10.170.0.172,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+fastag.pnb.bank.in,13.205.57.160,443,Api,TLSv1.2,ECDHE-RSA-AES128-GCM-SHA256,ECDHE,2048,Yes,GlobalSign GCC R3 EV TLS CA 2025,2026-10-27T09:41:06+00:00,ok,45.0,Moderate
+fcssgift.pnbuat.bank.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+feepayment.pnb.bank.in,103.109.225.67,443,Unknown,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-07-22T23:59:59+00:00,ok,35.0,Moderate
+fip-admin.pnb.bank.in,,443,Unknown,,,,,Unknown,—,,error,80.0,Critical
+fiu-admin.pnb.bank.in,,443,Unknown,,,,,Unknown,—,,error,80.0,Critical
+gateway.netpnb.com,,443,Api,,,,,Unknown,—,,error,80.0,Critical
+gemsahay.pnbuat.bank.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+geniuscrm.pnb.bank.in,,443,Unknown,,,,,Unknown,—,,error,80.0,Critical
+giftcorpbanking.pnb.bank.in,103.109.225.254,443,Web Application,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GlobalSign GCC R3 EV TLS CA 2025,2026-10-27T10:26:06+00:00,ok,45.0,Moderate
+giftretail.pnbuat.bank.in,103.109.225.1,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+giftretailbanking.pnb.bank.in,103.109.225.3,443,Web Application,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GlobalSign GCC R3 EV TLS CA 2025,2026-10-27T11:01:03+00:00,ok,45.0,Moderate
+gstsahay.pnb.bank.in,2001:df1:1580::225:a1,443,Api,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-08-12T23:59:59+00:00,ok,35.0,Moderate
+gstsahay.pnbuat.bank.in,2001:df1:1580::225:53,443,Ssl Certificate,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-07-02T23:59:59+00:00,ok,35.0,Moderate
+harbor-dr.pnb.bank.in,,443,Unknown,,,,,Unknown,—,,error,80.0,Critical
+harbor.pnb.bank.in,,443,Unknown,,,,,Unknown,—,,error,80.0,Critical
+hlvkyc-vcs.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+hlvkyc.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+hrms.pnb.bank.in,103.109.224.186,443,Ssl Certificate,TLSv1.2,ECDHE-RSA-AES128-GCM-SHA256,ECDHE,4096,Yes,GeoTrust EV RSA CA G2,2026-08-25T23:59:59+00:00,ok,45.0,Moderate
+hrms.pnbuat.bank.in,103.109.225.26,443,Ssl Certificate,TLSv1.3,TLS_AES_256_GCM_SHA384,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-07-07T23:59:59+00:00,ok,45.0,Moderate
+iam.pnb.bank.in,,443,Unknown,,,,,Unknown,—,,error,80.0,Critical
+ibanking.pnb.bank.in,103.109.227.175,443,Unknown,TLSv1.2,ECDHE-RSA-AES128-GCM-SHA256,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-08-20T23:59:59+00:00,ok,45.0,Moderate
+ibanking.pnbuat.bank.in,2001:df1:1580::224:47,443,Web Application,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-07-28T23:59:59+00:00,ok,45.0,Moderate
+icms.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+icmsuat.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+icorp.pnb.bank.in,103.109.227.173,443,Unknown,TLSv1.2,ECDHE-RSA-AES128-GCM-SHA256,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-08-20T23:59:59+00:00,ok,45.0,Moderate
+icorpplus.pnb.bank.in,103.109.225.65,443,Unknown,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-09-01T23:59:59+00:00,ok,45.0,Moderate
+icorpplus.pnbuat.bank.in,103.109.225.64,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+ifmsjpr.pnb.bank.in,,443,Unknown,,,,,Unknown,—,,error,80.0,Critical
+ifmsjprapi.pnb.bank.in,,443,Unknown,,,,,Unknown,—,,error,80.0,Critical
+images.pnb.bank.in,1.7.178.31,443,Unknown,TLSv1.3,TLS_AES_256_GCM_SHA384,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-09-10T23:59:59+00:00,ok,35.0,Moderate
+imps.pnb.bank.in,,443,Unknown,,,,,Unknown,—,,error,80.0,Critical
+instaloans.pnb.bank.in,103.109.224.158,443,Api,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-08-12T23:59:59+00:00,ok,45.0,Moderate
+instaloans.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+instaloans.pnbuat.bank.in,103.109.224.94,443,Api,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-07-02T23:59:59+00:00,ok,45.0,Moderate
+insurance.pnb.bank.in,103.109.225.21,443,Ssl Certificate,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-07-21T23:59:59+00:00,ok,45.0,Moderate
+internetbanking.netpnb.com,103.109.227.117,443,Web Application,TLSv1.2,ECDHE-RSA-AES128-GCM-SHA256,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-08-20T23:59:59+00:00,ok,45.0,Moderate
+iretail.pnb.bank.in,103.109.227.174,443,Unknown,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-08-20T23:59:59+00:00,ok,45.0,Moderate
+join.pnb.bank.in,,443,Unknown,,,,,Unknown,—,,error,80.0,Critical
+kc.pnb.bank.in,103.109.224.154,443,Unknown,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-09-08T23:59:59+00:00,ok,45.0,Moderate
+kccdigireview.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+kccrenewal.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+kmt.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+kyc360.pnb.bank.in,103.109.225.8,443,Web Application,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GlobalSign GCC R3 EV TLS CA 2025,2027-02-09T10:56:04+00:00,ok,45.0,Moderate
+kyc360.pnbuat.bank.in,103.109.224.128,443,Ssl Certificate,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GlobalSign GCC R3 EV TLS CA 2025,2026-12-30T11:01:02+00:00,ok,35.0,Moderate
+lens.pnb.bank.in,103.109.224.160,443,Unknown,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-08-27T23:59:59+00:00,ok,45.0,Moderate
+lens2.pnb.bank.in,2001:df1:1580::225:fc,443,Unknown,,,,,Unknown,—,,error,80.0,Critical
+lens2.pnbuat.bank.in,103.109.225.253,443,Ssl Certificate,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GlobalSign GCC R3 EV TLS CA 2025,2027-02-23T07:56:22+00:00,ok,35.0,Moderate
+lens2dr.pnb.bank.in,,443,Unknown,,,,,Unknown,—,,error,80.0,Critical
+lens2preprod.pnb.bank.in,2001:df1:1580::225:fe,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+lensconnect.pnb.bank.in,2001:df1:1580::225:fb,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+lensconnect.pnbuat.bank.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+lensconnectdr.pnb.bank.in,,443,Unknown,,,,,Unknown,—,,error,80.0,Critical
+lensconnectpreprod.pnb.bank.in,2001:df1:1580::225:fd,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+loanrepay.pnb.bank.in,103.109.225.21,443,Unknown,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-07-21T23:59:59+00:00,ok,45.0,Moderate
+locate.pnb.bank.in,3.6.225.139,443,Web Application,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,4096,Yes,GlobalSign GCC R3 EV TLS CA 2025,2027-01-31T09:16:10+00:00,ok,45.0,Moderate
+locate.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+locate.pnbuat.bank.in,3.6.225.139,443,Web Application,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,4096,Yes,GlobalSign GCC R3 EV TLS CA 2025,2026-10-31T11:06:01+00:00,ok,45.0,Moderate
+lockeragreement.pnb.bank.in,103.109.224.39,443,Ssl Certificate,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-07-22T23:59:59+00:00,ok,35.0,Moderate
+lockeragreement.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+loylty.pnbuat.bank.in,182.18.141.62,443,Web Application,TLSv1.2,ECDHE-RSA-AES256-GCM-SHA384,ECDHE,2048,Yes,GlobalSign GCC R3 EV TLS CA 2025,2026-10-27T09:21:07+00:00,ok,45.0,Moderate
+mbs.pnb.bank.in,103.109.224.151,443,Web Server,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GlobalSign GCC R3 EV TLS CA 2025,2026-11-07T08:06:02+00:00,ok,45.0,Moderate
+mcaapi.pnb.bank.in,103.109.227.36,443,Unknown,TLSv1.2,ECDHE-RSA-AES128-GCM-SHA256,ECDHE,2048,Yes,localhost.localdomain,2034-09-01T02:44:01+00:00,ok,45.0,Moderate
+mdcportal.pnb.bank.in,103.109.225.139,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+mdm.pnb.bank.in,103.109.224.157,443,Unknown,,,,,Unknown,—,,error,80.0,Critical
+meet.pnb.bank.in,103.122.156.69,443,Web Application,TLSv1.3,TLS_AES_256_GCM_SHA384,ECDHE,4096,Yes,GeoTrust EV RSA CA G2,2026-08-27T23:59:59+00:00,ok,45.0,Moderate
+mobapps.pnb.bank.in,103.109.225.153,443,Web Application,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-07-21T23:59:59+00:00,ok,45.0,Moderate
+mobapps.pnbuat.bank.in,103.109.225.41,443,Ssl Certificate,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-06-29T23:59:59+00:00,ok,45.0,Moderate
+mobile.netpnb.com,103.109.224.127,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+mosmtp.pnb.bank.in,1.7.178.49,443,Unknown,,,,,Unknown,—,,error,80.0,Critical
+mtdapimbs.pnb.bank.in,103.109.224.63,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+mtdapimbs.pnbuat.bank.in,103.109.224.155,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+mtdappmbs.pnb.bank.in,,443,Unknown,,,,,Unknown,—,,error,80.0,Critical
+mtdrelmbs.pnb.bank.in,103.109.224.62,443,Unknown,,,,,Unknown,—,,error,80.0,Critical
+mtdrelmbs.pnbuat.bank.in,103.109.225.20,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+mtdstmbs.pnb.bank.in,103.109.224.70,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+mtdstmbs.pnbuat.bank.in,103.109.225.116,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+mvc.pnb.bank.in,103.109.225.200,443,Cdn Proxy,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GlobalSign GCC R3 EV TLS CA 2025,2026-11-09T07:16:11+00:00,ok,45.0,Moderate
+mvc.pnbuat.bank.in,103.109.224.58,443,Ssl Certificate,TLSv1.3,TLS_AES_256_GCM_SHA384,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-08-26T23:59:59+00:00,ok,45.0,Moderate
+mvcapi.pnb.bank.in,103.109.225.200,443,Web Application,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GlobalSign GCC R3 EV TLS CA 2025,2026-11-09T07:16:17+00:00,ok,45.0,Moderate
+mvcapi.pnbuat.bank.in,103.109.225.58,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+mypnb.pnb.bank.in,103.109.225.21,443,Unknown,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-07-22T23:59:59+00:00,ok,45.0,Moderate
+ncrp.pnbindia.in,103.109.225.248,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+ncrpuat.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+netbanking.netpnb.com,103.109.227.118,443,Web Application,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-08-20T23:59:59+00:00,ok,45.0,Moderate
+netc-signing.pnb.bank.in,,443,Unknown,,,,,Unknown,—,,error,80.0,Critical
+netc.pnb.bank.in,172.184.12.107,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+netcm2p.pnb.bank.in,172.184.12.107,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+netcsigning.pnb.bank.in,,443,Unknown,,,,,Unknown,—,,error,80.0,Critical
+netpnb.com,103.109.227.119,443,Web Application,TLSv1.2,ECDHE-RSA-AES128-GCM-SHA256,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-08-20T23:59:59+00:00,ok,45.0,Moderate
+netpnb.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+nms.pnb.bank.in,,443,Unknown,,,,,Unknown,—,,error,80.0,Critical
+npciservices.pnb.bank.in,103.109.224.229,443,Web Application,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-07-22T23:59:59+00:00,ok,45.0,Moderate
+ns5.pnbuat.bank.in,111.118.178.209,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+ns6.pnbuat.bank.in,111.118.178.210,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+onlineca.pnbuat.bank.in,103.109.224.128,443,Ssl Certificate,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GlobalSign GCC R3 EV TLS CA 2025,2027-04-13T05:06:18+00:00,ok,45.0,Moderate
+onlinesavings.pnbuat.bank.in,103.109.225.5,443,Web Application,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GlobalSign GCC R3 EV TLS CA 2025,2027-03-14T10:56:13+00:00,ok,45.0,Moderate
+onlinesb-cc.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+onlinesb-mps.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+onlinesb-vcs.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+onlinesb.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+onlinesbvcs2.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+onlinetd.pnb.bank.in,,443,Unknown,,,,,Unknown,—,,error,80.0,Critical
+onlinetd.pnbuat.bank.in,2001:df1:1580::224:98,443,Ssl Certificate,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GlobalSign GCC R3 EV TLS CA 2025,2027-04-08T12:21:18+00:00,ok,45.0,Moderate
+owa.pnbindia.in,,443,Mail Server,,,,,Unknown,—,,error,80.0,Critical
+p22cucm1-expwaye1.pnb.bank.in,103.122.156.69,443,Unknown,TLSv1.3,TLS_AES_256_GCM_SHA384,ECDHE,4096,Yes,GeoTrust EV RSA CA G2,2026-08-27T23:59:59+00:00,ok,45.0,Moderate
+p22cucm1-expwaye2.pnb.bank.in,103.122.156.66,443,Unknown,TLSv1.3,TLS_AES_256_GCM_SHA384,ECDHE,4096,Yes,GeoTrust EV RSA CA G2,2026-08-27T23:59:59+00:00,ok,45.0,Moderate
+pa.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+pabl.pnb.bank.in,2001:df1:1580::224:a1,443,Unknown,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-08-12T23:59:59+00:00,ok,35.0,Moderate
+pabl.pnbuat.bank.in,2001:df1:1580::225:53,443,Ssl Certificate,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-07-02T23:59:59+00:00,ok,35.0,Moderate
+payapps.pnb.bank.in,103.109.224.15,443,Web Application,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-07-22T23:59:59+00:00,ok,45.0,Moderate
+pfms.pnb.bank.in,103.109.225.178,443,Unknown,,,,,Unknown,—,,error,80.0,Critical
+pfms.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+pfmsrrb.pnb.bank.in,103.109.224.220,443,Unknown,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-07-22T23:59:59+00:00,ok,45.0,Moderate
+pfmsrrb.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+plvkyc-vcs.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+plvkyc.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+pnb-disc-private-prd.pnb.bank.in,,443,Unknown,,,,,Unknown,—,,error,80.0,Critical
+pnb-disc-private.prd.pnb.bank.in,,443,Unknown,,,,,Unknown,—,,error,80.0,Critical
+pnb-harbor-prd.pnb.bank.in,,443,Unknown,,,,,Unknown,—,,error,80.0,Critical
+pnb-kibana-prd.pnb.bank.in,,443,Unknown,,,,,Unknown,—,,error,80.0,Critical
+pnb-minioapi-dr.pnb.bank.in,,443,Unknown,,,,,Unknown,—,,error,80.0,Critical
+pnb-minioapi-prd.pnb.bank.in,,443,Unknown,,,,,Unknown,—,,error,80.0,Critical
+pnb-miniolb-dr.pnb.bank.in,,443,Unknown,,,,,Unknown,—,,error,80.0,Critical
+pnb-miniolb-prd.pnb.bank.in,,443,Unknown,,,,,Unknown,—,,error,80.0,Critical
+pnb-prd-atws.pnb.bank.in,,443,Unknown,,,,,Unknown,—,,error,80.0,Critical
+pnb-prd-chat.pnb.bank.in,,443,Unknown,,,,,Unknown,—,,error,80.0,Critical
+pnb-prd-dwp.pnb.bank.in,,443,Unknown,,,,,Unknown,—,,error,80.0,Critical
+pnb-prd-dwpcatalog.pnb.bank.in,,443,Unknown,,,,,Unknown,—,,error,80.0,Critical
+pnb-prd-int.pnb.bank.in,,443,Unknown,,,,,Unknown,—,,error,80.0,Critical
+pnb-prd-is.pnb.bank.in,,443,Unknown,,,,,Unknown,—,,error,80.0,Critical
+pnb-prd-restapi.pnb.bank.in,,443,Unknown,,,,,Unknown,—,,error,80.0,Critical
+pnb-prd-smartit.pnb.bank.in,,443,Unknown,,,,,Unknown,—,,error,80.0,Critical
+pnb-prd-sr.pnb.bank.in,,443,Unknown,,,,,Unknown,—,,error,80.0,Critical
+pnb-prd-supportassisttool.pnb.bank.in,,443,Unknown,,,,,Unknown,—,,error,80.0,Critical
+pnb-prd-vchat.pnb.bank.in,,443,Unknown,,,,,Unknown,—,,error,80.0,Critical
+pnb-prd.pnb.bank.in,,443,Unknown,,,,,Unknown,—,,error,80.0,Critical
+pnb-private-prd.pnb.bank.in,,443,Unknown,,,,,Unknown,—,,error,80.0,Critical
+pnb-rsso-prd.pnb.bank.in,,443,Unknown,,,,,Unknown,—,,error,80.0,Critical
+pnb-tms-prd.pnb.bank.in,,443,Unknown,,,,,Unknown,—,,error,80.0,Critical
+pnb.bank.in,49.50.72.184,443,Unknown,TLSv1.2,ECDHE-RSA-AES256-GCM-SHA384,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-08-10T23:59:59+00:00,ok,45.0,Moderate
+pnbamsagribhopalapiuat.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+pnbamsagribhopaluat.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+pnbapi.pnb.bank.in,,443,Unknown,,,,,Unknown,—,,error,80.0,Critical
+pnbapps.pnb.bank.in,103.109.224.236,443,Api,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-07-21T23:59:59+00:00,ok,45.0,Moderate
+pnbbksy.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+pnbbksyapi.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+pnbbksyapiuat.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+pnbbksyuat.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+pnbcbdc.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+pnbcbdcr.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+pnbfirst.pnb.bank.in,45.60.3.89,443,Unknown,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-08-26T23:59:59+00:00,ok,45.0,Moderate
+pnbfirst.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+pnbindia.in,49.50.72.206,443,Web Server,TLSv1.2,ECDHE-RSA-AES256-GCM-SHA384,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-06-08T23:59:59+00:00,ok,48.0,Moderate
+pnbinsightx.pnb.bank.in,103.109.225.172,443,Unknown,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GlobalSign GCC R3 EV TLS CA 2025,2026-11-09T06:11:03+00:00,ok,45.0,Moderate
+pnbkisan.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+pnbkisanuat.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+pnbmetaverse.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+pnbnet.pnb.bank.in,103.109.224.142,443,Ssl Certificate,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-07-21T23:59:59+00:00,ok,45.0,Moderate
+pnbpfms.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+pnbpuducherrybcmwdapiuat.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+pnbpuducherrybcmwduat.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+pnbpuducherrydat.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+pnbpuducherrydatapi.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+pnbtfr.pnb.bank.in,103.109.224.177,443,Web Server,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-07-24T23:59:59+00:00,ok,45.0,Moderate
+pnbtfr.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+pnbtfr.pnbuat.bank.in,103.109.225.80,443,Web Server,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-07-08T23:59:59+00:00,ok,35.0,Moderate
+pnbuat.bank.in,49.50.77.157,443,Web Application,TLSv1.3,TLS_AES_256_GCM_SHA384,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-08-10T23:59:59+00:00,ok,45.0,Moderate
+pnbuatcbdc.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+pnbuk.bank.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+pnbuniv.pnb.bank.in,103.109.224.132,443,Web Application,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-09-22T23:59:59+00:00,ok,35.0,Moderate
+pnbvkyc-agent.pnbindia.in,4.187.129.133,443,Web Application,TLSv1.3,TLS_AES_256_GCM_SHA384,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-05-13T23:59:59+00:00,ok,48.0,Moderate
+pnbvkyc-agentadmin.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+pnbvkyc-auditor.pnbindia.in,4.187.129.133,443,Web Application,TLSv1.3,TLS_AES_256_GCM_SHA384,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-05-13T23:59:59+00:00,ok,48.0,Moderate
+pnbvkyc-auditoradmin.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+pnbvkyc.pnb.bank.in,4.187.129.133,443,Unknown,TLSv1.3,TLS_AES_256_GCM_SHA384,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-08-26T23:59:59+00:00,ok,45.0,Moderate
+pnbvkyc.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+ppay.pnb.bank.in,,443,Unknown,,,,,Unknown,—,,error,80.0,Critical
+puducherrybcmwd.pnbuat.bank.in,103.109.224.58,443,Ssl Certificate,TLSv1.3,TLS_AES_256_GCM_SHA384,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-08-26T23:59:59+00:00,ok,45.0,Moderate
+puducherrybcmwdapi.pnbuat.bank.in,103.109.225.58,443,Web Application,TLSv1.3,TLS_AES_256_GCM_SHA384,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-08-26T23:59:59+00:00,ok,45.0,Moderate
+puducherrydat.pnb.bank.in,103.109.225.99,443,Cdn Proxy,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GlobalSign GCC R3 EV TLS CA 2025,2026-11-09T07:16:23+00:00,ok,45.0,Moderate
+puducherrydatapi.pnb.bank.in,103.109.224.99,443,Web Application,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GlobalSign GCC R3 EV TLS CA 2025,2026-11-09T07:21:02+00:00,ok,45.0,Moderate
+rekyc.pnb.bank.in,103.109.224.69,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+rekyc.pnbuat.bank.in,103.109.225.68,443,Web Application,TLSv1.3,TLS_AES_256_GCM_SHA384,ECDHE,2048,Yes,GlobalSign GCC R3 EV TLS CA 2025,2026-10-28T05:51:01+00:00,ok,45.0,Moderate
+rekycrrb.pnb.bank.in,103.109.224.104,443,Ssl Certificate,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GlobalSign GCC R3 EV TLS CA 2025,2026-12-06T04:31:21+00:00,ok,45.0,Moderate
+remote.netpnb.com,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+remote.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+retmbs.pnb.bank.in,103.109.225.171,443,Web Application,TLSv1.2,ECDHE-RSA-CHACHA20-POLY1305,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-08-21T23:59:59+00:00,ok,45.0,Moderate
+retmbs.pnbuat.bank.in,103.109.224.22,443,Web Server,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-07-06T23:59:59+00:00,ok,45.0,Moderate
+rewardz.pnb.bank.in,202.65.143.115,443,Unknown,TLSv1.2,ECDHE-RSA-AES256-GCM-SHA384,ECDHE,2048,Yes,GlobalSign GCC R3 EV TLS CA 2025,2026-10-27T09:26:01+00:00,ok,45.0,Moderate
+rrbapps.pnb.bank.in,103.109.225.247,443,Web Application,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-07-21T23:59:59+00:00,ok,45.0,Moderate
+saral.creditcard.pnb.bank.in,103.109.224.231,443,Web Application,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-09-24T23:59:59+00:00,ok,45.0,Moderate
+sdc.pnbuat.bank.in,103.109.225.27,443,Ssl Certificate,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-06-29T23:59:59+00:00,ok,45.0,Moderate
+secure.netpnb.com,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+securedc.pnb.bank.in,1.6.46.84,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+securedr.pnb.bank.in,1.7.178.10,443,Unknown,,,,,Unknown,—,,error,80.0,Critical
+secureportal.pnb.bank.in,2001:df1:1580::224:100,443,Unknown,,,,,Unknown,—,,error,80.0,Critical
+share.pnb.bank.in,103.109.224.149,443,Unknown,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,Thawte TLS RSA CA G1,2026-09-11T23:59:59+00:00,ok,45.0,Moderate
+sit.digitalbanking.pnbuat.bank.in,103.109.225.5,443,Web Application,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-07-02T23:59:59+00:00,ok,35.0,Moderate
+slbcbengal.pnb.bank.in,49.50.72.207,443,Unknown,TLSv1.2,ECDHE-RSA-AES256-GCM-SHA384,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-08-26T23:59:59+00:00,ok,45.0,Moderate
+slbcbengal.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+slbcchandigarh.pnb.bank.in,49.50.72.144,443,Unknown,TLSv1.2,ECDHE-RSA-AES256-GCM-SHA384,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-08-26T23:59:59+00:00,ok,45.0,Moderate
+slbcchandigarh.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+slbcdataportal.pnb.bank.in,49.50.81.102,443,Unknown,TLSv1.2,ECDHE-RSA-AES256-GCM-SHA384,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-08-26T23:59:59+00:00,ok,45.0,Moderate
+slbcdataportal.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+slbcdelhi.pnb.bank.in,49.50.81.77,443,Unknown,TLSv1.2,ECDHE-RSA-AES256-GCM-SHA384,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-08-26T23:59:59+00:00,ok,45.0,Moderate
+slbcdelhi.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+slbcharyana.pnb.bank.in,49.50.64.18,443,Unknown,TLSv1.2,ECDHE-RSA-AES256-GCM-SHA384,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-08-26T23:59:59+00:00,ok,45.0,Moderate
+slbcharyana.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+slbcpunjab.pnb.bank.in,49.50.79.57,443,Unknown,TLSv1.2,ECDHE-RSA-AES256-GCM-SHA384,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-08-26T23:59:59+00:00,ok,45.0,Moderate
+slbcpunjab.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+slbctripura.pnb.bank.in,49.50.72.143,443,Unknown,TLSv1.2,ECDHE-RSA-AES256-GCM-SHA384,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-08-26T23:59:59+00:00,ok,45.0,Moderate
+slbctripura.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+slbcuat.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+smartbanking.pnbindia.in,103.109.225.116,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+smbmbs.pnb.bank.in,103.109.224.14,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+soa.pnb.bank.in,103.109.227.46,443,Unknown,,,,,Unknown,—,,error,80.0,Critical
+stpcreditcard.pnb.bank.in,2001:df1:1580::224:68,443,Unknown,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GlobalSign GCC R3 EV TLS CA 2025,2026-12-29T10:51:09+00:00,ok,45.0,Moderate
+stpcreditcard.pnbuat.bank.in,2001:df1:1580::225:98,443,Ssl Certificate,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GlobalSign GCC R3 EV TLS CA 2025,2026-12-19T04:21:06+00:00,ok,35.0,Moderate
+svanidhi.dashboard.pnb.bank.in,,443,Unknown,,,,,Unknown,—,,error,80.0,Critical
+svanidhi.dashboard.pnbuat.bank.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+svanidhi.pnb.bank.in,103.109.225.100,443,Web Application,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,4096,Yes,GlobalSign GCC R3 EV TLS CA 2025,2026-12-23T05:01:02+00:00,ok,45.0,Moderate
+svanidhi.pnbuat.bank.in,103.109.225.210,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+swiftcimplr.pnbuat.bank.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+swiftcimplrdc.pnb.bank.in,,443,Unknown,,,,,Unknown,—,,error,80.0,Critical
+swiftcimplrdr.pnb.bank.in,,443,Unknown,,,,,Unknown,—,,error,80.0,Critical
+tab.pnb.bank.in,103.109.225.113,443,Web Server,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-07-21T23:59:59+00:00,ok,45.0,Moderate
+test.pnbuat.bank.in,103.109.225.28,443,Ssl Certificate,TLSv1.3,TLS_AES_256_GCM_SHA384,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-06-29T23:59:59+00:00,ok,45.0,Moderate
+testpfms.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+tls13.pnbuat.bank.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+tncorpmbs.pnb.bank.in,103.109.225.75,443,Unknown,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-07-29T23:59:59+00:00,ok,45.0,Moderate
+tnretmbs.pnb.bank.in,103.109.224.91,443,Web Application,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-07-29T23:59:59+00:00,ok,45.0,Moderate
+tractorexpress.pnb.bank.in,2001:df1:1580::224:11,443,Web Application,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GlobalSign GCC R3 EV TLS CA 2025,2026-10-28T08:01:02+00:00,ok,45.0,Moderate
+tractorexpress.pnbuat.bank.in,2001:df1:1580::225:98,443,Ssl Certificate,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-07-07T23:59:59+00:00,ok,35.0,Moderate
+uat.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+uat2instaloans.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+uatckycr-admin.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+uatckycr.pnbindia.in,103.109.224.55,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+uatdepository.pnbindia.in,103.109.224.32,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+uatdigidairykcc.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+uatdigigoldloan.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+uatdigitalca-vcs.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+uatdigitalca.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+uatdigitaldairykcc.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+uatdvl.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+uatedu.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+uategodam.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+uatepay.netpnb.com,2001:df1:1580::224:6,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+uatibs.netpnb.com,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+uatinstaloans.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+uatkccdigireview.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+uatkccrenewal.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+uatonlinesb-mps.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+uatonlinesb.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+uatonlinesb2.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+uatonlinevcs2.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+uatpnbcbdc.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+udaan.pnb.bank.in,103.109.225.152,443,Unknown,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,4096,Yes,GeoTrust EV RSA CA G2,2026-08-13T23:59:59+00:00,ok,45.0,Moderate
+udaan.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+udaan.pnbuat.bank.in,103.109.224.133,443,Cdn Proxy,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,4096,Yes,GeoTrust EV RSA CA G2,2026-07-07T23:59:59+00:00,ok,45.0,Moderate
+udaantest.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+upi.pnb.bank.in,103.109.224.129,443,Web Server,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-08-12T23:59:59+00:00,ok,45.0,Moderate
+upi1.pnbuat.bank.in,103.109.225.35,443,Web Application,TLSv1.3,TLS_AES_256_GCM_SHA384,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-07-15T23:59:59+00:00,ok,45.0,Moderate
+upi2.pnbuat.bank.in,103.109.224.29,443,Web Application,TLSv1.3,TLS_AES_256_GCM_SHA384,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-07-15T23:59:59+00:00,ok,45.0,Moderate
+vlvkyc.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+wcw.pnb.bank.in,103.109.225.200,443,Ssl Certificate,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GlobalSign GCC R3 EV TLS CA 2025,2027-02-04T09:51:04+00:00,ok,45.0,Moderate
+wcw.pnbuat.bank.in,103.109.224.58,443,Cdn Proxy,TLSv1.3,TLS_AES_256_GCM_SHA384,ECDHE,2048,Yes,GlobalSign GCC R3 EV TLS CA 2025,2026-12-06T04:26:03+00:00,ok,45.0,Moderate
+wcwapi.pnb.bank.in,103.109.225.200,443,Web Application,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GlobalSign GCC R3 EV TLS CA 2025,2027-02-04T09:51:04+00:00,ok,45.0,Moderate
+wcwapi.pnbuat.bank.in,103.109.225.58,443,Web Application,TLSv1.3,TLS_AES_256_GCM_SHA384,ECDHE,2048,Yes,GlobalSign GCC R3 EV TLS CA 2025,2026-12-06T04:26:09+00:00,ok,45.0,Moderate
+webapi.pnb.bank.in,103.109.225.236,443,Unknown,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-07-22T23:59:59+00:00,ok,45.0,Moderate
+webapps.pnb.bank.in,,443,Unknown,,,,,Unknown,—,,error,80.0,Critical
+weblens.pnb.bank.in,103.109.224.53,443,Web Server,TLSv1.3,TLS_AES_128_GCM_SHA256,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-07-24T23:59:59+00:00,ok,45.0,Moderate
+www.analytics.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+www.apipnbpfms.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+www.ckycr-admin.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+www.corpmbs.pnb.bank.in,,443,Unknown,,,,,Unknown,—,,error,80.0,Critical
+www.corpmbs.pnbuat.bank.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+www.depository.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+www.diginri.pnb.bank.in,,443,Unknown,,,,,Unknown,—,,error,80.0,Critical
+www.drm.pnb.bank.in,,443,Unknown,,,,,Unknown,—,,error,80.0,Critical
+www.eboard.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+www.eboard.pnbuat.bank.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+www.hrms.pnb.bank.in,103.109.224.186,443,Ssl Certificate,TLSv1.2,ECDHE-RSA-AES128-GCM-SHA256,ECDHE,4096,Yes,GeoTrust EV RSA CA G2,2026-08-25T23:59:59+00:00,ok,45.0,Moderate
+www.ibanking.pnb.bank.in,,443,Unknown,,,,,Unknown,—,,error,80.0,Critical
+www.ibanking.pnbuat.bank.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+www.instaloans.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+www.mtdapimbs.pnb.bank.in,,443,Unknown,,,,,Unknown,—,,error,80.0,Critical
+www.mtdapimbs.pnbuat.bank.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+www.mtdappmbs.pnb.bank.in,,443,Unknown,,,,,Unknown,—,,error,80.0,Critical
+www.mtdrelmbs.pnb.bank.in,,443,Unknown,,,,,Unknown,—,,error,80.0,Critical
+www.mtdrelmbs.pnbuat.bank.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+www.mtdstmbs.pnb.bank.in,,443,Unknown,,,,,Unknown,—,,error,80.0,Critical
+www.mtdstmbs.pnbuat.bank.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+www.netpnb.com,103.109.227.119,443,Web Application,TLSv1.2,ECDHE-RSA-AES128-GCM-SHA256,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-08-20T23:59:59+00:00,ok,45.0,Moderate
+www.onlinesb-mps.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+www.onlinesb.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+www.pa.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+www.pnb.bank.in,49.50.72.184,443,Unknown,TLSv1.2,ECDHE-RSA-AES256-GCM-SHA384,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-08-10T23:59:59+00:00,ok,45.0,Moderate
+www.pnbindia.in,49.50.72.206,443,Web Server,TLSv1.2,ECDHE-RSA-AES256-GCM-SHA384,ECDHE,2048,Yes,GeoTrust EV RSA CA G2,2026-06-08T23:59:59+00:00,ok,48.0,Moderate
+www.pnbpfms.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+www.retmbs.pnb.bank.in,,443,Unknown,,,,,Unknown,—,,error,80.0,Critical
+www.retmbs.pnbuat.bank.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+www.secure.netpnb.com,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+www.share.pnb.bank.in,,443,Unknown,,,,,Unknown,—,,error,80.0,Critical
+www.slbcbengal.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+www.slbcchandigarh.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+www.slbcdataportal.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+www.slbcdelhi.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+www.slbctripura.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+www.slbcuat.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+www.testpfms.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+www.tncorpmbs.pnb.bank.in,,443,Unknown,,,,,Unknown,—,,error,80.0,Critical
+www.tnretmbs.pnb.bank.in,,443,Unknown,,,,,Unknown,—,,error,80.0,Critical
+www.uat.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+www.uatckycr-admin.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+www.uatckycr.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+www.uatdepository.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+www.uatinstaloans.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+www.uatkycr-admin.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+www.uatonlinesb.pnbindia.in,,443,Domain,,,,,Unknown,—,,error,80.0,Critical
+
+

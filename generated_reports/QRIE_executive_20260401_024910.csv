@@ -1,0 +1,61 @@
+QRIE Report — Punjab National Bank
+Generated: 2026-04-01 02:49:10
+
+═══ Executive Summary Report ═══
+
+Kpis
+,total_assets,451
+,total_records,1043
+,web_applications,82
+,apis_detected,22
+,cdn_proxy,4
+,avg_hei_score,75.76
+,min_hei_score,35.0
+,max_hei_score,100.0
+
+Risk Distribution
+,Critical,265
+,Legacy,0
+,Standard,186
+,Elite,0
+
+Certificate Expiry
+,Expired,0
+,0-30 Days,0
+,30-90 Days,11
+,>90 Days,175
+
+Asset Type Distribution
+,web_server,14
+,domain,493
+,api,22
+,unknown,403
+,web_application,68
+,ssl_certificate,37
+,cdn_proxy,4
+,mail_server,2
+
+Infrastructure Summary
+,cdn_detected,6
+,waf_detected,0
+,load_balanced,0
+
+Cipher Strength Distribution
+,Strong,23
+,Moderate,117
+,Weak,0
+,Unknown,500
+
+Qrmm Distribution
+,Level_0,849
+,Level_1,194
+,Level_2,0
+,Level_3,0
+
+Cert Distribution
+,PQC Ready,0
+,Hybrid Secure,0
+,Not Quantum Safe,1043
+
+
+

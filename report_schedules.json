@@ -1,0 +1,29 @@
+[
+  {
+    "id": "9d3c0cfa",
+    "created_at": "2026-03-30T14:22:23.867741",
+    "report_types": [
+      "Executive Summary Report",
+      "Asset Discovery Report"
+    ],
+    "format": "pdf",
+    "frequency": "Weekly",
+    "schedule_date": "2026-04-25",
+    "schedule_time": "09:00 AM (IST)",
+    "assets_scope": "All Assets",
+    "sections": [
+      "Discovery",
+      "Inventory",
+      "CBOM",
+      "Cyber Rating",
+      "PQC Posture"
+    ],
+    "include_charts": true,
+    "delivery": {
+      "email": "",
+      "save_path": "/Reports/Quarterly/",
+      "link": false
+    },
+    "enabled": true
+  }
+]
