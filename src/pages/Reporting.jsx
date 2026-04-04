@@ -1,9 +1,11 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect } from 'react'
 import dataAPI from '../dataAPI'
 import {
-  Users, Calendar, Search, Download,
-  Mail, FolderOpen, Link2, Bell, Plus, ChevronDown,
-  Check, X, Loader2, FileText, AlertCircle
+  Users, Calendar, Search, Download, Settings,
+  Mail, FolderOpen, Link2, Bell, ChevronRight,
+  Check, X, Loader2, FileText, AlertCircle,
+  BarChart2, Shield, Layers, Star, ClipboardList, ArrowLeft,
+  Globe, Cpu, Activity, CheckCircle2
 } from 'lucide-react'
 
 // ── Report API helper ─────────────────────────────────────────────────────────
@@ -37,41 +39,87 @@ async function downloadReport(reportTypes, format) {
 
 // ── All available report types ────────────────────────────────────────────────
 const ALL_REPORT_TYPES = [
-  { key: 'Executive Summary Report', icon: '📊', label: 'Executive Summary' },
-  { key: 'Asset Discovery Report',   icon: '🔍', label: 'Asset Discovery' },
-  { key: 'Asset Inventory Report',   icon: '🗂', label: 'Asset Inventory' },
-  { key: 'CBOM Report',              icon: '📋', label: 'CBOM' },
-  { key: 'PQC Posture Report',       icon: '🛡', label: 'PQC Posture' },
-  { key: 'Cyber Rating Report',      icon: '⭐', label: 'Cyber Rating' },
+  { key: 'Executive Summary Report', icon: BarChart2,    label: 'Executive Summary' },
+  { key: 'Asset Discovery Report',   icon: Globe,        label: 'Asset Discovery'   },
+  { key: 'Asset Inventory Report',   icon: ClipboardList,label: 'Asset Inventory'   },
+  { key: 'CBOM Report',              icon: Layers,       label: 'CBOM'              },
+  { key: 'PQC Posture Report',       icon: Shield,       label: 'PQC Posture'       },
+  { key: 'Cyber Rating Report',      icon: Star,         label: 'Cyber Rating'      },
 ]
 
 // ── Toast notification ────────────────────────────────────────────────────────
 function Toast({ toast, onDismiss }) {
   if (!toast) return null
-  const colors = {
-    success: 'bg-green-600',
-    error:   'bg-red-600',
-    loading: 'bg-amber-600',
-    info:    'bg-blue-600',
+  const palette = {
+    success: { bg: 'bg-green-600',  border: 'border-green-500' },
+    error:   { bg: 'bg-red-600',    border: 'border-red-500'   },
+    loading: { bg: 'bg-amber-600',  border: 'border-amber-500' },
+    info:    { bg: 'bg-blue-600',   border: 'border-blue-500'  },
   }
   const icons = {
-    success: <Check size={16} />,
-    error:   <AlertCircle size={16} />,
+    success: <CheckCircle2 size={16} />,
+    error:   <AlertCircle  size={16} />,
     loading: <Loader2 size={16} className="animate-spin" />,
     info:    <FileText size={16} />,
   }
+  const p = palette[toast.type] || palette.info
   return (
     <div className="fixed bottom-6 right-6 z-50 animate-slide-up">
-      <div className={`${colors[toast.type] || colors.info} text-white rounded-xl px-5 py-3 shadow-2xl flex items-center gap-3 min-w-[300px]`}>
-        {icons[toast.type]}
-        <span className="font-body text-sm flex-1">{toast.message}</span>
+      <div className={`${p.bg} text-white rounded-2xl px-5 py-3.5 shadow-2xl flex items-center gap-3 min-w-[320px] border border-white/20`}>
+        <div className="shrink-0">{icons[toast.type]}</div>
+        <span className="font-body text-sm flex-1 leading-snug">{toast.message}</span>
         {toast.type !== 'loading' && (
-          <button onClick={onDismiss} className="hover:bg-white/20 rounded-full p-0.5">
-            <X size={14} />
+          <button onClick={onDismiss} className="hover:bg-white/20 rounded-full p-1 transition-colors shrink-0">
+            <X size={13} />
           </button>
         )}
       </div>
     </div>
+  )
+}
+
+// ── Section label ─────────────────────────────────────────────────────────────
+function FieldLabel({ children }) {
+  return (
+    <label className="font-display text-[10px] font-bold text-slate-500 uppercase tracking-widest block mb-1.5">
+      {children}
+    </label>
+  )
+}
+
+// ── Toggle switch ─────────────────────────────────────────────────────────────
+function Toggle({ on, onToggle, label }) {
+  return (
+    <div className="flex items-center gap-2.5">
+      <button
+        onClick={onToggle}
+        className={`relative w-11 h-6 rounded-full transition-colors duration-200 focus:outline-none
+          ${on ? 'bg-pnb-crimson' : 'bg-slate-200'}`}
+      >
+        <div className={`absolute top-1 w-4 h-4 bg-white rounded-full shadow-sm transition-transform duration-200
+          ${on ? 'translate-x-6' : 'translate-x-1'}`} />
+      </button>
+      {label && <span className="font-body text-xs text-slate-600">{label}</span>}
+    </div>
+  )
+}
+
+// ── Form input ────────────────────────────────────────────────────────────────
+const inputCls = `w-full rounded-lg border border-amber-200 bg-white px-3 py-2 text-sm font-body
+  text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-400/50
+  focus:border-amber-400 transition-all`
+
+// ── Back button ───────────────────────────────────────────────────────────────
+function BackBtn({ onClick }) {
+  return (
+    <button
+      onClick={onClick}
+      className="inline-flex items-center gap-1.5 text-xs font-display font-semibold
+        text-slate-500 hover:text-pnb-crimson transition-colors group"
+    >
+      <ArrowLeft size={13} className="group-hover:-translate-x-0.5 transition-transform" />
+      Back
+    </button>
   )
 }
 
@@ -96,95 +144,87 @@ export default function Reporting() {
       dataAPI.getCyberRatingData()
     ]).then(([dash, cbom, pqc, rating]) => {
       setStats({
-        dash: dash.success ? dash : {},
-        cbom: cbom.success ? cbom : {},
-        pqc: pqc.success ? pqc : { summary: {} },
+        dash:   dash.success   ? dash   : {},
+        cbom:   cbom.success   ? cbom   : {},
+        pqc:    pqc.success    ? pqc    : { summary: {} },
         rating: rating.success ? rating : {}
       })
     })
   }, [])
 
-  if (active === null) {
-    return (
-      <>
-        <SelectionView setActive={setActive} />
-        <Toast toast={toast} onDismiss={() => setToast(null)} />
-      </>
-    )
-  }
-  if (active === 'scheduled') {
-    return (
-      <>
-        <ScheduledView setActive={setActive} showToast={showToast} />
-        <Toast toast={toast} onDismiss={() => setToast(null)} />
-      </>
-    )
-  }
-  if (active === 'ondemand') {
-    return (
-      <>
-        <OnDemandView setActive={setActive} showToast={showToast} />
-        <Toast toast={toast} onDismiss={() => setToast(null)} />
-      </>
-    )
-  }
-  return (
-    <>
-      <ExecView setActive={setActive} stats={stats} showToast={showToast} />
-      <Toast toast={toast} onDismiss={() => setToast(null)} />
-    </>
-  )
+  const toastEl = <Toast toast={toast} onDismiss={() => setToast(null)} />
+
+  if (active === null)       return <><SelectionView setActive={setActive} />{toastEl}</>
+  if (active === 'scheduled') return <><ScheduledView setActive={setActive} showToast={showToast} />{toastEl}</>
+  if (active === 'ondemand')  return <><OnDemandView  setActive={setActive} showToast={showToast} />{toastEl}</>
+  return <><ExecView setActive={setActive} stats={stats} showToast={showToast} />{toastEl}</>
 }
 
 // ── Landing selection ─────────────────────────────────────────────────────────
 function SelectionView({ setActive }) {
   const cards = [
     {
-      icon: Users, label: 'Executives Reporting', key: 'exec',
+      icon: Users, label: 'Executive Reporting', key: 'exec',
       desc: 'Board-level risk summaries, Q-VaR models, and KPI dashboards for CISO/CTO.',
-      color: 'from-blue-600 to-blue-800',
+      gradient: 'from-blue-600 to-indigo-800',
+      glow: 'shadow-blue-500/20',
+      accent: 'bg-blue-400/20 group-hover:bg-blue-300/30',
     },
     {
       icon: Calendar, label: 'Scheduled Reporting', key: 'scheduled',
-      desc: 'Automate periodic report generation and delivery to email or storage locations.',
-      color: 'from-pnb-crimson to-red-900',
+      desc: 'Automate periodic report generation with email and storage delivery.',
+      gradient: 'from-pnb-crimson to-red-900',
+      glow: 'shadow-red-500/20',
+      accent: 'bg-red-400/20 group-hover:bg-red-300/30',
     },
     {
-      icon: Search, label: 'On-Demand Reporting', key: 'ondemand',
-      desc: 'Generate targeted reports on request for specific assets, incidents, or audits.',
-      color: 'from-amber-500 to-amber-700',
+      icon: Activity, label: 'On-Demand Reporting', key: 'ondemand',
+      desc: 'Generate targeted reports instantly for specific assets, incidents, or audits.',
+      gradient: 'from-amber-500 to-orange-700',
+      glow: 'shadow-amber-500/20',
+      accent: 'bg-amber-400/20 group-hover:bg-amber-300/30',
     },
   ]
 
   return (
-    <div className="space-y-5">
-      <h1 className="font-display text-xl font-bold text-pnb-crimson">Reporting</h1>
+    <div className="space-y-6">
+      <div>
+        <h1 className="font-display text-xl font-bold text-pnb-crimson">Reporting</h1>
+        <p className="font-body text-sm text-slate-500 mt-0.5">Generate, schedule and export security reports across the platform.</p>
+      </div>
 
-      <div className="flex justify-center items-center min-h-80">
-        <div className="grid grid-cols-3 gap-6 max-w-4xl w-full">
-          {cards.map(({ icon: Icon, label, key, desc, color }) => (
-            <button
-              key={key}
-              onClick={() => setActive(key)}
-              className="group relative overflow-hidden rounded-3xl p-8 text-center
-                         shadow-xl hover:shadow-2xl transition-all duration-300
-                         hover:-translate-y-2 cursor-pointer"
-            >
-              {/* Background */}
-              <div className={`absolute inset-0 bg-gradient-to-b ${color} opacity-90`} />
-              {/* Oval outline */}
-              <div className="absolute inset-4 border-2 border-white/20 rounded-2xl" />
+      <div className="grid grid-cols-3 gap-6">
+        {cards.map(({ icon: Icon, label, key, desc, gradient, glow, accent }) => (
+          <button
+            key={key}
+            onClick={() => setActive(key)}
+            className={`group relative overflow-hidden rounded-2xl text-left
+              shadow-xl ${glow} hover:shadow-2xl transition-all duration-300
+              hover:-translate-y-1.5 cursor-pointer`}
+          >
+            {/* Background gradient */}
+            <div className={`absolute inset-0 bg-gradient-to-br ${gradient}`} />
+            {/* Decorative ring */}
+            <div className="absolute -bottom-8 -right-8 w-40 h-40 rounded-full border border-white/10" />
+            <div className="absolute -bottom-4 -right-4 w-24 h-24 rounded-full border border-white/10" />
 
-              <div className="relative z-10">
-                <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                  <Icon size={32} className="text-white" />
-                </div>
-                <p className="font-display text-lg font-bold text-white mb-2">{label}</p>
-                <p className="font-body text-xs text-white/80">{desc}</p>
+            <div className="relative z-10 p-7">
+              {/* Icon badge */}
+              <div className={`w-12 h-12 ${accent} rounded-xl flex items-center justify-center mb-5 transition-colors`}>
+                <Icon size={24} className="text-white" />
               </div>
-            </button>
-          ))}
-        </div>
+              <p className="font-display text-lg font-bold text-white mb-2 leading-tight">{label}</p>
+              <p className="font-body text-sm text-white/75 leading-relaxed">{desc}</p>
+
+              {/* CTA arrow */}
+              <div className="mt-5 flex items-center gap-1.5 text-white/80 text-xs font-display font-semibold
+                group-hover:text-white transition-colors">
+                Get started
+                <ChevronRight size={13} className="group-hover:translate-x-0.5 transition-transform" />
+              </div>
+            </div>
+          </button>
+        ))}
       </div>
     </div>
   )
@@ -194,62 +234,63 @@ function SelectionView({ setActive }) {
 function ExecView({ setActive, stats, showToast }) {
   const [downloading, setDownloading] = useState(null)
 
-  if (!stats) return <div className="p-8 text-pnb-crimson animate-pulse">Aggregating executive metrics...</div>
+  if (!stats) return (
+    <div className="p-8 flex items-center justify-center gap-3 text-pnb-crimson font-display font-semibold">
+      <Loader2 size={18} className="animate-spin" />
+      Aggregating executive metrics...
+    </div>
+  )
 
   const tiles = [
     {
-      title: 'Assets Discovery',
+      title: 'Asset Discovery', icon: Globe, iconColor: 'text-blue-600', bg: 'bg-blue-50', border: 'border-blue-100',
       items: [
-        `${stats.dash.statCards?.[0]?.value || 0} Total subdomains & IPs`,
-        `${stats.dash.statCards?.[1]?.value || 0} Public Web Applications`
+        { label: 'Total Subdomains & IPs',  value: stats.dash.statCards?.[0]?.value || 0 },
+        { label: 'Public Web Applications', value: stats.dash.statCards?.[1]?.value || 0 },
       ],
-      icon: '🔍', color: 'bg-blue-50 border-blue-200'
     },
     {
-      title: 'Cyber Rating',
+      title: 'Cyber Rating', icon: Star, iconColor: 'text-amber-600', bg: 'bg-amber-50', border: 'border-amber-100',
       items: [
-        `Consolidated Score: ${stats.rating.enterpriseScore || 0}`,
-        `Current Tier: ${stats.rating.enterpriseTier || 'Unknown'}`
+        { label: 'Consolidated Score', value: stats.rating.enterpriseScore || 0 },
+        { label: 'Current Tier',       value: stats.rating.enterpriseTier  || 'Unknown' },
       ],
-      icon: '⭐', color: 'bg-amber-50 border-amber-200'
     },
     {
-      title: 'Assets Inventory',
+      title: 'Asset Inventory', icon: ClipboardList, iconColor: 'text-green-600', bg: 'bg-green-50', border: 'border-green-100',
       items: [
-        `Active Certificates: ${stats.cbom.stats?.activeCerts || 0}`,
-        `Weak Crypto Found: ${stats.cbom.stats?.weakCrypto || 0}`
+        { label: 'Active Certificates', value: stats.cbom.stats?.activeCerts || 0 },
+        { label: 'Weak Crypto Found',   value: stats.cbom.stats?.weakCrypto  || 0 },
       ],
-      icon: '🗂', color: 'bg-green-50 border-green-200'
     },
     {
-      title: 'Posture of PQC',
+      title: 'PQC Posture', icon: Shield, iconColor: 'text-purple-600', bg: 'bg-purple-50', border: 'border-purple-100',
       items: [
-        `Elite-PQC Ready: ${stats.pqc.summary?.pqcReadyPct || 0}%`,
-        `Legacy Protocol Count: ${stats.pqc.summary?.legacyPct || 0}%`
+        { label: 'Elite-PQC Ready', value: stats.pqc.summary?.pqcReadyCount || 0 },
+        { label: 'Standard',        value: stats.pqc.summary?.stdCount      || 0 },
+        { label: 'Legacy',          value: stats.pqc.summary?.legacyCount   || 0 },
       ],
-      icon: '🛡', color: 'bg-purple-50 border-purple-200'
     },
     {
-      title: 'CBOM',
+      title: 'CBOM', icon: Layers, iconColor: 'text-orange-600', bg: 'bg-orange-50', border: 'border-orange-100',
       items: [
-        `Total Assets Analyzed: ${stats.cbom.stats?.totalApps || 0}`,
-        `Certificate/Cipher Issues: ${stats.cbom.stats?.certIssues || 0}`
+        { label: 'Assets Analyzed',      value: stats.cbom.stats?.totalApps  || 0 },
+        { label: 'Certificate Issues',   value: stats.cbom.stats?.certIssues || 0 },
       ],
-      icon: '📋', color: 'bg-orange-50 border-orange-200'
     },
   ]
 
   const downloadButtons = [
-    { label: 'Executive Summary (PDF)',     reportType: 'Executive Summary Report', format: 'pdf' },
-    { label: 'Risk Assessment (JSON)',      reportType: 'PQC Posture Report',       format: 'json' },
-    { label: 'Asset Inventory (CSV)',       reportType: 'Asset Inventory Report',   format: 'csv' },
-    { label: 'CBOM Report (CycloneDX)',     reportType: 'CBOM Report',             format: 'cyclonedx' },
+    { label: 'Executive Summary',  sub: 'PDF',       icon: BarChart2,    reportType: 'Executive Summary Report', format: 'pdf'       },
+    { label: 'Risk Assessment',    sub: 'JSON',      icon: Shield,       reportType: 'PQC Posture Report',       format: 'json'      },
+    { label: 'Asset Inventory',    sub: 'CSV',       icon: ClipboardList,reportType: 'Asset Inventory Report',   format: 'csv'       },
+    { label: 'CBOM Report',        sub: 'CycloneDX', icon: Layers,       reportType: 'CBOM Report',              format: 'cyclonedx' },
   ]
 
   const handleDownload = async (btn) => {
     const key = btn.label
     setDownloading(key)
-    showToast('loading', `Generating ${btn.label}...`)
+    showToast('loading', `Generating ${btn.label} (${btn.sub})...`)
     try {
       await downloadReport([btn.reportType], btn.format)
       showToast('success', `${btn.label} downloaded successfully!`)
@@ -261,44 +302,67 @@ function ExecView({ setActive, stats, showToast }) {
   }
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-5">
       <div className="flex items-center gap-3">
-        <button onClick={() => setActive(null)}
-          className="font-display text-xs text-pnb-amber hover:text-pnb-crimson">← Back</button>
+        <BackBtn onClick={() => setActive(null)} />
+        <div className="w-px h-4 bg-slate-200" />
         <h1 className="font-display text-xl font-bold text-pnb-crimson">Executive Reporting</h1>
       </div>
 
-      <div className="grid grid-cols-3 gap-4">
-        {tiles.map(({ title, items, icon, color }) => (
-          <div key={title} className={`glass-card rounded-xl p-4 border ${color}`}>
-            <div className="flex items-center gap-2 mb-2">
-              <span className="text-xl">{icon}</span>
-              <h3 className="font-display text-xs font-semibold text-gray-800">{title}</h3>
+      {/* Metrics tiles */}
+      <div className="grid grid-cols-5 gap-3">
+        {tiles.map(({ title, icon: Icon, iconColor, bg, border, items }) => (
+          <div key={title} className={`glass-card rounded-xl p-4 border ${border} ${bg}/40 flex flex-col gap-3`}>
+            <div className="flex items-center gap-2">
+              <div className={`p-1.5 rounded-lg ${bg} border ${border}`}>
+                <Icon size={13} className={iconColor} />
+              </div>
+              <h3 className="font-display text-xs font-semibold text-slate-700">{title}</h3>
             </div>
-            {items.map((item, i) => (
-              <p key={i} className="font-body text-xs text-gray-600 mt-1">{item}</p>
+            {items.map(({ label, value }) => (
+              <div key={label} className="flex flex-col">
+                <span className="font-mono text-lg font-extrabold text-slate-800">{value}</span>
+                <span className="font-body text-[10px] text-slate-500 leading-tight">{label}</span>
+              </div>
             ))}
           </div>
         ))}
+      </div>
 
-        {/* Download buttons */}
-        <div className="glass-card rounded-xl p-4 border border-amber-200">
-          <h3 className="font-display text-xs font-semibold text-pnb-crimson mb-3">Download Reports</h3>
-          {downloadButtons.map(btn => (
-            <button key={btn.label}
-              onClick={() => handleDownload(btn)}
-              disabled={downloading === btn.label}
-              className={`w-full flex items-center justify-between text-xs font-body
-                         py-2 px-3 mb-1.5 bg-white border border-amber-200 rounded-lg
-                         hover:bg-amber-50 text-gray-700 transition-colors
-                         ${downloading === btn.label ? 'opacity-60 cursor-wait' : ''}`}>
-              {btn.label}
-              {downloading === btn.label
-                ? <Loader2 size={12} className="text-pnb-amber animate-spin" />
-                : <Download size={12} className="text-pnb-amber" />
-              }
-            </button>
-          ))}
+      {/* Download section */}
+      <div className="glass-card rounded-xl p-5 border border-amber-100/50 shadow-sm shadow-amber-900/5">
+        <h3 className="font-display text-xs font-semibold uppercase tracking-wide text-pnb-crimson mb-4">
+          Download Reports
+        </h3>
+        <div className="grid grid-cols-4 gap-3">
+          {downloadButtons.map(btn => {
+            const BtnIcon = btn.icon
+            const isLoading = downloading === btn.label
+            return (
+              <button
+                key={btn.label}
+                onClick={() => handleDownload(btn)}
+                disabled={!!downloading}
+                className={`group flex flex-col items-start gap-2 p-4 rounded-xl border transition-all duration-200
+                  ${isLoading
+                    ? 'border-pnb-crimson bg-pnb-crimson/5 cursor-wait'
+                    : 'border-amber-200 bg-white hover:border-amber-400 hover:bg-amber-50/60 hover:shadow-md hover:-translate-y-0.5 cursor-pointer'}
+                  ${downloading && !isLoading ? 'opacity-50 cursor-not-allowed' : ''}`}
+              >
+                <div className={`p-2 rounded-lg transition-colors ${isLoading ? 'bg-pnb-crimson/10' : 'bg-amber-50 group-hover:bg-amber-100'}`}>
+                  {isLoading
+                    ? <Loader2 size={16} className="text-pnb-crimson animate-spin" />
+                    : <BtnIcon size={16} className="text-pnb-amber" />
+                  }
+                </div>
+                <div className="text-left">
+                  <p className="font-display text-xs font-bold text-slate-700">{btn.label}</p>
+                  <p className="font-mono text-[10px] text-slate-400 mt-0.5">{btn.sub}</p>
+                </div>
+                <Download size={11} className={`mt-auto self-end transition-colors ${isLoading ? 'text-pnb-crimson' : 'text-slate-300 group-hover:text-pnb-amber'}`} />
+              </button>
+            )
+          })}
         </div>
       </div>
     </div>
@@ -309,103 +373,143 @@ function ExecView({ setActive, stats, showToast }) {
 function ReportTypeMultiSelect({ selected, setSelected }) {
   return (
     <div>
-      <label className="font-display text-xs font-semibold text-gray-700 uppercase tracking-wide block mb-2">
-        Report Types <span className="text-gray-400 font-normal">(select multiple)</span>
-      </label>
+      <FieldLabel>Report Types <span className="normal-case font-normal text-slate-400">(select one or more)</span></FieldLabel>
       <div className="flex flex-wrap gap-2">
-        {ALL_REPORT_TYPES.map(({ key, icon, label }) => {
+        {ALL_REPORT_TYPES.map(({ key, icon: Icon, label }) => {
           const isSelected = selected.includes(key)
           return (
             <button
               key={key}
-              onClick={() => {
-                setSelected(prev =>
-                  prev.includes(key)
-                    ? prev.filter(k => k !== key)
-                    : [...prev, key]
-                )
-              }}
+              onClick={() => setSelected(prev =>
+                prev.includes(key) ? prev.filter(k => k !== key) : [...prev, key]
+              )}
               className={`flex items-center gap-1.5 text-xs font-display font-semibold px-3 py-1.5 rounded-lg border transition-all duration-200
                 ${isSelected
-                  ? 'bg-pnb-crimson text-white border-pnb-crimson shadow-md scale-[1.02]'
-                  : 'bg-white text-gray-600 border-amber-200 hover:bg-amber-50 hover:border-amber-300'
+                  ? 'bg-pnb-crimson text-white border-pnb-crimson shadow-sm'
+                  : 'bg-white text-slate-600 border-amber-200 hover:bg-amber-50 hover:border-amber-300'
                 }`}
             >
-              {isSelected && <Check size={12} />}
-              <span>{icon}</span>
+              {isSelected
+                ? <Check size={11} />
+                : <Icon size={11} className="text-slate-400" />
+              }
               {label}
             </button>
           )
         })}
       </div>
       {selected.length > 1 && (
-        <p className="font-body text-xs text-amber-700 mt-2 flex items-center gap-1">
-          <FileText size={12} />
-          {selected.length} report types selected — will be merged into a single consolidated report
+        <p className="font-body text-xs text-amber-700 mt-2 flex items-center gap-1.5">
+          <FileText size={11} />
+          {selected.length} types selected — merged into one consolidated report
         </p>
       )}
     </div>
   )
 }
 
+// ── Pill button (frequency / format / sections selectors) ─────────────────────
+function PillSelect({ options, value, onChange, multi = false, selected, onToggle }) {
+  if (multi) {
+    return (
+      <div className="flex flex-wrap gap-2">
+        {options.map(o => {
+          const active = selected?.includes(o)
+          return (
+            <button key={o} onClick={() => onToggle(o)}
+              className={`px-3.5 py-1.5 text-xs font-display font-semibold rounded-full border transition-all duration-150
+                ${active ? 'bg-pnb-crimson text-white border-pnb-crimson shadow-sm' : 'bg-white text-slate-600 border-amber-200 hover:bg-amber-50 hover:border-amber-300'}`}>
+              {active && <Check size={10} className="inline mr-1" />}{o}
+            </button>
+          )
+        })}
+      </div>
+    )
+  }
+  return (
+    <div className="flex flex-wrap gap-2">
+      {options.map(o => (
+        <button key={o} onClick={() => onChange(o)}
+          className={`px-3.5 py-1.5 text-xs font-display font-semibold rounded-full border transition-all duration-150
+            ${value === o ? 'bg-pnb-crimson text-white border-pnb-crimson shadow-sm' : 'bg-white text-slate-600 border-amber-200 hover:bg-amber-50 hover:border-amber-300'}`}>
+          {o}
+        </button>
+      ))}
+    </div>
+  )
+}
+
+// ── Section divider ───────────────────────────────────────────────────────────
+function SectionHeader({ icon: Icon, label, color = 'text-pnb-crimson' }) {
+  return (
+    <div className={`flex items-center gap-2 ${color} mb-3`}>
+      <Icon size={14} />
+      <span className="font-display text-xs font-bold uppercase tracking-widest">{label}</span>
+      <div className="flex-1 h-px bg-current opacity-10" />
+    </div>
+  )
+}
+
+// ── Delivery row ─────────────────────────────────────────────────────────────
+function DeliveryRow({ icon: Icon, label, on, onToggle, children }) {
+  return (
+    <div className={`rounded-xl border transition-all overflow-hidden
+      ${on ? 'border-amber-300 bg-amber-50/80' : 'border-slate-200 bg-white'}`}>
+      <div className="flex items-center gap-3 px-3.5 py-2.5" onClick={onToggle} style={{ cursor: 'pointer' }}>
+        <div className={`p-1.5 rounded-lg transition-colors ${on ? 'bg-amber-100' : 'bg-slate-100'}`}>
+          <Icon size={13} className={on ? 'text-amber-600' : 'text-slate-400'} />
+        </div>
+        <span className={`font-display text-xs font-semibold flex-1 ${on ? 'text-slate-800' : 'text-slate-500'}`}>{label}</span>
+        <div className={`relative w-9 h-5 rounded-full transition-colors duration-200 shrink-0
+          ${on ? 'bg-pnb-crimson' : 'bg-slate-200'}`}>
+          <div className={`absolute top-0.5 w-4 h-4 bg-white rounded-full shadow-sm transition-transform duration-200
+            ${on ? 'translate-x-4' : 'translate-x-0.5'}`} />
+        </div>
+      </div>
+      {on && children && <div className="px-3.5 pb-3">{children}</div>}
+    </div>
+  )
+}
+
 // ── Scheduled Reporting ───────────────────────────────────────────────────────
 function ScheduledView({ setActive, showToast }) {
-  const [enabled, setEnabled] = useState(true)
-  const [freq, setFreq]       = useState('Weekly')
-  const [assets, setAssets]   = useState('All Assets')
+  const [enabled, setEnabled]     = useState(true)
+  const [freq, setFreq]           = useState('Weekly')
+  const [assets, setAssets]       = useState('All Assets')
   const [selectedTypes, setSelectedTypes] = useState(['Executive Summary Report'])
   const [scheduleDate, setScheduleDate]   = useState('2026-04-25')
   const [scheduleTime, setScheduleTime]   = useState('09:00 AM (IST)')
   const [submitting, setSubmitting]       = useState(false)
-  const [format, setFormat] = useState('PDF')
+  const [format, setFormat]               = useState('PDF')
 
   const sections = ['Discovery', 'Inventory', 'CBOM', 'PQC Posture', 'Cyber Rating']
-  const [checked, setChecked] = useState(new Set(sections))
+  const [checkedSections, setCheckedSections] = useState(new Set(sections))
+  const toggleSection = s => setCheckedSections(prev => {
+    const n = new Set(prev); n.has(s) ? n.delete(s) : n.add(s); return n
+  })
 
-  const toggleSection = s => {
-    setChecked(prev => {
-      const n = new Set(prev)
-      n.has(s) ? n.delete(s) : n.add(s)
-      return n
-    })
-  }
-
-  // Delivery state
-  const [emailOn, setEmailOn]     = useState(true)
+  const [emailOn, setEmailOn]     = useState(false)
   const [emailAddr, setEmailAddr] = useState('')
   const [saveOn, setSaveOn]       = useState(true)
   const [savePath, setSavePath]   = useState('/Reports/Quarterly/')
   const [linkOn, setLinkOn]       = useState(false)
 
   const handleSchedule = async () => {
-    if (selectedTypes.length === 0) {
-      showToast('error', 'Please select at least one report type')
-      return
-    }
+    if (selectedTypes.length === 0) { showToast('error', 'Please select at least one report type'); return }
     setSubmitting(true)
-    showToast('loading', 'Saving schedule...')
+    showToast('loading', 'Saving report schedule...')
     try {
       const res = await apiPost('/schedule', {
-        report_types: selectedTypes,
-        format: format.toLowerCase(),
-        frequency: freq,
-        schedule_date: scheduleDate,
-        schedule_time: scheduleTime,
-        assets_scope: assets,
-        sections: Array.from(checked),
-        include_charts: true,
-        password_protect: false,
+        report_types: selectedTypes, format: format.toLowerCase(), frequency: freq,
+        schedule_date: scheduleDate, schedule_time: scheduleTime, assets_scope: assets,
+        sections: Array.from(checkedSections), include_charts: true, password_protect: false,
         delivery_email: emailOn ? emailAddr : null,
         delivery_save_path: saveOn ? savePath : null,
-        delivery_link: linkOn,
-        enabled,
+        delivery_link: linkOn, enabled,
       })
       const data = await res.json()
-      if (data.success) {
-        showToast('success', `Schedule created: ${freq} ${selectedTypes.length > 1 ? 'consolidated' : selectedTypes[0]}`)
-      } else {
-        showToast('error', data.detail || 'Failed to save schedule')
-      }
+      if (data.success) showToast('success', `Schedule saved · ${freq} · ${selectedTypes.length > 1 ? 'consolidated' : selectedTypes[0]}`)
+      else showToast('error', data.detail || 'Failed to save schedule')
     } catch (err) {
       showToast('error', `Error: ${err.message}`)
     } finally {
@@ -414,168 +518,160 @@ function ScheduledView({ setActive, showToast }) {
   }
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-5">
+      {/* ── Header ── */}
       <div className="flex items-center gap-3">
-        <button onClick={() => setActive(null)}
-          className="font-display text-xs text-pnb-amber hover:text-pnb-crimson">← Back</button>
-        <h1 className="font-display text-xl font-bold text-pnb-crimson">Schedule Reporting</h1>
+        <BackBtn onClick={() => setActive(null)} />
+        <div className="w-px h-4 bg-slate-200" />
+        <div>
+          <h1 className="font-display text-xl font-bold text-pnb-crimson leading-tight">Scheduled Reporting</h1>
+          <p className="font-body text-xs text-slate-500 mt-0.5">Automate periodic report delivery to email or storage.</p>
+        </div>
+        <div className="ml-auto flex items-center gap-2.5 bg-white border border-amber-200 rounded-xl px-4 py-2">
+          <span className="font-display text-xs font-semibold text-slate-600">Schedule Active</span>
+          <Toggle on={enabled} onToggle={() => setEnabled(!enabled)} />
+        </div>
       </div>
 
-      <div className="glass-card rounded-2xl p-6 max-w-3xl mx-auto shadow-xl">
-        {/* Header row */}
-        <div className="flex items-center justify-between mb-6">
-          <div className="flex items-center gap-3">
-            <div className="p-2 bg-amber-100 rounded-xl"><Calendar size={20} className="text-pnb-amber" /></div>
-            <h2 className="font-display text-lg font-bold text-pnb-crimson">Schedule Reporting</h2>
-          </div>
-          <div className="flex items-center gap-2">
-            <span className="font-body text-xs text-gray-600">Enable Schedule</span>
-            <button
-              onClick={() => setEnabled(!enabled)}
-              className={`relative w-12 h-6 rounded-full transition-colors ${enabled ? 'bg-amber-500' : 'bg-gray-300'}`}
-            >
-              <div className={`absolute top-1 w-4 h-4 bg-white rounded-full shadow transition-transform
-                ${enabled ? 'translate-x-7' : 'translate-x-1'}`} />
-            </button>
-          </div>
-        </div>
+      {/* ── Main layout: form + summary sidebar ── */}
+      <div className="grid grid-cols-3 gap-5">
+        {/* ── 2/3 form area ── */}
+        <div className="col-span-2 space-y-5">
 
-        <div className="grid grid-cols-2 gap-8">
-          {/* Left */}
-          <div className="space-y-4">
-            {/* Multi-select report types */}
-            <ReportTypeMultiSelect selected={selectedTypes} setSelected={setSelectedTypes} />
-
-            <div>
-              <label className="font-display text-xs font-semibold text-gray-700 uppercase tracking-wide block mb-1.5">
-                Frequency
-              </label>
-              <select value={freq} onChange={e => setFreq(e.target.value)}
-                className="w-full rounded-lg border border-amber-200 bg-white px-3 py-2 text-sm font-body text-gray-800
-                           focus:outline-none focus:ring-1 focus:ring-amber-400">
-                {['Daily','Weekly','Bi-Weekly','Monthly','Quarterly'].map(o => (
-                  <option key={o}>{o}</option>
-                ))}
-              </select>
-            </div>
-
-            <div>
-              <label className="font-display text-xs font-semibold text-gray-700 uppercase tracking-wide block mb-1.5">
-                Select Assets
-              </label>
-              <select value={assets} onChange={e => setAssets(e.target.value)}
-                className="w-full rounded-lg border border-amber-200 bg-white px-3 py-2 text-sm font-body text-gray-800
-                           focus:outline-none focus:ring-1 focus:ring-amber-400">
-                {['All Assets','Web Applications','APIs','Servers','Gateways'].map(o => (
-                  <option key={o}>{o}</option>
-                ))}
-              </select>
-            </div>
-
-            <div>
-              <label className="font-display text-xs font-semibold text-gray-700 uppercase tracking-wide block mb-1.5">
-                File Format
-              </label>
-              <select value={format} onChange={e => setFormat(e.target.value)}
-                className="w-full rounded-lg border border-amber-200 bg-white px-3 py-2 text-sm font-body text-gray-800
-                           focus:outline-none focus:ring-1 focus:ring-amber-400">
-                {['PDF','JSON','CSV','XLSX','CycloneDX'].map(o => (
-                  <option key={o}>{o}</option>
-                ))}
-              </select>
-            </div>
-
-            <div>
-              <label className="font-display text-xs font-semibold text-gray-700 uppercase tracking-wide block mb-2">
-                Include Sections
-              </label>
-              <div className="flex flex-wrap gap-2">
-                {sections.map(s => (
-                  <button key={s} onClick={() => toggleSection(s)}
-                    className={`flex items-center gap-1.5 text-xs font-display font-semibold px-3 py-1.5 rounded-lg border transition-colors
-                      ${checked.has(s) ? 'bg-pnb-crimson text-white border-pnb-crimson shadow-sm' : 'bg-white text-gray-600 border-amber-200 hover:bg-amber-50'}`}>
-                    {checked.has(s) && '✓'} {s}
-                  </button>
-                ))}
+          {/* Card 1: Report content */}
+          <div className="glass-card rounded-2xl p-5 border border-amber-100/50 shadow-sm">
+            <SectionHeader icon={FileText} label="Report Content" />
+            <div className="space-y-4">
+              <div>
+                <FieldLabel>Report Types</FieldLabel>
+                <ReportTypeMultiSelect selected={selectedTypes} setSelected={setSelectedTypes} />
+              </div>
+              <div>
+                <FieldLabel>Include Sections</FieldLabel>
+                <PillSelect
+                  multi options={sections}
+                  selected={Array.from(checkedSections)}
+                  onToggle={toggleSection}
+                />
+              </div>
+              <div>
+                <FieldLabel>Asset Scope</FieldLabel>
+                <PillSelect
+                  options={['All Assets','Web Applications','APIs','Servers','Gateways']}
+                  value={assets} onChange={setAssets}
+                />
               </div>
             </div>
           </div>
 
-          {/* Right */}
-          <div className="space-y-4">
-            <div className="bg-amber-50 border border-amber-200 rounded-xl p-4">
-              <div className="flex items-center gap-2 text-amber-600 mb-3">
-                <Calendar size={14} />
-                <span className="font-display text-xs font-semibold uppercase tracking-wide">Schedule Details</span>
+          {/* Card 2: Schedule timing */}
+          <div className="glass-card rounded-2xl p-5 border border-amber-100/50 shadow-sm">
+            <SectionHeader icon={Calendar} label="Schedule Timing" color="text-amber-600" />
+            <div className="grid grid-cols-2 gap-4">
+              <div>
+                <FieldLabel>Frequency</FieldLabel>
+                <PillSelect
+                  options={['Daily','Weekly','Bi-Weekly','Monthly','Quarterly']}
+                  value={freq} onChange={setFreq}
+                />
               </div>
-              <div className="space-y-3">
+              <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="font-body text-xs text-gray-600 block mb-1">Date</label>
+                  <FieldLabel>Start Date</FieldLabel>
                   <input type="date" value={scheduleDate}
-                    onChange={e => setScheduleDate(e.target.value)}
-                    className="w-full rounded-lg border border-amber-200 bg-white px-3 py-2 text-sm font-body text-gray-800
-                               focus:outline-none focus:ring-1 focus:ring-amber-400" />
+                    onChange={e => setScheduleDate(e.target.value)} className={inputCls} />
                 </div>
                 <div>
-                  <label className="font-body text-xs text-gray-600 block mb-1">Time</label>
-                  <select value={scheduleTime} onChange={e => setScheduleTime(e.target.value)}
-                    className="w-full rounded-lg border border-amber-200 bg-white px-3 py-2 text-sm font-body text-gray-800
-                                    focus:outline-none focus:ring-1 focus:ring-amber-400">
+                  <FieldLabel>Time (IST)</FieldLabel>
+                  <select value={scheduleTime} onChange={e => setScheduleTime(e.target.value)} className={inputCls}>
                     {['09:00 AM (IST)','12:00 PM (IST)','06:00 PM (IST)'].map(o => <option key={o}>{o}</option>)}
                   </select>
                 </div>
-                <p className="font-body text-xs text-gray-500">Time Zone: Asia/Kolkata</p>
               </div>
             </div>
+          </div>
 
-            <div className="bg-amber-50 border border-amber-200 rounded-xl p-4">
-              <div className="flex items-center gap-2 text-amber-600 mb-3">
-                <Mail size={14} />
-                <span className="font-display text-xs font-semibold uppercase tracking-wide">Delivery Options</span>
+          {/* Card 3: Output format */}
+          <div className="glass-card rounded-2xl p-5 border border-amber-100/50 shadow-sm">
+            <SectionHeader icon={Download} label="Output Format" color="text-indigo-600" />
+            <PillSelect options={['PDF','JSON','CSV','XLSX','CycloneDX']} value={format} onChange={setFormat} />
+          </div>
+
+          {/* Card 4: Delivery */}
+          <div className="glass-card rounded-2xl p-5 border border-amber-100/50 shadow-sm">
+            <SectionHeader icon={Mail} label="Delivery" color="text-blue-600" />
+            <div className="space-y-2">
+              <DeliveryRow icon={Mail} label="Send via Email" on={emailOn} onToggle={() => setEmailOn(!emailOn)}>
+                <input placeholder="executives@org.com, ciso@org.com" value={emailAddr}
+                  onChange={e => setEmailAddr(e.target.value)} className={`${inputCls} text-xs py-1.5`} />
+              </DeliveryRow>
+              <DeliveryRow icon={FolderOpen} label="Save to Location" on={saveOn} onToggle={() => setSaveOn(!saveOn)}>
+                <input value={savePath} onChange={e => setSavePath(e.target.value)}
+                  className={`${inputCls} text-xs py-1.5`} />
+              </DeliveryRow>
+              <DeliveryRow icon={Link2} label="Generate Download Link" on={linkOn} onToggle={() => setLinkOn(!linkOn)} />
+            </div>
+          </div>
+        </div>
+
+        {/* ── 1/3 Summary sidebar ── */}
+        <div className="space-y-4">
+          <div className="glass-card rounded-2xl p-5 border border-amber-100/50 shadow-sm sticky top-4">
+            <SectionHeader icon={CheckCircle2} label="Schedule Summary" color="text-green-600" />
+
+            <div className="space-y-3">
+              {/* Status */}
+              <div className={`flex items-center gap-2 px-3 py-2 rounded-xl text-xs font-display font-bold
+                ${enabled ? 'bg-green-50 border border-green-200 text-green-700' : 'bg-slate-100 border border-slate-200 text-slate-500'}`}>
+                <div className={`w-2 h-2 rounded-full ${enabled ? 'bg-green-500 animate-pulse' : 'bg-slate-400'}`} />
+                {enabled ? 'Schedule Enabled' : 'Schedule Disabled'}
               </div>
-              {/* Email */}
-              <div className="flex items-center gap-2 mb-2">
-                <input type="checkbox" checked={emailOn} onChange={() => setEmailOn(!emailOn)} className="accent-amber-500" />
-                <Mail size={13} className="text-gray-500" />
-                <span className="font-body text-xs text-gray-700 w-28">Email</span>
-                {emailOn && (
-                  <input placeholder="executives@org.com" value={emailAddr}
-                    onChange={e => setEmailAddr(e.target.value)}
-                    className="flex-1 rounded border border-amber-200 bg-white px-2 py-1 text-xs font-body text-gray-800 placeholder:text-gray-400
-                               focus:outline-none focus:ring-1 focus:ring-amber-400" />
-                )}
-              </div>
-              {/* Save to Location */}
-              <div className="flex items-center gap-2 mb-2">
-                <input type="checkbox" checked={saveOn} onChange={() => setSaveOn(!saveOn)} className="accent-amber-500" />
-                <FolderOpen size={13} className="text-gray-500" />
-                <span className="font-body text-xs text-gray-700 w-28">Save to Location</span>
-                {saveOn && (
-                  <input value={savePath} onChange={e => setSavePath(e.target.value)}
-                    className="flex-1 rounded border border-amber-200 bg-white px-2 py-1 text-xs font-body text-gray-800 placeholder:text-gray-400
-                               focus:outline-none focus:ring-1 focus:ring-amber-400" />
-                )}
-              </div>
-              {/* Download Link */}
-              <div className="flex items-center gap-2 mb-2">
-                <input type="checkbox" checked={linkOn} onChange={() => setLinkOn(!linkOn)} className="accent-amber-500" />
-                <Link2 size={13} className="text-gray-500" />
-                <span className="font-body text-xs text-gray-700 w-28">Download Link</span>
+
+              {/* Summary items */}
+              {[
+                { label: 'Frequency',   value: freq },
+                { label: 'Format',      value: format },
+                { label: 'Asset Scope', value: assets },
+                { label: 'Start Date',  value: scheduleDate },
+                { label: 'Time',        value: scheduleTime },
+                { label: 'Sections',    value: `${checkedSections.size} of ${sections.length}` },
+                { label: 'Reports',     value: selectedTypes.length === 0 ? 'None selected' : selectedTypes.length === 1 ? selectedTypes[0].replace(' Report','') : `${selectedTypes.length} types` },
+              ].map(({ label, value }) => (
+                <div key={label} className="flex items-start justify-between gap-2 text-xs">
+                  <span className="font-body text-slate-400 shrink-0">{label}</span>
+                  <span className="font-display font-semibold text-slate-700 text-right">{value}</span>
+                </div>
+              ))}
+
+              {/* Delivery chips */}
+              <div>
+                <span className="font-body text-[10px] text-slate-400 uppercase tracking-widest block mb-1.5">Delivery</span>
+                <div className="flex flex-wrap gap-1.5">
+                  {emailOn && <span className="bg-blue-50 border border-blue-200 text-blue-700 text-[10px] font-display font-semibold px-2 py-0.5 rounded-full">Email</span>}
+                  {saveOn  && <span className="bg-amber-50 border border-amber-200 text-amber-700 text-[10px] font-display font-semibold px-2 py-0.5 rounded-full">File Save</span>}
+                  {linkOn  && <span className="bg-indigo-50 border border-indigo-200 text-indigo-700 text-[10px] font-display font-semibold px-2 py-0.5 rounded-full">Link</span>}
+                  {!emailOn && !saveOn && !linkOn && <span className="text-slate-400 text-xs">None selected</span>}
+                </div>
               </div>
             </div>
 
             <button
               onClick={handleSchedule}
               disabled={submitting || selectedTypes.length === 0}
-              className={`w-full bg-gradient-to-r from-pnb-crimson to-pnb-darkred text-white font-display
-                               font-bold py-3 rounded-xl hover:from-red-800 hover:to-pnb-crimson
-                               transition-all duration-300 shadow-lg flex items-center justify-center gap-2
-                               ${(submitting || selectedTypes.length === 0) ? 'opacity-60 cursor-not-allowed' : ''}`}>
+              className={`mt-5 w-full bg-gradient-to-r from-pnb-crimson to-red-800 text-white font-display
+                font-bold py-3 rounded-xl text-sm transition-all duration-300 shadow-lg flex items-center justify-center gap-2
+                hover:from-red-700 hover:to-pnb-crimson hover:shadow-xl hover:-translate-y-0.5
+                ${(submitting || selectedTypes.length === 0) ? 'opacity-50 cursor-not-allowed' : ''}`}
+            >
               {submitting
-                ? <><Loader2 size={14} className="animate-spin" /> Scheduling...</>
-                : <><Calendar size={14} /> Schedule Report →</>
+                ? <><Loader2 size={14} className="animate-spin" /> Saving...</>
+                : <><Calendar size={14} /> Save Schedule</>
               }
             </button>
+
+            {selectedTypes.length === 0 && (
+              <p className="font-body text-xs text-red-500 text-center mt-2">Select at least one report type</p>
+            )}
           </div>
         </div>
       </div>
@@ -589,9 +685,9 @@ function OnDemandView({ setActive, showToast }) {
   const [format, setFormat]               = useState('PDF')
   const [includeCharts, setIncludeCharts] = useState(true)
   const [pwProtect, setPwProtect]         = useState(false)
-  const [emailEnabled, setEmailEnabled]   = useState(true)
+  const [emailEnabled, setEmailEnabled]   = useState(false)
   const [emailAddr, setEmailAddr]         = useState('')
-  const [saveEnabled, setSaveEnabled]     = useState(true)
+  const [saveEnabled, setSaveEnabled]     = useState(false)
   const [savePath, setSavePath]           = useState('/Reports/OnDemand/')
   const [linkEnabled, setLinkEnabled]     = useState(false)
   const [slackEnabled, setSlackEnabled]   = useState(false)
@@ -599,57 +695,27 @@ function OnDemandView({ setActive, showToast }) {
   const [generatedLink, setGeneratedLink] = useState(null)
 
   const handleGenerate = async () => {
-    if (selectedTypes.length === 0) {
-      showToast('error', 'Please select at least one report type')
-      return
-    }
-
+    if (selectedTypes.length === 0) { showToast('error', 'Please select at least one report type'); return }
     setGenerating(true)
     setGeneratedLink(null)
     const fmtKey = format.toLowerCase()
-
     try {
-      // 1. Direct download
-      showToast('loading', `Generating ${selectedTypes.length > 1 ? 'consolidated' : ''} report in ${format}...`)
+      showToast('loading', `Generating ${selectedTypes.length > 1 ? 'consolidated ' : ''}${format} report...`)
       await downloadReport(selectedTypes, fmtKey)
       showToast('success', `Report downloaded as ${format}!`)
 
-      // 2. Email delivery
       if (emailEnabled && emailAddr.trim()) {
-        showToast('loading', `Sending report to ${emailAddr}...`)
-        const emailRes = await apiPost('/email', {
-          report_types: selectedTypes,
-          format: fmtKey,
-          include_charts: includeCharts,
-          password_protect: pwProtect,
-          recipients: emailAddr.split(',').map(e => e.trim()),
-        })
-        const emailData = await emailRes.json()
-        if (emailData.success) {
-          showToast('success', `Report sent to ${emailAddr}`)
-        }
+        showToast('loading', `Sending to ${emailAddr}...`)
+        const r = await apiPost('/email', { report_types: selectedTypes, format: fmtKey, include_charts: includeCharts, password_protect: pwProtect, recipients: emailAddr.split(',').map(e => e.trim()) })
+        const d = await r.json()
+        if (d.success) showToast('success', `Report sent to ${emailAddr}`)
       }
-
-      // 3. Generate download link
       if (linkEnabled) {
-        const linkRes = await apiPost('/link', {
-          report_types: selectedTypes,
-          format: fmtKey,
-          include_charts: includeCharts,
-          password_protect: pwProtect,
-        })
-        const linkData = await linkRes.json()
-        if (linkData.success) {
-          setGeneratedLink(linkData.download_url)
-          showToast('info', 'Download link generated!')
-        }
+        const r = await apiPost('/link', { report_types: selectedTypes, format: fmtKey, include_charts: includeCharts, password_protect: pwProtect })
+        const d = await r.json()
+        if (d.success) { setGeneratedLink(d.download_url); showToast('info', 'Download link generated!') }
       }
-
-      // 4. Slack (simulated)
-      if (slackEnabled) {
-        showToast('info', 'Slack notification sent (simulated)')
-      }
-
+      if (slackEnabled) showToast('info', 'Slack notification sent (simulated)')
     } catch (err) {
       showToast('error', `Failed: ${err.message}`)
     } finally {
@@ -657,152 +723,174 @@ function OnDemandView({ setActive, showToast }) {
     }
   }
 
+  const canGenerate = selectedTypes.length > 0 && !generating
+
   return (
-    <div className="space-y-4">
+    <div className="space-y-5">
+      {/* ── Header ── */}
       <div className="flex items-center gap-3">
-        <button onClick={() => setActive(null)}
-          className="font-display text-xs text-pnb-amber hover:text-pnb-crimson">← Back</button>
-        <h1 className="font-display text-xl font-bold text-pnb-crimson">On-Demand Reporting</h1>
+        <BackBtn onClick={() => setActive(null)} />
+        <div className="w-px h-4 bg-slate-200" />
+        <div>
+          <h1 className="font-display text-xl font-bold text-pnb-crimson leading-tight">On-Demand Reporting</h1>
+          <p className="font-body text-xs text-slate-500 mt-0.5">Configure, generate, and deliver any report instantly.</p>
+        </div>
       </div>
 
-      <div className="glass-card rounded-2xl p-6 max-w-3xl mx-auto shadow-xl">
-        <div className="flex items-center gap-3 mb-6">
-          <div className="p-2 bg-amber-100 rounded-xl"><Search size={20} className="text-pnb-amber" /></div>
-          <div>
-            <h2 className="font-display text-lg font-bold text-pnb-crimson">On-Demand Reporting</h2>
-            <p className="font-body text-xs text-gray-500">Select one or more report types to combine into a single report</p>
+      {/* ── 3-column layout ── */}
+      <div className="grid grid-cols-3 gap-5">
+
+        {/* ── Col 1+2: form ── */}
+        <div className="col-span-2 space-y-4">
+
+          {/* Report content */}
+          <div className="glass-card rounded-2xl p-5 border border-amber-100/50 shadow-sm">
+            <SectionHeader icon={FileText} label="Report Content" />
+            <div className="space-y-4">
+              <div>
+                <FieldLabel>Report Types <span className="normal-case font-normal text-slate-400">(select one or more)</span></FieldLabel>
+                <div className="grid grid-cols-2 gap-2">
+                  {ALL_REPORT_TYPES.map(({ key, icon: Icon, label }) => {
+                    const isSel = selectedTypes.includes(key)
+                    return (
+                      <button key={key}
+                        onClick={() => setSelectedTypes(prev => prev.includes(key) ? prev.filter(k => k !== key) : [...prev, key])}
+                        className={`flex items-center gap-2.5 px-3.5 py-2.5 rounded-xl border text-left transition-all duration-150
+                          ${isSel ? 'bg-pnb-crimson/5 border-pnb-crimson shadow-sm' : 'bg-white border-amber-200 hover:border-amber-300 hover:bg-amber-50/60'}`}
+                      >
+                        <div className={`p-1.5 rounded-lg shrink-0 transition-colors ${isSel ? 'bg-pnb-crimson' : 'bg-slate-100'}`}>
+                          <Icon size={12} className={isSel ? 'text-white' : 'text-slate-400'} />
+                        </div>
+                        <span className={`font-display text-xs font-semibold ${isSel ? 'text-pnb-crimson' : 'text-slate-600'}`}>{label}</span>
+                        {isSel && <Check size={12} className="ml-auto text-pnb-crimson shrink-0" />}
+                      </button>
+                    )
+                  })}
+                </div>
+                {selectedTypes.length > 1 && (
+                  <p className="font-body text-xs text-amber-700 mt-2 flex items-center gap-1.5">
+                    <FileText size={11} />
+                    {selectedTypes.length} types selected — merged into one consolidated report
+                  </p>
+                )}
+              </div>
+            </div>
+          </div>
+
+          {/* Output format */}
+          <div className="glass-card rounded-2xl p-5 border border-amber-100/50 shadow-sm">
+            <SectionHeader icon={Download} label="Output Format" color="text-indigo-600" />
+            <PillSelect options={['PDF','JSON','CSV','XLSX','CycloneDX']} value={format} onChange={setFormat} />
+          </div>
+
+          {/* Delivery */}
+          <div className="glass-card rounded-2xl p-5 border border-amber-100/50 shadow-sm">
+            <SectionHeader icon={Mail} label="Delivery" color="text-blue-600" />
+            <div className="space-y-2">
+              <DeliveryRow icon={Mail} label="Send via Email" on={emailEnabled} onToggle={() => setEmailEnabled(!emailEnabled)}>
+                <input placeholder="executives@org.com, ciso@org.com" value={emailAddr}
+                  onChange={e => setEmailAddr(e.target.value)} className={`${inputCls} text-xs py-1.5`} />
+              </DeliveryRow>
+              <DeliveryRow icon={FolderOpen} label="Save to Location" on={saveEnabled} onToggle={() => setSaveEnabled(!saveEnabled)}>
+                <div className="flex gap-1.5">
+                  <input value={savePath} onChange={e => setSavePath(e.target.value)} className={`${inputCls} text-xs py-1.5`} />
+                  <button className="p-2 border border-amber-200 rounded-lg hover:bg-amber-50 transition-colors shrink-0">
+                    <FolderOpen size={13} className="text-amber-600" />
+                  </button>
+                </div>
+              </DeliveryRow>
+              <DeliveryRow icon={Link2} label="Generate Shareable Link" on={linkEnabled} onToggle={() => setLinkEnabled(!linkEnabled)} />
+              <DeliveryRow icon={Bell} label="Slack Notification" on={slackEnabled} onToggle={() => setSlackEnabled(!slackEnabled)} />
+            </div>
+          </div>
+
+          {/* Advanced */}
+          <div className="glass-card rounded-2xl p-5 border border-amber-100/50 shadow-sm">
+            <SectionHeader icon={Settings} label="Advanced Settings" color="text-slate-500" />
+            <div className="grid grid-cols-2 gap-4 items-center">
+              <div className="flex items-center justify-between">
+                <span className="font-body text-xs text-slate-600">Include Charts</span>
+                <Toggle on={includeCharts} onToggle={() => setIncludeCharts(!includeCharts)} />
+              </div>
+              <div className="flex items-center justify-between">
+                <span className="font-body text-xs text-slate-600">Password Protect</span>
+                <Toggle on={pwProtect} onToggle={() => setPwProtect(!pwProtect)} />
+              </div>
+            </div>
           </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-8">
-          {/* Left — Report type multi-select */}
-          <div className="space-y-4">
-            <ReportTypeMultiSelect selected={selectedTypes} setSelected={setSelectedTypes} />
+        {/* ── Col 3: preview + generate ── */}
+        <div className="space-y-4 sticky top-4 self-start">
+          {/* Preview card */}
+          <div className="glass-card rounded-2xl p-5 border border-amber-100/50 shadow-sm">
+            <SectionHeader icon={FileText} label="Report Preview" color="text-slate-500" />
 
-            {/* Generated link display */}
+            {selectedTypes.length === 0 ? (
+              <div className="flex flex-col items-center justify-center py-6 text-center">
+                <div className="w-10 h-10 bg-slate-100 rounded-xl flex items-center justify-center mb-3">
+                  <FileText size={18} className="text-slate-300" />
+                </div>
+                <p className="font-body text-xs text-slate-400">Select report types to preview</p>
+              </div>
+            ) : (
+              <div className="space-y-2.5">
+                {selectedTypes.map(key => {
+                  const meta = ALL_REPORT_TYPES.find(r => r.key === key)
+                  if (!meta) return null
+                  const Icon = meta.icon
+                  return (
+                    <div key={key} className="flex items-center gap-2.5 bg-slate-50 rounded-xl px-3 py-2 border border-slate-100">
+                      <div className="p-1.5 bg-pnb-crimson/10 rounded-lg">
+                        <Icon size={12} className="text-pnb-crimson" />
+                      </div>
+                      <span className="font-display text-xs font-semibold text-slate-700 flex-1">{meta.label}</span>
+                      <span className="font-mono text-[10px] text-slate-400 bg-white border border-slate-200 px-1.5 py-0.5 rounded">{format}</span>
+                    </div>
+                  )
+                })}
+
+                {selectedTypes.length > 1 && (
+                  <div className="mt-1 flex items-center gap-1.5 text-xs text-amber-700 bg-amber-50 border border-amber-200 rounded-xl px-3 py-2">
+                    <Layers size={11} />
+                    Will be merged into 1 consolidated report
+                  </div>
+                )}
+              </div>
+            )}
+
+            {/* Generated link */}
             {generatedLink && (
-              <div className="bg-green-50 border border-green-200 rounded-xl p-3 flex items-center gap-2">
-                <Link2 size={14} className="text-green-600" />
-                <span className="font-body text-xs text-green-800 flex-1">Download link ready</span>
+              <div className="mt-3 bg-green-50 border border-green-200 rounded-xl p-3 flex items-center gap-2">
+                <Link2 size={13} className="text-green-600 shrink-0" />
+                <span className="font-body text-xs text-green-800 flex-1">Link ready</span>
                 <button
-                  onClick={() => {
-                    const fullUrl = `${window.location.origin}${generatedLink}`
-                    navigator.clipboard.writeText(fullUrl)
-                    showToast('success', 'Link copied to clipboard!')
-                  }}
-                  className="text-xs font-display font-semibold text-green-700 bg-green-100 px-2 py-1 rounded-lg hover:bg-green-200"
+                  onClick={() => { navigator.clipboard.writeText(`${window.location.origin}${generatedLink}`); showToast('success', 'Link copied!') }}
+                  className="text-xs font-display font-semibold text-green-700 bg-green-100 hover:bg-green-200 px-2 py-1 rounded-lg transition-colors"
                 >
-                  Copy Link
+                  Copy
                 </button>
               </div>
             )}
           </div>
 
-          {/* Right — Delivery options */}
-          <div>
-            <label className="font-display text-xs font-semibold text-gray-700 uppercase tracking-wide block mb-2">
-              Delivery Options
-            </label>
-            <div className="space-y-3">
-              {/* Email */}
-              <div className={`flex items-center gap-2 p-3 rounded-xl border ${emailEnabled ? 'bg-amber-50 border-amber-200' : 'bg-gray-50 border-gray-200'}`}>
-                <input type="checkbox" checked={emailEnabled} onChange={() => setEmailEnabled(!emailEnabled)} className="accent-amber-500" />
-                <Mail size={13} className="text-gray-500" />
-                <span className="font-body text-xs text-gray-700 flex-1">Send via Email</span>
-                <button className={`relative w-10 h-5 rounded-full transition-colors ${emailEnabled ? 'bg-amber-500' : 'bg-gray-300'}`}
-                  onClick={() => setEmailEnabled(!emailEnabled)}>
-                  <div className={`absolute top-0.5 w-4 h-4 bg-white rounded-full shadow transition-transform ${emailEnabled ? 'translate-x-5' : 'translate-x-0.5'}`} />
-                </button>
-              </div>
-              {emailEnabled && (
-                <input placeholder="Enter Email Addresses (comma separated)" value={emailAddr}
-                  onChange={e => setEmailAddr(e.target.value)}
-                  className="w-full rounded-xl border border-amber-200 bg-white px-3 py-2 text-xs font-body text-gray-800 placeholder:text-gray-400
-                             focus:outline-none focus:ring-1 focus:ring-amber-400" />
-              )}
-
-              {/* Save location */}
-              <div className={`flex items-center gap-2 p-3 rounded-xl border ${saveEnabled ? 'bg-amber-50 border-amber-200' : 'bg-gray-50 border-gray-200'}`}>
-                <input type="checkbox" checked={saveEnabled} onChange={() => setSaveEnabled(!saveEnabled)} className="accent-amber-500" />
-                <FolderOpen size={13} className="text-gray-500" />
-                <span className="font-body text-xs text-gray-700 flex-1">Save to Location</span>
-                <button className={`relative w-10 h-5 rounded-full transition-colors ${saveEnabled ? 'bg-amber-500' : 'bg-gray-300'}`}
-                  onClick={() => setSaveEnabled(!saveEnabled)}>
-                  <div className={`absolute top-0.5 w-4 h-4 bg-white rounded-full shadow transition-transform ${saveEnabled ? 'translate-x-5' : 'translate-x-0.5'}`} />
-                </button>
-              </div>
-              {saveEnabled && (
-                <div className="flex items-center gap-1">
-                  <input value={savePath} onChange={e => setSavePath(e.target.value)}
-                    className="flex-1 rounded-xl border border-amber-200 bg-white px-3 py-2 text-xs font-body text-gray-800 placeholder:text-gray-400
-                               focus:outline-none focus:ring-1 focus:ring-amber-400" />
-                  <button className="p-2 border border-amber-200 rounded-xl hover:bg-amber-50">
-                    <FolderOpen size={13} className="text-amber-600" />
-                  </button>
-                </div>
-              )}
-
-              {/* Download link */}
-              <div className={`flex items-center gap-2 p-3 rounded-xl border ${linkEnabled ? 'bg-amber-50 border-amber-200' : 'bg-gray-50 border-gray-200'}`}>
-                <input type="checkbox" checked={linkEnabled} onChange={() => setLinkEnabled(!linkEnabled)} className="accent-amber-500" />
-                <Link2 size={13} className="text-gray-500" />
-                <span className="font-body text-xs text-gray-700">Download Link</span>
-              </div>
-
-              {/* Slack */}
-              <div className={`flex items-center gap-2 p-3 rounded-xl border ${slackEnabled ? 'bg-amber-50 border-amber-200' : 'bg-gray-50 border-gray-200'}`}>
-                <input type="checkbox" checked={slackEnabled} onChange={() => setSlackEnabled(!slackEnabled)} className="accent-amber-500" />
-                <Bell size={13} className="text-gray-500" />
-                <span className="font-body text-xs text-gray-700">Slack Notification</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Advanced Settings */}
-        <div className="mt-6 bg-amber-50 border border-amber-200 rounded-xl p-4">
-          <div className="flex items-center gap-2 mb-3">
-            <span className="text-amber-600">⚙</span>
-            <span className="font-display text-xs font-semibold text-gray-700 uppercase tracking-wide">Advanced Settings</span>
-          </div>
-          <div className="flex items-center gap-6 flex-wrap">
-            <div>
-              <label className="font-body text-xs text-gray-600 block mb-1">File Format</label>
-              <select value={format} onChange={e => setFormat(e.target.value)}
-                className="rounded-lg border border-amber-200 bg-white px-3 py-1.5 text-xs font-body text-gray-800 focus:outline-none focus:ring-1 focus:ring-amber-400">
-                {['PDF','JSON','CSV','XLSX','CycloneDX'].map(o => <option key={o}>{o}</option>)}
-              </select>
-            </div>
-
-            <div className="flex items-center gap-2">
-              <label className="font-body text-xs text-gray-600">Include Charts</label>
-              <button onClick={() => setIncludeCharts(!includeCharts)}
-                className={`relative w-10 h-5 rounded-full transition-colors ${includeCharts ? 'bg-amber-500' : 'bg-gray-300'}`}>
-                <div className={`absolute top-0.5 w-4 h-4 bg-white rounded-full shadow transition-transform ${includeCharts ? 'translate-x-5' : 'translate-x-0.5'}`} />
-              </button>
-            </div>
-
-            <div className="flex items-center gap-2">
-              <label className="font-body text-xs text-gray-600">Password Protect</label>
-              <button onClick={() => setPwProtect(!pwProtect)}
-                className={`relative w-10 h-5 rounded-full transition-colors ${pwProtect ? 'bg-amber-500' : 'bg-gray-300'}`}>
-                <div className={`absolute top-0.5 w-4 h-4 bg-white rounded-full shadow transition-transform ${pwProtect ? 'translate-x-5' : 'translate-x-0.5'}`} />
-              </button>
-            </div>
-
-            <button
-              onClick={handleGenerate}
-              disabled={generating || selectedTypes.length === 0}
-              className={`ml-auto bg-gradient-to-r from-pnb-crimson to-pnb-darkred text-white font-display
-                               font-bold text-xs px-6 py-2.5 rounded-xl hover:from-red-800 hover:to-pnb-crimson
-                               transition-all duration-300 shadow-lg flex items-center gap-2
-                               ${(generating || selectedTypes.length === 0) ? 'opacity-60 cursor-not-allowed' : ''}`}>
-              {generating
-                ? <><Loader2 size={13} className="animate-spin" /> Generating...</>
-                : <><Download size={13} /> Generate Report</>
-              }
-            </button>
-          </div>
+          {/* Generate button */}
+          <button
+            onClick={handleGenerate}
+            disabled={!canGenerate}
+            className={`w-full bg-gradient-to-r from-pnb-crimson to-red-800 text-white font-display
+              font-bold py-3.5 rounded-2xl text-sm transition-all duration-300 shadow-lg flex items-center justify-center gap-2
+              hover:from-red-700 hover:to-pnb-crimson hover:shadow-xl hover:-translate-y-0.5
+              ${!canGenerate ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}
+          >
+            {generating
+              ? <><Loader2 size={14} className="animate-spin" /> Generating...</>
+              : <><Download size={14} /> Generate Report</>
+            }
+          </button>
+          {selectedTypes.length === 0 && (
+            <p className="font-body text-xs text-slate-400 text-center">Select at least one report type above</p>
+          )}
         </div>
       </div>
     </div>

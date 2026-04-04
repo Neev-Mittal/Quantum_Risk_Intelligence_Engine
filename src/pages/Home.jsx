@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react'
 import {
   Globe, Layers, Server, AlertTriangle, ShieldOff,
-  Plus, RefreshCw, Search, ChevronDown, Wifi, Lock, Database, Cpu
+  RefreshCw, Search, Wifi, Lock, Database, Cpu,
+  CheckCircle, Activity, ScanLine, AlertCircle, Settings
 } from 'lucide-react'
 import {
   PieChart, Pie, Cell,
@@ -19,27 +20,12 @@ const riskColor = { High: 'risk-high', Medium: 'risk-medium', Moderate: 'risk-me
 const certColor  = { Valid: 'text-green-600', Expiring: 'text-amber-500', Expired: 'text-red-600', Unknown: 'text-gray-500' }
 
 const recentActivity = [
-  { icon: '⊗', text: 'Scan completed: crypto asset classification active', time: '10 min ago', color: 'text-blue-500'   },
-  { icon: '⚠', text: 'Weak cipher detected: vpn.pnb.bank.in',             time: '1 hr ago',   color: 'text-amber-500' },
-  { icon: '⊠', text: 'Certificate expiring soon: api.pnb.in',             time: '3 hrs ago',  color: 'text-orange-500' },
-  { icon: '✦', text: 'API endpoint discovered: gateway.pnb.bank.in',      time: '1 day ago',  color: 'text-indigo-500' },
-  { icon: '⚙', text: 'CDN/WAF asset reclassified',                        time: '2 days ago', color: 'text-green-500' },
+  { Icon: Activity,      text: 'Scan completed: crypto asset classification active', time: '10 min ago', color: 'text-blue-500'   },
+  { Icon: AlertTriangle, text: 'Weak cipher detected: vpn.pnb.bank.in',             time: '1 hr ago',   color: 'text-amber-500' },
+  { Icon: AlertCircle,   text: 'Certificate expiring soon: api.pnb.in',             time: '3 hrs ago',  color: 'text-orange-500' },
+  { Icon: ScanLine,      text: 'API endpoint discovered: gateway.pnb.bank.in',      time: '1 day ago',  color: 'text-indigo-500' },
+  { Icon: Settings,      text: 'CDN/WAF asset reclassified',                        time: '2 days ago', color: 'text-green-500' },
 ]
-
-const ASSET_TYPE_ICON = {
-  web_application: '🌐',
-  api:             '🔌',
-  web_server:      '🖥',
-  database:        '🗄',
-  mail_server:     '📧',
-  dns_server:      '🌍',
-  cdn_proxy:       '☁',
-  load_balancer:   '⚖',
-  ssl_certificate: '🔒',
-  ip_address:      '📡',
-  domain:          '🏷',
-  unknown:         '❓',
-}
 
 export default function Home() {
   const [searchQuery, setSearchQuery] = useState('')
@@ -150,7 +136,7 @@ export default function Home() {
           </h3>
           <ResponsiveContainer width="100%" height={150}>
             <PieChart>
-              <Pie data={assetTypeDist} dataKey="value" cx="50%" cy="50%" innerRadius={35} outerRadius={65}>
+              <Pie data={assetTypeDist} dataKey="value" cx="50%" cy="50%" innerRadius={35} outerRadius={65} isAnimationActive={false}>
                 {assetTypeDist.map((d, i) => <Cell key={i} fill={d.color} />)}
               </Pie>
               <Tooltip contentStyle={{ fontSize: 11 }} />
@@ -179,18 +165,16 @@ export default function Home() {
               {(() => {
                 const totalRisk = riskDist.reduce((acc, r) => acc + (r.count || 0), 0) || 1
                 return [
-                  { label: 'Elite',    orig: 'Elite',    color: '#16a34a', bg: 'bg-green-50',  txt: 'text-green-600',  icon: '✦' },
-                  { label: 'Standard', orig: 'Standard', color: '#f59e0b', bg: 'bg-amber-50',  txt: 'text-amber-600',  icon: '🛡' },
-                  { label: 'Legacy',   orig: 'Legacy',   color: '#dc2626', bg: 'bg-red-50',    txt: 'text-red-600',    icon: '⚠' },
-                  { label: 'Critical', orig: 'Critical', color: '#7f1d1d', bg: 'bg-rose-50',   txt: 'text-rose-800',   icon: '⊗' },
-                ].map(({ label, orig, color, icon, bg, txt }) => {
+                  { label: 'Elite',    orig: 'Elite',    color: '#16a34a', dotColor: 'bg-green-500' },
+                  { label: 'Standard', orig: 'Standard', color: '#f59e0b', dotColor: 'bg-amber-500' },
+                  { label: 'Legacy',   orig: 'Legacy',   color: '#dc2626', dotColor: 'bg-red-500' },
+                  { label: 'Critical', orig: 'Critical', color: '#7f1d1d', dotColor: 'bg-rose-900' },
+                ].map(({ label, orig, color, dotColor }) => {
                   const item = riskDist.find(r => r.name === orig) || {}
                   const value = item.count || 0
                   return (
                     <div key={label} className="flex items-center gap-2.5">
-                      <div className={`w-7 h-7 flex-shrink-0 rounded-lg flex items-center justify-center text-sm shadow-sm border border-white ${bg} ${txt}`}>
-                        {icon}
-                      </div>
+                      <div className={`w-2.5 h-2.5 flex-shrink-0 rounded-full ${dotColor}`} />
                       <div className="flex-1">
                         <div className="flex justify-between text-xs mb-1.5">
                           <span className="font-body font-medium text-gray-600">{label}</span>
@@ -245,7 +229,7 @@ export default function Home() {
           </h3>
           <ResponsiveContainer width="100%" height={100}>
             <PieChart>
-              <Pie data={ipBreakdown} dataKey="value" cx="50%" cy="50%" outerRadius={44}>
+              <Pie data={ipBreakdown} dataKey="value" cx="50%" cy="50%" outerRadius={44} isAnimationActive={false}>
                 {ipBreakdown.map((d, i) => <Cell key={i} fill={d.color} />)}
               </Pie>
             </PieChart>
@@ -284,7 +268,7 @@ export default function Home() {
                 value={searchQuery}
                 onChange={e => setSearchQuery(e.target.value)}
                 placeholder="Search..."
-                className="pl-8 pr-3 py-1.5 text-xs border border-amber-200 rounded-lg
+                className="pl-8 pr-3 py-1.5 text-xs text-slate-800 border border-amber-200 rounded-lg
                            bg-white font-body focus:outline-none focus:ring-1 focus:ring-amber-400 w-36"
               />
             </div>
@@ -430,10 +414,10 @@ export default function Home() {
                     </span>
                   </td>
                   <td className="px-2 py-1.5 text-center">
-                    {row.isEV ? <span className="text-green-600">✓</span> : <span className="text-gray-300">—</span>}
+                    {row.isEV ? <CheckCircle size={13} className="inline text-green-600" /> : <span className="text-gray-300">—</span>}
                   </td>
                   <td className="px-2 py-1.5 text-center">
-                    {row.waf ? <span className="text-blue-600">✓</span> : <span className="text-gray-300">—</span>}
+                    {row.waf ? <CheckCircle size={13} className="inline text-blue-600" /> : <span className="text-gray-300">—</span>}
                   </td>
                 </tr>
               ))}
@@ -449,12 +433,12 @@ export default function Home() {
             </h3>
           </div>
           <div className="p-3 space-y-2">
-            {recentActivity.map((a, i) => (
+            {recentActivity.map(({ Icon, text, time, color }, i) => (
               <div key={i} className="flex items-start gap-2">
-                <span className={`${a.color} text-sm flex-shrink-0 mt-0.5`}>{a.icon}</span>
+                <Icon size={13} className={`${color} flex-shrink-0 mt-0.5`} />
                 <div className="flex-1 min-w-0">
-                  <p className="font-body text-xs text-gray-700 truncate">{a.text}</p>
-                  <p className="font-body text-xs text-gray-400">{a.time}</p>
+                  <p className="font-body text-xs text-gray-700 truncate">{text}</p>
+                  <p className="font-body text-xs text-gray-400">{time}</p>
                 </div>
               </div>
             ))}

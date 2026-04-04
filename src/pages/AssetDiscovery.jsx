@@ -858,12 +858,12 @@ export default function AssetDiscovery() {
             type="date"
             value={dateStart}
             onChange={(event) => setDateStart(event.target.value)}
-            className="rounded-lg border border-amber-300 px-3 py-2 text-xs font-body focus:outline-none focus:ring-1 focus:ring-amber-400"
+            className="rounded-lg border border-amber-300 px-3 py-2 text-xs text-slate-800 font-body focus:outline-none focus:ring-1 focus:ring-amber-400"
           />
           <span className="font-display font-bold text-pnb-crimson">to</span>
           <input
             type="date"
-            className="rounded-lg border border-amber-300 px-3 py-2 text-xs font-body focus:outline-none focus:ring-1 focus:ring-amber-400"
+            className="rounded-lg border border-amber-300 px-3 py-2 text-xs text-slate-800 font-body focus:outline-none focus:ring-1 focus:ring-amber-400"
           />
         </div>
         <button className="mt-4 rounded-lg bg-gradient-to-r from-pnb-gold to-pnb-amber px-6 py-2 font-display text-xs font-semibold text-white transition-all duration-300 hover:from-pnb-amber hover:to-pnb-crimson">
@@ -963,7 +963,7 @@ export default function AssetDiscovery() {
             value={searchQuery}
             onChange={(event) => setSearchQuery(event.target.value)}
             placeholder="Filter results..."
-            className="w-40 rounded-lg border border-amber-200 bg-white py-1.5 pl-8 pr-3 font-body text-xs focus:outline-none focus:ring-1 focus:ring-amber-400"
+            className="w-40 rounded-lg border border-amber-200 bg-white text-slate-800 py-1.5 pl-8 pr-3 font-body text-xs focus:outline-none focus:ring-1 focus:ring-amber-400"
           />
         </div>
       </div>

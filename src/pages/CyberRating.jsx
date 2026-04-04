@@ -124,8 +124,8 @@ export default function CyberRating() {
       </div>
 
       {/* Rating scale table */}
-      <div className="glass-card rounded-xl overflow-hidden">
-        <div className="px-5 py-3 border-b border-amber-100">
+      <div className="glass-card rounded-xl overflow-hidden border border-amber-100/50 shadow-sm shadow-amber-900/5">
+        <div className="px-5 py-3 border-b border-amber-100/50 bg-white/40">
           <h3 className="font-display text-xs font-semibold text-pnb-crimson uppercase tracking-wide">
             PQC Rating Scale
           </h3>
@@ -140,15 +140,17 @@ export default function CyberRating() {
           </thead>
           <tbody>
             {[
-              { icon:'🔴', label:'Legacy',   range:'< 400',     color:'text-red-600'   },
-              { icon:'🔶', label:'Standard', range:'400 till 700',color:'text-amber-600' },
-              { icon:'✅', label:'Elite-PQC',range:'> 700',     color:'text-green-600' },
-              { icon:'📊', label:'Maximum Score after normalisation*', range:'1000', color:'text-gray-700' },
+              { dot: 'bg-red-500',   label:'Legacy',   range:'< 400',            color:'text-red-600'   },
+              { dot: 'bg-amber-500', label:'Standard', range:'400 – 700',         color:'text-amber-600' },
+              { dot: 'bg-green-500', label:'Elite-PQC',range:'> 700',             color:'text-green-600' },
+              { dot: 'bg-gray-400',  label:'Maximum Score after normalisation*', range:'1000', color:'text-gray-700' },
             ].map((r, i) => (
               <tr key={i} className={`border-b border-amber-50 ${i%2===0?'bg-white/80':'bg-amber-50/30'}`}>
                 <td className="px-5 py-3">
-                  <span className="mr-2">{r.icon}</span>
-                  <span className={`font-display font-bold ${r.color}`}>{r.label}</span>
+                  <div className="flex items-center gap-2">
+                    <div className={`w-2.5 h-2.5 rounded-full flex-shrink-0 ${r.dot}`} />
+                    <span className={`font-display font-bold ${r.color}`}>{r.label}</span>
+                  </div>
                 </td>
                 <td className={`px-5 py-3 font-display font-bold text-xl ${r.color}`}>{r.range}</td>
               </tr>
@@ -158,8 +160,8 @@ export default function CyberRating() {
       </div>
 
       {/* Per-URL scores */}
-      <div className="glass-card rounded-xl overflow-hidden">
-        <div className="px-5 py-3 border-b border-amber-100">
+      <div className="glass-card rounded-xl overflow-hidden border border-amber-100/50 shadow-sm shadow-amber-900/5">
+        <div className="px-5 py-3 border-b border-amber-100/50 bg-white/40">
           <h3 className="font-display text-xs font-semibold text-pnb-crimson uppercase tracking-wide">
             Per-URL PQC Scores
           </h3>
@@ -188,7 +190,7 @@ export default function CyberRating() {
                   <td className="px-5 py-3 w-48">
                     <div className="h-3 bg-gray-100 rounded-full overflow-hidden">
                       <div className="h-full rounded-full transition-all"
-                        style={{ width: `${r.score}%`, background: meta.color }} />
+                        style={{ width: `${Math.round(r.score / 10)}%`, background: meta.color }} />
                     </div>
                   </td>
                 </tr>

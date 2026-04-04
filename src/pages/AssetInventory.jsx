@@ -4,22 +4,22 @@ import { LoadingSpinner, ErrorAlert, DataEmpty } from '../components/DataLoaders
 import dataAPI from '../dataAPI.js'
 
 const riskColors   = { Critical: 'risk-critical', High: 'risk-high', Medium: 'risk-medium', Moderate: 'risk-medium', Low: 'risk-low', Unknown: 'bg-gray-500 text-white' }
-const certIcons    = { Valid: '✓', Expiring: '⚠', Expired: '✗', Unknown: '?' }
+const certIcons    = { Valid: '', Expiring: '', Expired: '', Unknown: '' }
 const certColors   = { Valid: 'text-green-600', Expiring: 'text-amber-500', Expired: 'text-red-600', Unknown: 'text-gray-400' }
 
 const ASSET_TYPE_COLORS = {
-  web_application: { bg: 'bg-blue-100',   text: 'text-blue-700',   icon: '🌐' },
-  api:             { bg: 'bg-indigo-100',  text: 'text-indigo-700', icon: '🔌' },
-  web_server:      { bg: 'bg-sky-100',     text: 'text-sky-700',    icon: '🖥' },
-  database:        { bg: 'bg-amber-100',   text: 'text-amber-700',  icon: '🗄' },
-  mail_server:     { bg: 'bg-green-100',   text: 'text-green-700',  icon: '📧' },
-  dns_server:      { bg: 'bg-purple-100',  text: 'text-purple-700', icon: '🌍' },
-  cdn_proxy:       { bg: 'bg-pink-100',    text: 'text-pink-700',   icon: '☁' },
-  load_balancer:   { bg: 'bg-orange-100',  text: 'text-orange-700', icon: '⚖' },
-  ssl_certificate: { bg: 'bg-teal-100',    text: 'text-teal-700',   icon: '🔒' },
-  ip_address:      { bg: 'bg-gray-100',    text: 'text-gray-600',   icon: '📡' },
-  domain:          { bg: 'bg-lime-100',    text: 'text-lime-700',   icon: '🏷' },
-  unknown:         { bg: 'bg-gray-100',    text: 'text-gray-500',   icon: '❓' },
+  web_application: { bg: 'bg-blue-100',   text: 'text-blue-700'   },
+  api:             { bg: 'bg-indigo-100',  text: 'text-indigo-700' },
+  web_server:      { bg: 'bg-sky-100',     text: 'text-sky-700'    },
+  database:        { bg: 'bg-amber-100',   text: 'text-amber-700'  },
+  mail_server:     { bg: 'bg-green-100',   text: 'text-green-700'  },
+  dns_server:      { bg: 'bg-purple-100',  text: 'text-purple-700' },
+  cdn_proxy:       { bg: 'bg-pink-100',    text: 'text-pink-700'   },
+  load_balancer:   { bg: 'bg-orange-100',  text: 'text-orange-700' },
+  ssl_certificate: { bg: 'bg-teal-100',    text: 'text-teal-700'   },
+  ip_address:      { bg: 'bg-gray-100',    text: 'text-gray-600'   },
+  domain:          { bg: 'bg-lime-100',    text: 'text-lime-700'   },
+  unknown:         { bg: 'bg-gray-100',    text: 'text-gray-500'   },
 }
 
 const atStyle = (key) => ASSET_TYPE_COLORS[key] || ASSET_TYPE_COLORS.unknown
@@ -195,7 +195,7 @@ export default function AssetInventory() {
             value={search}
             onChange={e => { setSearch(e.target.value); setPage(1) }}
             placeholder="Search assets, types..."
-            className="w-full pl-9 pr-4 py-2 text-sm border border-amber-200 rounded-lg
+            className="w-full pl-9 pr-4 py-2 text-sm text-slate-800 border border-amber-200 rounded-lg
                        bg-white font-body focus:outline-none focus:ring-1 focus:ring-amber-400"
           />
         </div>
@@ -224,7 +224,7 @@ export default function AssetInventory() {
         <div className="overflow-x-auto">
           <table className="w-full text-xs font-body">
             <thead>
-              <tr className="bg-gradient-to-r from-pnb-crimson to-red-800 text-white">
+              <tr className="bg-amber-50 border-b border-amber-100">
                 <th className="px-3 py-3 text-left w-8">
                   <input type="checkbox"
                     checked={selected.length === paginated.length && paginated.length > 0}
@@ -232,7 +232,7 @@ export default function AssetInventory() {
                     className="accent-amber-400" />
                 </th>
                 {['Asset', 'Asset Type', 'IP / Subnet', 'Cipher Str.', 'TLS', 'Key', 'Issuer CA', 'Infrastructure', 'API', 'Risk', 'Cert', 'Days Left', 'Actions'].map(h => (
-                  <th key={h} className="px-3 py-3 text-left font-display font-semibold tracking-wide whitespace-nowrap">{h}</th>
+                  <th key={h} className="px-3 py-3 text-left font-display font-semibold tracking-wide whitespace-nowrap text-pnb-crimson text-xs uppercase">{h}</th>
                 ))}
               </tr>
             </thead>
@@ -331,7 +331,7 @@ export default function AssetInventory() {
                       </td>
                       {/* Cert status */}
                       <td className={`px-3 py-2.5 font-semibold whitespace-nowrap ${certColors[row.cert]}`}>
-                        {certIcons[row.cert]} {row.cert}
+                        {row.cert}
                       </td>
                       {/* Days left */}
                       <td className="px-3 py-2.5 font-mono font-bold text-center whitespace-nowrap"
@@ -348,7 +348,7 @@ export default function AssetInventory() {
 
                     {/* Expanded detail row */}
                     {isExpanded && (
-                      <tr key={`${row.id}-detail`} className="bg-indigo-50/40 border-b border-indigo-100">
+                      <tr key={`${row.id}-detail`} className="bg-indigo-50/40 border-b border-indigo-100 text-gray-800">
                         <td colSpan="14" className="px-5 py-4">
                           <div className="grid grid-cols-4 gap-4 text-xs">
                             {/* SSL Details */}

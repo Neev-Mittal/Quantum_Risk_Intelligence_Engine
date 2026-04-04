@@ -349,7 +349,7 @@ function QVarPanel({ asset, scenario }) {
               formatter={(v) => [`₹${v} Cr`, 'Q-VaR']}
               contentStyle={{ fontSize: 11, fontFamily: 'DM Sans' }}
             />
-            <Bar dataKey="qvarCr" radius={[4,4,0,0]}>
+            <Bar dataKey="qvarCr" radius={[4,4,0,0]} isAnimationActive={false}>
               {chartData.map((d) => (
                 <Cell key={d.scenario}
                   fill={d.scenario === scenario ? '#dc2626' : d.scenario === 'Aggressive' ? '#7c0000' : '#d97706'} />

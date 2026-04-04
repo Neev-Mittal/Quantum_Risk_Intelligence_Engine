@@ -612,7 +612,9 @@ export const dataAPI = {
         const sslD = r['SSL Details'] || {}
 
         cipherCounts[cipher] = (cipherCounts[cipher] || 0) + 1
-        caCounts[ca] = (caCounts[ca] || 0) + 1
+        if (ca.toLowerCase() !== 'localhost') {
+          caCounts[ca] = (caCounts[ca] || 0) + 1
+        }
         tlsCounts[tls] = (tlsCounts[tls] || 0) + 1
         keyLenCounts[kl] = (keyLenCounts[kl] || 0) + 1
 
@@ -672,10 +674,37 @@ export const dataAPI = {
       // Infrastructure summary
       const infraSum = summary.infrastructure_summary || {}
 
-      // Normalize caData values to percentages relative to the max count
-      const rawCaData = toChartData(caCounts, 5, 'name', 'value')
-      const maxCaCount = rawCaData.length > 0 ? rawCaData[0].value : 1
-      const normalizedCaData = rawCaData.map(d => ({ ...d, value: Math.round((d.value / maxCaCount) * 100) }))
+      // Build exactly the 3 requested segments in strict order: Others, Geotrust G2, The R3 Provider
+      let g2Count = 0; let g2Name = 'GeoTrust EV RSA CA G2';
+      let r3Count = 0; let r3Name = 'GlobalSign RSA CA R3';
+      let othersCount = 0;
+
+      Object.entries(caCounts).forEach(([k, v]) => {
+        const lowerK = k.toLowerCase();
+        // Catch GeoTrust G2 variations
+        if (lowerK.includes('geotrust') && (lowerK.includes('g2') || lowerK.includes('ev'))) {
+          g2Count += v;
+          if (v > 0) g2Name = k; // Extract exactly their full name from the data mapping
+        } 
+        // Catch the R3 variation (User requested Geotrust R3, but typically it is GlobalSign RSA CA R3 or Let's Encrypt R3)
+        else if (lowerK.includes('r3') || (lowerK.includes('geotrust') && lowerK.includes('r3'))) {
+          r3Count += v;
+          if (v > 0) r3Name = k; // Extract exactly their full name from the data mapping
+        } 
+        // Everything else falls into Others
+        else {
+          othersCount += v;
+        }
+      });
+
+      const rawCaData = [
+        { name: 'Others', value: othersCount, color: colors[3] },
+        { name: g2Name, value: g2Count, color: colors[1] },
+        { name: r3Name, value: r3Count, color: colors[2] }
+      ];
+      
+      const maxCaCount = rawCaData.reduce((max, d) => Math.max(max, d.value), 1);
+      const normalizedCaData = rawCaData.map(d => ({ ...d, pct: Math.round((d.value / maxCaCount) * 100) }));
 
       return {
         success: true,
@@ -683,7 +712,7 @@ export const dataAPI = {
         caData: normalizedCaData,
         tlsData: toChartData(tlsCounts, 3, 'name', 'value'),
         keyLengthDist: toChartData(keyLenCounts, 6, 'len', 'count'),
-        appTable: appTable.slice(0, 50),
+        appTable: appTable,
         assetTypePie,
         cipherStrengthChart,
         infraSummary: infraSum,
@@ -738,7 +767,7 @@ export const dataAPI = {
         success: true,
         enterpriseScore,
         enterpriseTier,
-        urlScores: urlScores.sort((a, b) => b.score - a.score).slice(0, 50)
+        urlScores: urlScores.sort((a, b) => b.score - a.score)
       }
     } catch (error) {
       console.error('getCyberRatingData error:', error)
@@ -808,11 +837,14 @@ export const dataAPI = {
           { name: 'Legacy', value: legacyApp, color: '#dc2626' },
           { name: 'Critical', value: critApp, color: '#7c0000' },
         ],
-        assets: assets.slice(0, 50),
+        assets: assets,
         summary: {
           pqcReadyPct: Math.round((pqcReadyApp / total) * 100),
+          pqcReadyCount: pqcReadyApp,
           stdPct: Math.round((stdApp / total) * 100),
+          stdCount: stdApp,
           legacyPct: Math.round((legacyApp / total) * 100),
+          legacyCount: legacyApp,
           criticalCount: critApp
         }
       }
