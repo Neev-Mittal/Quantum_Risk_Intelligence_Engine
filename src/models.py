@@ -159,6 +159,7 @@ class Asset(Base):
     updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 
     findings = relationship("SecurityFinding", back_populates="asset")
+    drift_records = relationship("QuantumDrift", back_populates="asset", cascade="all, delete-orphan")
 
     __table_args__ = (
         UniqueConstraint("fqdn", "ip_address", "port", name="uq_asset"),
@@ -168,6 +169,51 @@ class Asset(Base):
 
     def __repr__(self) -> str:
         return f"<Asset {self.fqdn}:{self.port}>"
+
+
+class QuantumDrift(Base):
+    """Tracks changes in cryptographic posture of assets between scans.
+
+    Each row represents a single field-level change detected when a previously
+    existing asset is re-scanned and its cryptographic configuration differs
+    from what was stored in the database.
+    """
+
+    __tablename__ = "quantum_drift"
+
+    id = Column(Integer, primary_key=True)
+    asset_id = Column(String(50), ForeignKey("assets.id"), nullable=False, index=True)
+    scan_timestamp = Column(DateTime, nullable=False, index=True)
+
+    # What changed
+    drift_type = Column(String(50), nullable=False, index=True)
+    severity = Column(String(20), nullable=False, index=True)
+    field_name = Column(String(100), nullable=False)
+    old_value = Column(Text)
+    new_value = Column(Text)
+
+    # HEI / risk context at the time of the drift
+    old_hei_score = Column(Float)
+    new_hei_score = Column(Float)
+    hei_delta = Column(Float)
+    old_risk_category = Column(String(20))
+    new_risk_category = Column(String(20))
+
+    # Full before/after snapshots for audit
+    old_snapshot = Column(EncryptedJSONType, nullable=True)
+    new_snapshot = Column(EncryptedJSONType, nullable=True)
+
+    created_at = Column(DateTime, default=datetime.utcnow, index=True)
+
+    asset = relationship("Asset", back_populates="drift_records")
+
+    __table_args__ = (
+        Index("idx_drift_asset_time", "asset_id", "scan_timestamp"),
+        Index("idx_drift_type_severity", "drift_type", "severity"),
+    )
+
+    def __repr__(self) -> str:
+        return f"<QuantumDrift {self.drift_type} on {self.asset_id}>"
 
 
 class Subdomain(Base):

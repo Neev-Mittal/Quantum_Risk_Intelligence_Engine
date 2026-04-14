@@ -88,7 +88,7 @@ function HeroPanel() {
       </p>
 
       <p className="mt-8 max-w-xl text-base leading-8 text-amber-50/90">
-        Gain actionable insights into cryptographic risks, asset intelligence, and post-quantum readiness across your enterprise ecosystem. 
+        Gain actionable insights into cryptographic risks, asset intelligence, and post-quantum readiness across your enterprise ecosystem.
       </p>
 
       <div className="mt-10 opacity-30">
@@ -241,7 +241,7 @@ export default function Login({ onLogin }) {
   }, [isOtpStep, loading, isTransitioning])
 
   return (
-    <div className={`login-bg relative min-h-screen w-full overflow-x-hidden overflow-y-auto transition-all duration-700 ${transitionStage === 'entering' ? 'login-success-wash' : ''}`}>
+    <div className={`login-bg relative h-[100dvh] w-full overflow-x-hidden overflow-y-auto transition-all duration-700 ${transitionStage === 'entering' ? 'login-success-wash' : ''}`}>
       <div className="scan-line" style={{ zIndex: 0 }} />
       <div
         className="absolute inset-0 opacity-5"
@@ -318,7 +318,7 @@ export default function Login({ onLogin }) {
                       </button>
                     </div>
                   </div>
-                  
+
                   {error && (
                     <div className="mt-4">
                       <StatusBanner error={error} statusMessage={statusMessage} />
@@ -329,9 +329,9 @@ export default function Login({ onLogin }) {
                 <div className="grid lg:grid-cols-[300px_minmax(0,1fr)]">
                   <div className="border-b border-amber-100/80 bg-slate-50/50 p-6 lg:border-b-0 lg:border-r">
                     <div className="rounded-2xl border border-amber-200 bg-white p-5 shadow-sm text-center">
-                       <p className="font-display text-[10px] uppercase tracking-widest text-slate-500 mb-1">Identity</p>
-                       <h3 className="font-display text-xl font-bold text-pnb-crimson">{selectedUser?.name || 'Authorized User'}</h3>
-                       <p className="text-sm text-slate-600">{selectedRole}</p>
+                      <p className="font-display text-[10px] uppercase tracking-widest text-slate-500 mb-1">Identity</p>
+                      <h3 className="font-display text-xl font-bold text-pnb-crimson">{selectedUser?.name || 'Authorized User'}</h3>
+                      <p className="text-sm text-slate-600">{selectedRole}</p>
                     </div>
 
                     <div className="mt-5 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
@@ -343,16 +343,16 @@ export default function Login({ onLogin }) {
                         />
                       </div>
                     </div>
-                    
+
                     <div className="mt-4 text-center">
-                        <CopyButton label="OTP Link" copiedField={copiedField} onCopy={copyValue} value={otpSetup.otpauthUrl || ''}>
-                          Copy Setup Link
-                        </CopyButton>
+                      <CopyButton label="OTP Link" copiedField={copiedField} onCopy={copyValue} value={otpSetup.otpauthUrl || ''}>
+                        Copy Setup Link
+                      </CopyButton>
                     </div>
                   </div>
 
                   <div className="p-6 lg:px-10 lg:py-8 space-y-8 flex flex-col justify-center">
-                    
+
                     <div className="rounded-2xl border border-slate-200 bg-slate-50 px-5 py-4 shadow-sm">
                       <div className="flex items-center justify-between mb-3">
                         <p className="text-xs uppercase tracking-widest text-slate-500 font-semibold">Manual Setup Key</p>
@@ -403,7 +403,7 @@ export default function Login({ onLogin }) {
                         </span>
                       ) : 'Secure Login'}
                     </button>
-                    
+
                   </div>
                 </div>
               </form>
@@ -413,13 +413,12 @@ export default function Login({ onLogin }) {
       )}
 
       <div
-        className={`relative z-10 mx-auto flex min-h-screen w-full max-w-[1500px] flex-col lg:flex-row transition-all duration-700 ${
-          isTransitioning
+        className={`relative z-10 mx-auto flex min-h-screen w-full max-w-[1500px] flex-col lg:flex-row transition-all duration-700 ${isTransitioning
             ? 'scale-[0.985] opacity-20 blur-[3px]'
             : isOtpStep
               ? 'scale-[0.985] opacity-35 blur-[10px] pointer-events-none select-none'
               : 'opacity-100'
-        }`}
+          }`}
       >
         <div className="relative flex w-full items-center justify-center px-4 py-10 sm:px-6 lg:min-h-screen lg:w-[48%] lg:px-10 lg:py-12 xl:px-14">
           <div className="pointer-events-none absolute inset-0 overflow-hidden">
@@ -448,7 +447,7 @@ export default function Login({ onLogin }) {
             </div>
 
             <form onSubmit={handlePasswordSubmit} className="space-y-5">
-              
+
               <div className="space-y-4">
                 <div>
                   <label className="mb-1.5 block font-display text-xs font-semibold uppercase tracking-wider text-slate-500">Email Address / User ID</label>
@@ -513,11 +512,10 @@ export default function Login({ onLogin }) {
                       key={user.email}
                       type="button"
                       onClick={() => handleSelectDemoUser(user)}
-                      className={`block rounded-xl border px-3 py-2.5 text-left transition-all ${
-                        isSelected
+                      className={`block rounded-xl border px-3 py-2.5 text-left transition-all ${isSelected
                           ? 'border-amber-300 bg-amber-50/50'
                           : 'border-slate-100 bg-white hover:border-amber-200 hover:bg-slate-50'
-                      }`}
+                        }`}
                     >
                       <span className="block font-display text-xs font-bold text-slate-700">{roleLabels[user.role]}</span>
                       <span className="mt-0.5 block text-[10px] text-slate-500">{user.username}</span>

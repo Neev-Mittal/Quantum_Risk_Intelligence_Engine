@@ -63,3 +63,6 @@ Thumbs.db
 *.swp
 *.swo
 *~
+
+# Chrome Extension
+chrome-extension/

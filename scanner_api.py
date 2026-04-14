@@ -942,9 +942,69 @@ def safe_get_text(url: str, timeout: float = 5.0, https_context: ssl.SSLContext 
 
 
 # -----------------------------
-# crt.sh enumeration
+# Subdomain enumeration — three concurrent strategies
 # -----------------------------
+import sys
+import subprocess
+import shutil
+import asyncio
+import tempfile
+import pathlib
+
+# Common subdomain prefixes for DNS brute-force probing
+_DNS_BRUTE_PREFIXES = [
+    "www", "mail", "ftp", "smtp", "pop", "imap", "webmail",
+    "ns1", "ns2", "ns3", "ns4", "dns", "dns1", "dns2",
+    "mx", "mx1", "mx2", "relay",
+    "api", "dev", "staging", "test", "qa", "uat",
+    "portal", "app", "apps", "mobile", "m",
+    "admin", "panel", "cpanel", "dashboard", "manage",
+    "vpn", "remote", "gateway", "gw", "proxy",
+    "cdn", "static", "assets", "media", "img", "images",
+    "blog", "shop", "store", "support", "help", "docs",
+    "auth", "login", "sso", "id", "identity",
+    "git", "gitlab", "github", "jenkins", "ci", "cd",
+    "db", "database", "mysql", "postgres", "redis", "mongo",
+    "elk", "kibana", "grafana", "prometheus", "monitor",
+    "cloud", "aws", "azure", "gcp",
+    "backup", "bak", "old", "new", "beta", "alpha",
+    "intranet", "internal", "corp", "secure",
+    "web", "www2", "www3", "web1", "web2",
+    "exchange", "owa", "autodiscover",
+    "crm", "erp", "hr",
+]
+
+
+def _dns_brute_force(domain: str) -> set[str]:
+    """Probe common subdomain prefixes via DNS A-record lookups.
+
+    This is the most reliable method because it only depends on DNS
+    resolution — no external HTTP APIs that can be slow or rate-limited.
+    """
+    import dns.resolver
+
+    found: set[str] = set()
+    resolver = dns.resolver.Resolver()
+    resolver.timeout = 3
+    resolver.lifetime = 3
+
+    for prefix in _DNS_BRUTE_PREFIXES:
+        fqdn = f"{prefix}.{domain}"
+        try:
+            resolver.resolve(fqdn, "A")
+            found.add(fqdn)
+        except Exception:
+            pass
+
+    return found
+
+
 def enumerate_from_crtsh(domain: str) -> set[str]:
+    """Query crt.sh Certificate Transparency logs for subdomains.
+
+    Uses the ``requests`` library instead of ``urllib`` because it handles
+    connection pooling and timeouts more reliably on Windows/Python 3.14.
+    """
     domain = normalize_host(domain)
     if is_ip_address(domain):
         return set()
@@ -953,28 +1013,151 @@ def enumerate_from_crtsh(domain: str) -> set[str]:
     subdomains: set[str] = set()
 
     try:
-        req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
-        with urllib.request.urlopen(req, timeout=10) as response:
-            if response.status != 200:
-                return set()
+        import requests as _requests
+        resp = _requests.get(
+            url,
+            headers={"User-Agent": "Mozilla/5.0"},
+            timeout=25,
+        )
+        if resp.status_code != 200:
+            return set()
 
-            payload = response.read().decode("utf-8", errors="ignore")
-            data = json.loads(payload)
-
-            for entry in data:
-                name_value = entry.get("name_value", "")
-                for raw_name in name_value.split("\n"):
-                    name = normalize_host(raw_name)
-                    if not name or name.startswith("*."):
-                        continue
-                    if name == domain or name.endswith("." + domain):
-                        if re.fullmatch(r"[a-z0-9.-]+", name):
-                            subdomains.add(name)
+        data = resp.json()
+        for entry in data:
+            name_value = entry.get("name_value", "")
+            for raw_name in name_value.split("\n"):
+                name = normalize_host(raw_name)
+                if not name or name.startswith("*."):
+                    continue
+                if name == domain or name.endswith("." + domain):
+                    if re.fullmatch(r"[a-z0-9.-]+", name):
+                        subdomains.add(name)
     except Exception:
         pass
 
     return subdomains
 
+
+async def enumerate_with_subfinder(domain: str, timeout: float = 30.0) -> list[str]:
+    """Run subfind3r Python module to discover subdomains for *domain*.
+
+    Captures results from both stdout and the -o output file to maximise
+    the chance of getting data even when the tool hangs (common on Windows).
+    """
+    out_path = None
+    try:
+        with tempfile.NamedTemporaryFile(mode="w", delete=False, suffix=".txt") as tf:
+            out_path = tf.name
+
+        cmd = [
+            sys.executable,
+            "-m",
+            "subfind3r",
+            "-d",
+            domain,
+            "-o",
+            out_path,
+            "-n",        # no-color — prevents ANSI codes polluting output
+        ]
+
+        proc = await asyncio.create_subprocess_exec(
+            *cmd,
+            stdout=asyncio.subprocess.PIPE,
+            stderr=asyncio.subprocess.DEVNULL,
+            stdin=asyncio.subprocess.DEVNULL,
+        )
+
+        try:
+            stdout_data, _ = await asyncio.wait_for(
+                proc.communicate(), timeout=timeout
+            )
+        except asyncio.TimeoutError:
+            try:
+                proc.kill()
+            except ProcessLookupError:
+                pass
+            try:
+                await asyncio.wait_for(proc.wait(), timeout=5)
+            except asyncio.TimeoutError:
+                pass
+            stdout_data = b""
+
+        # Gather results from stdout
+        lines: list[str] = []
+        if stdout_data:
+            lines.extend(stdout_data.decode("utf-8", errors="ignore").splitlines())
+
+        # Also gather from output file (subfinder may have written partial results)
+        if out_path and pathlib.Path(out_path).exists():
+            try:
+                with open(out_path, "r", encoding="utf-8", errors="ignore") as f:
+                    file_lines = f.read().splitlines()
+                lines.extend(file_lines)
+            except Exception:
+                pass
+
+        return lines
+
+    except FileNotFoundError:
+        return []
+    except Exception:
+        return []
+    finally:
+        if out_path:
+            try:
+                pathlib.Path(out_path).unlink(missing_ok=True)
+            except Exception:
+                pass
+
+
+async def enumerate_subdomains(domain: str, timeout: float = 60.0) -> set[str]:
+    """Discover subdomains using three concurrent strategies:
+
+    1. **DNS brute-force** — probes ~70 common prefixes via A-record lookups.
+       Fast, always works, no external HTTP dependency.
+    2. **crt.sh** — Certificate Transparency log search.  Comprehensive but
+       can be slow or unreliable for some domains.
+    3. **subfind3r** — third-party Python tool.  Can hang on Windows so it is
+       given a strict 30 s cap.
+
+    All three run concurrently; results are merged and deduplicated.
+    """
+    domain = normalize_host(domain)
+    if is_ip_address(domain):
+        return set()
+
+    loop = asyncio.get_event_loop()
+
+    # Launch all three methods concurrently
+    dns_task = loop.run_in_executor(None, _dns_brute_force, domain)
+    crtsh_task = loop.run_in_executor(None, enumerate_from_crtsh, domain)
+    subfinder_task = enumerate_with_subfinder(domain, timeout=min(timeout, 30.0))
+
+    dns_results, crtsh_results, subfinder_lines = await asyncio.gather(
+        dns_task, crtsh_task, subfinder_task,
+        return_exceptions=True,
+    )
+
+    fqdns: set[str] = set()
+
+    # Merge DNS results
+    if isinstance(dns_results, set):
+        fqdns.update(dns_results)
+
+    # Merge crt.sh results
+    if isinstance(crtsh_results, set):
+        fqdns.update(crtsh_results)
+
+    # Merge subfinder results (needs validation — output can contain log noise)
+    if isinstance(subfinder_lines, list):
+        for line in subfinder_lines:
+            fqdn = normalize_host(line)
+            if not fqdn:
+                continue
+            if (fqdn == domain or fqdn.endswith("." + domain)) and re.fullmatch(r"[a-z0-9.-]+", fqdn):
+                fqdns.add(fqdn)
+
+    return fqdns
 
 # -----------------------------
 # TLS probing
@@ -2471,6 +2654,349 @@ def merge_subdomains(existing_fqdns: list[str], new_fqdns: list[str]) -> tuple[l
     return merged, {"added": added, "total": len(merged)}
 
 
+# ═══════════════════════════════════════════════════════════════
+# Quantum Drift Detection & Database Persistence
+# ═══════════════════════════════════════════════════════════════
+
+# Fields tracked for drift detection — a change in any of these generates a
+# QuantumDrift row when the asset already existed in the database.
+_DRIFT_TRACKED_FIELDS = {
+    "TLS Version":               "active_tls_version",
+    "Cipher Suite":              "cipher_suite",
+    "Key Exchange Algorithm":    "key_exchange",
+    "Key Size (Bits)":           "key_size",
+    "PFS Status":                "pfs_enabled",
+    "NIST PQC Readiness Label":  "pqc_readiness",
+    "Issuer CA":                 "issuer_ca",
+    "Signature Algorithm":       "signature_algo",
+    "Scan Status":               "scan_status",
+}
+
+# TLS version ordering for upgrade / downgrade detection
+_TLS_ORDER = {"TLSv1.0": 0, "TLSv1.1": 1, "TLSv1.2": 2, "TLSv1.3": 3}
+
+# PQC readiness ordering — higher = better
+_PQC_ORDER = {"Unknown": 0, "Quantum-Vulnerable": 1, "Migration-Candidate": 2, "PQC-Ready": 3}
+
+
+def _classify_drift(field_name: str, old_val: str | None, new_val: str | None) -> tuple[str, str]:
+    """Classify a single field change into (drift_type, severity).
+
+    Returns a tuple of (drift_type, severity) based on what changed and the
+    direction of change.
+    """
+    old_s = str(old_val or "").strip()
+    new_s = str(new_val or "").strip()
+
+    if field_name == "TLS Version":
+        old_rank = _TLS_ORDER.get(old_s, -1)
+        new_rank = _TLS_ORDER.get(new_s, -1)
+        if new_rank < old_rank:
+            return "tls_downgrade", "high"
+        return "tls_upgrade", "info"
+
+    if field_name == "Cipher Suite":
+        # Check for known weak patterns
+        weak_markers = {"NULL", "RC4", "DES", "3DES", "EXPORT", "MD5", "ANON"}
+        old_weak = any(m in old_s.upper() for m in weak_markers)
+        new_weak = any(m in new_s.upper() for m in weak_markers)
+        if new_weak and not old_weak:
+            return "cipher_weakened", "high"
+        if old_weak and not new_weak:
+            return "cipher_strengthened", "info"
+        return "cipher_change", "medium"
+
+    if field_name == "Key Size (Bits)":
+        try:
+            old_bits = int(old_s) if old_s else 0
+            new_bits = int(new_s) if new_s else 0
+            if new_bits < old_bits:
+                return "key_size_decreased", "critical"
+            return "key_size_increased", "info"
+        except ValueError:
+            return "key_size_change", "medium"
+
+    if field_name == "PFS Status":
+        # DB stores boolean; record stores "Yes"/"No"
+        old_pfs = old_s.lower() in ("yes", "true", "1")
+        new_pfs = new_s.lower() in ("yes", "true", "1")
+        if old_pfs and not new_pfs:
+            return "pfs_disabled", "high"
+        if not old_pfs and new_pfs:
+            return "pfs_enabled", "info"
+        return "pfs_change", "low"
+
+    if field_name == "NIST PQC Readiness Label":
+        old_rank = _PQC_ORDER.get(old_s, -1)
+        new_rank = _PQC_ORDER.get(new_s, -1)
+        if new_rank < old_rank:
+            return "pqc_regression", "critical"
+        if new_rank > old_rank:
+            return "pqc_improvement", "info"
+        return "pqc_change", "low"
+
+    if field_name == "Issuer CA":
+        return "ca_change", "medium"
+
+    if field_name == "Signature Algorithm":
+        return "sig_algo_change", "medium"
+
+    if field_name == "Scan Status":
+        if old_s == "ok" and new_s != "ok":
+            return "scan_degraded", "high"
+        if old_s != "ok" and new_s == "ok":
+            return "scan_recovered", "info"
+        return "scan_status_change", "low"
+
+    return "field_change", "low"
+
+
+def _get_asset_db_value(asset_row, db_column: str) -> str:
+    """Read the current value of a tracked column from an Asset ORM row."""
+    val = getattr(asset_row, db_column, None)
+    if val is None:
+        return ""
+    # PFS is stored as boolean but compared as string
+    if isinstance(val, bool):
+        return "Yes" if val else "No"
+    return str(val).strip()
+
+
+def _get_record_value(record: dict, field_name: str) -> str:
+    """Read the value of a tracked field from a scan record dict."""
+    val = record.get(field_name)
+    if val is None:
+        return ""
+    if isinstance(val, bool):
+        return "Yes" if val else "No"
+    return str(val).strip()
+
+
+def persist_scan_to_db(
+    enriched_records: list[dict],
+    shadow_records: list[dict],
+    enrichment_summary: dict,
+) -> None:
+    """Persist enriched scan results into the database.
+
+    This function:
+    1. Upserts each enriched CBOM record into the assets table.
+    2. For *existing* assets whose cryptographic posture changed, creates
+       QuantumDrift rows documenting each field-level change.
+    3. Replaces security findings for scanned assets.
+    4. Updates the enrichment summary metadata.
+
+    Errors are caught and printed — a database failure must never prevent the
+    scanner from returning results to the caller.
+    """
+    try:
+        from src.models import (
+            Asset,
+            QuantumDrift,
+            SecurityFinding,
+            init_db,
+            get_session_factory,
+        )
+        from src.dataset_service import upsert_dataset_metadata
+        from load_data import apply_record_to_asset
+    except ImportError as exc:
+        print(f"[db-persist] Skipping DB persistence — import error: {exc}")
+        return
+
+    try:
+        engine = init_db()
+        SessionLocal = get_session_factory(engine)
+        session = SessionLocal()
+    except Exception as exc:
+        print(f"[db-persist] Skipping DB persistence — cannot connect: {exc}")
+        return
+
+    scan_ts = datetime.now(timezone.utc)
+    assets_upserted = 0
+    drift_records_created = 0
+    findings_loaded = 0
+
+    try:
+        # ── Phase 1: Upsert assets + detect drift ────────────────────────
+        for idx, record in enumerate(enriched_records):
+            asset_id = record.get("Asset ID")
+            if not asset_id:
+                continue
+
+            existing_asset = session.query(Asset).filter(Asset.id == asset_id).first()
+            is_new = existing_asset is None
+
+            if is_new:
+                existing_asset = Asset(id=asset_id)
+                session.add(existing_asset)
+            else:
+                # ── Drift detection for existing assets ──────────────────
+                old_hei = existing_asset.hei_score
+                old_risk = existing_asset.risk_category
+                new_hei = record.get("HEI_Score")
+                new_risk = record.get("Risk_Category")
+
+                # Build old snapshot from current DB state for audit
+                old_snapshot = {}
+                for field_name, db_col in _DRIFT_TRACKED_FIELDS.items():
+                    old_snapshot[field_name] = _get_asset_db_value(existing_asset, db_col)
+
+                for field_name, db_col in _DRIFT_TRACKED_FIELDS.items():
+                    old_val = _get_asset_db_value(existing_asset, db_col)
+                    new_val = _get_record_value(record, field_name)
+
+                    if old_val == new_val:
+                        continue
+
+                    # Both empty → skip (e.g. None vs "")
+                    if not old_val and not new_val:
+                        continue
+
+                    drift_type, severity = _classify_drift(field_name, old_val, new_val)
+
+                    hei_delta = None
+                    if old_hei is not None and new_hei is not None:
+                        hei_delta = round(new_hei - old_hei, 2)
+
+                    # HEI-based severity boost: if HEI worsened significantly
+                    if field_name not in ("Scan Status",) and hei_delta is not None and hei_delta > 15:
+                        if severity in ("low", "info"):
+                            severity = "medium"
+                        elif severity == "medium":
+                            severity = "high"
+
+                    drift = QuantumDrift(
+                        asset_id=asset_id,
+                        scan_timestamp=scan_ts,
+                        drift_type=drift_type,
+                        severity=severity,
+                        field_name=field_name,
+                        old_value=old_val if old_val else None,
+                        new_value=new_val if new_val else None,
+                        old_hei_score=old_hei,
+                        new_hei_score=new_hei,
+                        hei_delta=hei_delta,
+                        old_risk_category=old_risk,
+                        new_risk_category=new_risk,
+                        old_snapshot=old_snapshot,
+                        new_snapshot={fn: _get_record_value(record, fn) for fn in _DRIFT_TRACKED_FIELDS},
+                    )
+                    session.add(drift)
+                    drift_records_created += 1
+
+                # If risk category itself changed, add a dedicated risk‐escalation drift
+                if old_risk and new_risk and old_risk != new_risk:
+                    risk_order = {"Low": 0, "Moderate": 1, "High": 2, "Critical": 3}
+                    old_rank = risk_order.get(old_risk, -1)
+                    new_rank = risk_order.get(new_risk, -1)
+                    if new_rank > old_rank:
+                        drift = QuantumDrift(
+                            asset_id=asset_id,
+                            scan_timestamp=scan_ts,
+                            drift_type="risk_escalation",
+                            severity="high" if new_rank >= 3 else "medium",
+                            field_name="Risk_Category",
+                            old_value=old_risk,
+                            new_value=new_risk,
+                            old_hei_score=old_hei,
+                            new_hei_score=new_hei,
+                            hei_delta=round(new_hei - old_hei, 2) if old_hei is not None and new_hei is not None else None,
+                            old_risk_category=old_risk,
+                            new_risk_category=new_risk,
+                        )
+                        session.add(drift)
+                        drift_records_created += 1
+                    elif new_rank < old_rank:
+                        drift = QuantumDrift(
+                            asset_id=asset_id,
+                            scan_timestamp=scan_ts,
+                            drift_type="risk_reduction",
+                            severity="info",
+                            field_name="Risk_Category",
+                            old_value=old_risk,
+                            new_value=new_risk,
+                            old_hei_score=old_hei,
+                            new_hei_score=new_hei,
+                            hei_delta=round(new_hei - old_hei, 2) if old_hei is not None and new_hei is not None else None,
+                            old_risk_category=old_risk,
+                            new_risk_category=new_risk,
+                        )
+                        session.add(drift)
+                        drift_records_created += 1
+
+            # ── Apply the new record to the asset row ────────────────────
+            apply_record_to_asset(existing_asset, record, idx)
+            assets_upserted += 1
+
+            if assets_upserted % 100 == 0:
+                session.flush()
+
+        session.flush()
+
+        # ── Phase 2: Load security findings ──────────────────────────────
+        scanned_asset_ids = {
+            r.get("Asset ID") for r in enriched_records if r.get("Asset ID")
+        }
+
+        if scanned_asset_ids:
+            # Only delete findings for assets that were part of this scan
+            session.query(SecurityFinding).filter(
+                SecurityFinding.asset_id.in_(scanned_asset_ids)
+            ).delete(synchronize_session="fetch")
+            session.flush()
+
+        for idx, sr in enumerate(shadow_records):
+            fqdn = sr.get("Asset")
+            ip_addr = sr.get("IP Address")
+            port = sr.get("Port", 443)
+            asset_id = sr.get("Asset ID")
+
+            # If no asset_id in the shadow record, try to look it up
+            if not asset_id and fqdn:
+                match = session.query(Asset).filter(
+                    Asset.fqdn == fqdn,
+                    Asset.ip_address == ip_addr,
+                    Asset.port == port,
+                ).first()
+                if match:
+                    asset_id = match.id
+
+            reasons = sr.get("Shadow Crypto Reasons", [])
+            sev = sr.get("Shadow Crypto Severity", "medium")
+
+            session.add(SecurityFinding(
+                finding_type="shadow_crypto",
+                severity=sev,
+                asset_id=asset_id,
+                fqdn=fqdn,
+                ip_address=ip_addr,
+                port=port,
+                description="; ".join(reasons) if reasons else "Shadow crypto detected",
+                recommendation="Review cryptographic configuration and migrate to stronger algorithms",
+                details={"reasons": reasons},
+                source_index=idx,
+                record_data=sr,
+            ))
+            findings_loaded += 1
+
+        # ── Phase 3: Update enrichment summary metadata ──────────────────
+        upsert_dataset_metadata(session, "enriched_cbom_summary", enrichment_summary)
+
+        session.commit()
+        print(
+            f"[db-persist] Database updated: "
+            f"{assets_upserted} assets upserted, "
+            f"{drift_records_created} drift records created, "
+            f"{findings_loaded} findings loaded"
+        )
+
+    except Exception as exc:
+        session.rollback()
+        print(f"[db-persist] Error persisting scan to database: {exc}")
+    finally:
+        session.close()
+
+
 def prepare_outputs(records: list[dict], subdomains: list[str], output_dir: str) -> dict:
     # Include ALL scanned records (ok + error) so new domains are always persisted
     # to cbom.json, subdomains.json, and enriched_cbom.json regardless of TLS outcome.
@@ -2525,6 +3051,9 @@ def prepare_outputs(records: list[dict], subdomains: list[str], output_dir: str)
         "records":                 enriched_cbom_records,
     }
     write_json_file(enriched_path, enriched_output)
+
+    # ── Persist to database (assets + drift + findings) ──────────────────────
+    persist_scan_to_db(enriched_cbom_records, merged_shadow, enrichment_summary)
 
     return {
         "subdomains_path":      str(subdomains_path),
@@ -2696,8 +3225,8 @@ async def run_scan_stream(req: ScanRequest):
     if req.enumerate_subdomains:
         yield log("INFO", "Enumerating subdomains via crt.sh...")
         for host in sorted(normalized_targets):
-            yield log("INFO", f"  Querying crt.sh for {host}...")
-            subs = await asyncio.get_event_loop().run_in_executor(None, enumerate_from_crtsh, host)
+            yield log("INFO", f"  Querying subfinder/crt.sh for {host}...")
+            subs = await enumerate_subdomains(host)
             if subs:
                 yield log("INFO", f"  Found {len(subs)} subdomains for {host}")
                 blocked_subdomains = 0

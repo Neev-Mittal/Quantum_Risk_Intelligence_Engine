@@ -13,7 +13,7 @@ from typing import Any
 
 from sqlalchemy.orm import Session
 
-from src.models import Asset, DatasetMetadata, SecurityFinding, SimulationScenario, Subdomain
+from src.models import Asset, DatasetMetadata, QuantumDrift, SecurityFinding, SimulationScenario, Subdomain
 
 
 def _with_default_asset_payload(asset: Asset) -> dict[str, Any]:
@@ -356,3 +356,120 @@ def get_shadow_crypto_dataset(
 def get_simulation_dataset(session: Session) -> list[dict[str, Any]]:
     rows = session.query(SimulationScenario).order_by(SimulationScenario.source_index.asc(), SimulationScenario.id.asc()).all()
     return [_with_default_simulation_payload(row) for row in rows]
+
+
+def _serialize_drift(drift: QuantumDrift) -> dict[str, Any]:
+    """Convert a QuantumDrift ORM row to a JSON-serialisable dict."""
+    return {
+        "id": drift.id,
+        "asset_id": drift.asset_id,
+        "scan_timestamp": drift.scan_timestamp.isoformat() if drift.scan_timestamp else None,
+        "drift_type": drift.drift_type,
+        "severity": drift.severity,
+        "field_name": drift.field_name,
+        "old_value": drift.old_value,
+        "new_value": drift.new_value,
+        "old_hei_score": drift.old_hei_score,
+        "new_hei_score": drift.new_hei_score,
+        "hei_delta": drift.hei_delta,
+        "old_risk_category": drift.old_risk_category,
+        "new_risk_category": drift.new_risk_category,
+        "old_snapshot": drift.old_snapshot,
+        "new_snapshot": drift.new_snapshot,
+        "created_at": drift.created_at.isoformat() if drift.created_at else None,
+    }
+
+
+def get_drift_dataset(
+    session: Session,
+    asset_id: str | None = None,
+    severity: str | None = None,
+    drift_type: str | None = None,
+    limit: int | None = None,
+    offset: int = 0,
+) -> dict[str, Any]:
+    """Query quantum drift records with optional filters."""
+    query = session.query(QuantumDrift).order_by(QuantumDrift.scan_timestamp.desc(), QuantumDrift.id.desc())
+
+    if asset_id:
+        query = query.filter(QuantumDrift.asset_id == asset_id)
+    if severity:
+        query = query.filter(QuantumDrift.severity == severity)
+    if drift_type:
+        query = query.filter(QuantumDrift.drift_type == drift_type)
+
+    total = query.count()
+    if offset:
+        query = query.offset(offset)
+    if limit is not None:
+        query = query.limit(limit)
+
+    rows = query.all()
+    records = [_serialize_drift(row) for row in rows]
+
+    # Enrich all records with human-readable asset FQDN
+    asset_fqdn_cache: dict[str, str] = {}
+    for rec in records:
+        aid = rec["asset_id"]
+        if aid not in asset_fqdn_cache:
+            asset = session.query(Asset).filter(Asset.id == aid).first()
+            asset_fqdn_cache[aid] = asset.fqdn if asset else aid
+        rec["asset_fqdn"] = asset_fqdn_cache[aid]
+
+    return {
+        "total_records": total,
+        "records": records,
+    }
+
+
+def get_drift_summary(session: Session) -> dict[str, Any]:
+    """Aggregate quantum drift statistics."""
+    total = session.query(QuantumDrift).count()
+
+    if total == 0:
+        return {
+            "total_drift_events": 0,
+            "by_severity": {},
+            "by_type": {},
+            "assets_affected": 0,
+            "recent": [],
+        }
+
+    # Count in Python for correctness across SQLite + Postgres
+    all_drifts = session.query(QuantumDrift).all()
+
+    by_severity: dict[str, int] = {}
+    by_type: dict[str, int] = {}
+    asset_ids: set[str] = set()
+
+    for d in all_drifts:
+        by_severity[d.severity] = by_severity.get(d.severity, 0) + 1
+        by_type[d.drift_type] = by_type.get(d.drift_type, 0) + 1
+        asset_ids.add(d.asset_id)
+
+    # Recent 10 drift events
+    recent_rows = (
+        session.query(QuantumDrift)
+        .order_by(QuantumDrift.scan_timestamp.desc(), QuantumDrift.id.desc())
+        .limit(10)
+        .all()
+    )
+    recent = [_serialize_drift(r) for r in recent_rows]
+
+    # Enrich recent drifts with asset FQDN for display
+    asset_fqdn_cache: dict[str, str] = {}
+    for r in recent:
+        aid = r["asset_id"]
+        if aid not in asset_fqdn_cache:
+            asset = session.query(Asset).filter(Asset.id == aid).first()
+            asset_fqdn_cache[aid] = asset.fqdn if asset else aid
+        r["asset_fqdn"] = asset_fqdn_cache[aid]
+
+    return {
+        "total_drift_events": total,
+        "by_severity": dict(sorted(by_severity.items(), key=lambda x: x[1], reverse=True)),
+        "by_type": dict(sorted(by_type.items(), key=lambda x: x[1], reverse=True)),
+        "assets_affected": len(asset_ids),
+        "recent": recent,
+    }
+

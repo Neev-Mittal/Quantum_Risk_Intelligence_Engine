@@ -24,6 +24,8 @@ from pydantic import BaseModel, Field
 
 from src.dataset_service import (
     get_cbom_dataset,
+    get_drift_dataset,
+    get_drift_summary,
     get_enriched_cbom_dataset,
     get_shadow_crypto_dataset,
     get_simulation_dataset,
@@ -504,6 +506,40 @@ async def chatbot(payload: ChatbotRequest, db: Session = Depends(get_db)):
         "model": NVIDIA_CHAT_MODEL,
         "mode": "remote",
     }
+
+@app.get("/api/drift")
+async def get_drift(
+    asset_id: str | None = None,
+    severity: str | None = None,
+    drift_type: str | None = None,
+    limit: int = Query(100, ge=1, le=10000),
+    offset: int = Query(0, ge=0),
+    db: Session = Depends(get_db),
+):
+    """List quantum drift records with optional filters."""
+    data = get_drift_dataset(
+        db, asset_id=asset_id, severity=severity,
+        drift_type=drift_type, limit=limit, offset=offset,
+    )
+    return {"success": True, **data}
+
+
+@app.get("/api/drift/summary")
+async def drift_summary(db: Session = Depends(get_db)):
+    """Aggregate quantum drift statistics."""
+    return {"success": True, **get_drift_summary(db)}
+
+
+@app.get("/api/drift/asset/{asset_id}")
+async def get_drift_by_asset(
+    asset_id: str,
+    limit: int = Query(100, ge=1, le=10000),
+    offset: int = Query(0, ge=0),
+    db: Session = Depends(get_db),
+):
+    """Drift history for a specific asset."""
+    data = get_drift_dataset(db, asset_id=asset_id, limit=limit, offset=offset)
+    return {"success": True, "asset_id": asset_id, **data}
 
 
 if __name__ == "__main__":

@@ -1,1 +1,220 @@
-[]
+[
+  {
+    "Asset ID": "bab948b4-fdb1-528c-a979-9d472ecff9a1",
+    "Asset": "www.pnbint.com",
+    "IP Address": "2606:4700:90d7:647d:ccca:8af:a0eb:793e",
+    "Port": 443,
+    "Asset Type": "cdn_proxy",
+    "Asset Type Details": {
+      "primary_type": "cdn_proxy",
+      "secondary_types": [
+        "ssl_certificate"
+      ],
+      "detection_method": "infrastructure_headers",
+      "confidence": "high"
+    },
+    "TLS Supported": true,
+    "Supported TLS Versions": [
+      "TLSv1.2",
+      "TLSv1.3"
+    ],
+    "Minimum Supported TLS": "TLSv1.2",
+    "Maximum Supported TLS": "TLSv1.3",
+    "TLS Version": "TLSv1.3",
+    "Cipher Suite": "TLS_AES_256_GCM_SHA384",
+    "Key Exchange Algorithm": "ECDHE",
+    "Authentication Algorithm": null,
+    "Encryption Algorithm": null,
+    "Hash Algorithm": null,
+    "Handshake Latency": 8.8,
+    "Public Key Algorithm": "EC",
+    "Key Size (Bits)": 256,
+    "PFS Status": "Yes",
+    "OID Reference": "1.2.840.10045.4.3.2",
+    "NIST PQC Readiness Label": "Quantum-Vulnerable",
+    "Scan Status": "ok",
+    "Error": null,
+    "Certificate Validity (Not Before/After)": {
+      "Not Before": "2026-03-22T22:10:59+00:00",
+      "Not After": "2026-06-20T23:10:56+00:00"
+    },
+    "Signature Algorithm": "sha256WithEC",
+    "Issuer CA": "CN=WE1",
+    "Subject CN": "www.pnbint.com",
+    "SSL Details": {
+      "protocol_version": "TLSv1.3",
+      "cipher_strength": "Strong",
+      "sans": [
+        "www.pnbint.com"
+      ],
+      "is_wildcard": false,
+      "is_ev": false,
+      "ct_logged": true,
+      "days_until_expiry": 67
+    },
+    "API Details": {
+      "is_api": false,
+      "api_type": null,
+      "rate_limited": false,
+      "versioned": false,
+      "indicators": []
+    },
+    "Network Details": {
+      "ip_subnet": "2606:4700:90d7::/48",
+      "service_type": "HTTPS",
+      "port_category": "web"
+    },
+    "Infrastructure": {
+      "cdn_provider": "Cloudflare",
+      "waf_detected": true,
+      "load_balanced": false,
+      "reverse_proxy": false,
+      "detected_services": [
+        "Cloudflare"
+      ]
+    },
+    "HTTP Scheme": "https",
+    "HTTP URL": "https://www.pnbint.com:443",
+    "HTTP Status": 200,
+    "Web Server": "cloudflare",
+    "X-Powered-By": null,
+    "Technology Hints": [
+      "cloudflare",
+      "Cloudflare"
+    ],
+    "Software Versions": [
+      "cloudflare"
+    ],
+    "Detected OS": "Unknown",
+    "OS Confidence": "low",
+    "OS Version Hints": [],
+    "Response Headers": {
+      "Date": "Tue, 14 Apr 2026 16:41:23 GMT",
+      "Content-Type": "text/html; charset=utf-8",
+      "Transfer-Encoding": "chunked",
+      "Connection": "close",
+      "Cache-Control": "no-cache, no-store",
+      "pragma": "no-cache",
+      "expires": "-1",
+      "strict-transport-security": "max-age=31536000;includeeSubdomains",
+      "content-security-policy": "default-src 'self';  script-src 'self' 'unsafe-inline' https://www.google.com https://www.gstatic.com https://www.googletagmanager.com https://cdnjs.cloudflare.com https://maxcdn.bootstrapcdn.com https://cdn.jsdelivr.net https://www.google-analytics.com https://region1.google-analytics.com ;     style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com https://maxcdn.bootstrapcdn.com https://cdn.jsdelivr.net;     img-src 'self' https://www.google.com https://maps.gstatic.com http://www.w3.org data:;     font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com https://maxcdn.bootstrapcdn.com;     frame-src https://www.google.com https://www.google.com/maps https://www.recaptcha.net;     connect-src 'self' https://www.google.com https://onlinepnbglobal.com https://pnbint.com https://pnb.docs.token.io https://www.google-analytics.com https://region1.google-analytics.com;     object-src 'none';",
+      "x-content-type-options": "nosniff",
+      "refferer-policy": "no-refferer",
+      "content-security-policy1": "default-src 'self';       script-src 'self' 'unsafe-inline' 'unsafe-eval'         https://www.googletagmanager.com         https://www.google-analytics.com  https://www.google.com/recaptcha/api/siteverify         https://static.cloudflareinsights.com         https://cdnjs.cloudflare.com         https://cdn.jsdelivr.net;       script-src-elem 'self'         https://www.googletagmanager.com         https://www.google-analytics.com         https://static.cloudflareinsights.com         https://cdnjs.cloudflare.com         https://cdn.jsdelivr.net;       img-src 'self' data:         https://cdnjs.cloudflare.com         https://www.google.com         https://maps.gstatic.com;       connect-src 'self'         https://www.google-analytics.com         https://region1.google-analytics.com;       style-src 'self' 'unsafe-inline'         https://cdnjs.cloudflare.com         https://cdn.jsdelivr.net;       font-src 'self'         https://cdnjs.cloudflare.com         https://cdn.jsdelivr.net;",
+      "cf-cache-status": "DYNAMIC",
+      "Server-Timing": "cfEdge;dur=7,cfOrigin;dur=250",
+      "Server": "cloudflare",
+      "CF-RAY": "9ec4285dbd9890f3-BOM"
+    },
+    "Page Title": "PNBIL | Personal",
+    "Body Snippet": "&lt;!DOCTYPE html&gt;\r\n&lt;html&gt;\r\n&lt;head&gt;\r\n    &lt;script&gt;\r\n        if (/MSIE \\d|Trident.*rv:/.test(navigator.userAgent)) {\r\n            window.location = &#x27;microsoft-edge:&#x27; + window.location;\r\n            setTimeout(function () {\r\n                window.location = &#x27;https://go.microsoft.com/fwlink/?linkid=2135547&#x27;;\r\n            }, 1);\r\n        }\r\n    &lt;/script&gt;\r\n    &lt;!-- Google Tag Manager --&gt;\r\n    &lt;script&gt;\r\n        var cookievalconsent = localStorage.getItem(&quot;CookieLevel&quot;);\r\n\r\n        if (!cookievalconsent) {\r\n          ",
+    "Shadow Crypto Reasons": [
+      "Small key size: 256"
+    ],
+    "Shadow Crypto Severity": "medium"
+  },
+  {
+    "Asset ID": "6c3a4621-33d3-5f61-8197-8c410a4e2ffc",
+    "Asset": "www.pnbint.com",
+    "IP Address": "2606:4700:90d7:647d:ccca:8af:a0eb:793e",
+    "Port": 8443,
+    "Asset Type": "cdn_proxy",
+    "Asset Type Details": {
+      "primary_type": "cdn_proxy",
+      "secondary_types": [
+        "ssl_certificate"
+      ],
+      "detection_method": "infrastructure_headers",
+      "confidence": "high"
+    },
+    "TLS Supported": true,
+    "Supported TLS Versions": [
+      "TLSv1.2",
+      "TLSv1.3"
+    ],
+    "Minimum Supported TLS": "TLSv1.2",
+    "Maximum Supported TLS": "TLSv1.3",
+    "TLS Version": "TLSv1.3",
+    "Cipher Suite": "TLS_AES_256_GCM_SHA384",
+    "Key Exchange Algorithm": "ECDHE",
+    "Authentication Algorithm": null,
+    "Encryption Algorithm": null,
+    "Hash Algorithm": null,
+    "Handshake Latency": 11.6,
+    "Public Key Algorithm": "EC",
+    "Key Size (Bits)": 256,
+    "PFS Status": "Yes",
+    "OID Reference": "1.2.840.10045.4.3.2",
+    "NIST PQC Readiness Label": "Quantum-Vulnerable",
+    "Scan Status": "ok",
+    "Error": null,
+    "Certificate Validity (Not Before/After)": {
+      "Not Before": "2026-03-22T22:10:59+00:00",
+      "Not After": "2026-06-20T23:10:56+00:00"
+    },
+    "Signature Algorithm": "sha256WithEC",
+    "Issuer CA": "CN=WE1",
+    "Subject CN": "www.pnbint.com",
+    "SSL Details": {
+      "protocol_version": "TLSv1.3",
+      "cipher_strength": "Strong",
+      "sans": [
+        "www.pnbint.com"
+      ],
+      "is_wildcard": false,
+      "is_ev": false,
+      "ct_logged": true,
+      "days_until_expiry": 67
+    },
+    "API Details": {
+      "is_api": false,
+      "api_type": null,
+      "rate_limited": false,
+      "versioned": false,
+      "indicators": []
+    },
+    "Network Details": {
+      "ip_subnet": "2606:4700:90d7::/48",
+      "service_type": "HTTPS Alt",
+      "port_category": "web"
+    },
+    "Infrastructure": {
+      "cdn_provider": "Cloudflare",
+      "waf_detected": true,
+      "load_balanced": false,
+      "reverse_proxy": false,
+      "detected_services": [
+        "Cloudflare"
+      ]
+    },
+    "HTTP Scheme": "http",
+    "HTTP URL": "http://www.pnbint.com:8443",
+    "HTTP Status": 400,
+    "Web Server": "cloudflare",
+    "X-Powered-By": null,
+    "Technology Hints": [
+      "cloudflare",
+      "Cloudflare"
+    ],
+    "Software Versions": [
+      "cloudflare"
+    ],
+    "Detected OS": "Unknown",
+    "OS Confidence": "low",
+    "OS Version Hints": [],
+    "Response Headers": {
+      "Server": "cloudflare",
+      "Date": "Tue, 14 Apr 2026 16:41:24 GMT",
+      "Content-Type": "text/html",
+      "Content-Length": "253",
+      "Connection": "close",
+      "CF-RAY": "-"
+    },
+    "Page Title": "400 The plain HTTP request was sent to HTTPS port",
+    "Body Snippet": "&lt;html&gt;\r\n&lt;head&gt;&lt;title&gt;400 The plain HTTP request was sent to HTTPS port&lt;/title&gt;&lt;/head&gt;\r\n&lt;body&gt;\r\n&lt;center&gt;&lt;h1&gt;400 Bad Request&lt;/h1&gt;&lt;/center&gt;\r\n&lt;center&gt;The plain HTTP request was sent to HTTPS port&lt;/center&gt;\r\n&lt;hr&gt;&lt;center&gt;cloudflare&lt;/center&gt;\r\n&lt;/body&gt;\r\n&lt;/html&gt;\r\n",
+    "Shadow Crypto Reasons": [
+      "Small key size: 256"
+    ],
+    "Shadow Crypto Severity": "medium"
+  }
+]

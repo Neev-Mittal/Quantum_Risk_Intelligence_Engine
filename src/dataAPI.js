@@ -986,6 +986,34 @@ export const dataAPI = {
       return { success: false, error: error.message, dnsRecords: [], cryptoOverview: [] }
     }
   },
+  // Quantum Drift data — fetches from the drift API endpoints
+  getQuantumDriftData: async () => {
+    try {
+      const summaryRes = await fetch(`${DATA_API_BASE}/drift/summary`)
+      if (!summaryRes.ok) throw new Error(`HTTP ${summaryRes.status}`)
+      const summaryData = await summaryRes.json()
+
+      const driftRes = await fetch(`${DATA_API_BASE}/drift?limit=50`)
+      if (!driftRes.ok) throw new Error(`HTTP ${driftRes.status}`)
+      const driftData = await driftRes.json()
+
+      return {
+        success: true,
+        summary: summaryData,
+        records: driftData.records || [],
+        totalRecords: driftData.total_records || 0,
+      }
+    } catch (error) {
+      console.error('getQuantumDriftData error:', error)
+      return {
+        success: false,
+        error: error.message,
+        summary: { total_drift_events: 0, by_severity: {}, by_type: {}, assets_affected: 0, recent: [] },
+        records: [],
+        totalRecords: 0,
+      }
+    }
+  },
 }
 
 export default dataAPI

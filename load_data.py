@@ -71,6 +71,69 @@ def _resolve_shadow_path(base_path: Path) -> Path:
     return candidates[0]
 
 
+def apply_record_to_asset(asset: Asset, record: dict, index: int | None = None) -> None:
+    """Apply an enriched CBOM record dict to an Asset ORM instance.
+
+    This is the single source of truth for mapping JSON record keys to Asset
+    columns.  Both the initial data loader and the scanner's live DB persistence
+    call this so the mapping never drifts.
+    """
+    cert_info = record.get("Certificate Validity (Not Before/After)", {}) or {}
+
+    asset.fqdn = record.get("Asset")
+    asset.ip_address = record.get("IP Address")
+    asset.port = record.get("Port", 443)
+
+    asset.tls_supported = record.get("TLS Supported", True)
+    asset.supported_tls_versions = record.get("Supported TLS Versions", [])
+    asset.min_tls = record.get("Minimum Supported TLS")
+    asset.max_tls = record.get("Maximum Supported TLS")
+    asset.active_tls_version = record.get("TLS Version")
+
+    asset.cipher_suite = record.get("Cipher Suite")
+    asset.key_exchange = record.get("Key Exchange Algorithm")
+    asset.encryption = record.get("Encryption Algorithm")
+    asset.hash_algorithm = record.get("Hash Algorithm")
+    asset.public_key_algo = record.get("Public Key Algorithm")
+    asset.signature_algo = record.get("Signature Algorithm")
+    asset.authentication_algorithm = record.get("Authentication Algorithm")
+
+    asset.key_size = record.get("Key Size (Bits)")
+    asset.pfs_enabled = record.get("PFS Status") == "Yes"
+
+    asset.issuer_ca = record.get("Issuer CA")
+    asset.subject_cn = record.get("Subject CN")
+    asset.cert_not_before = parse_iso_datetime(cert_info.get("Not Before"))
+    asset.cert_not_after = parse_iso_datetime(cert_info.get("Not After"))
+
+    asset.asset_type = record.get("Asset Type")
+    asset.hei_score = record.get("HEI_Score")
+    asset.mds_score = record.get("MDS_Score")
+    asset.risk_category = record.get("Risk_Category")
+    asset.pqc_readiness = record.get("NIST PQC Readiness Label", "")
+    asset.remediation_priority = record.get("Remediation_Priority")
+    asset.scoring_confidence = record.get("Scoring_Confidence")
+
+    asset.http_scheme = record.get("HTTP Scheme")
+    asset.http_url = record.get("HTTP URL")
+    asset.http_status = record.get("HTTP Status")
+    asset.page_title = record.get("Page Title")
+    asset.web_server = record.get("Web Server")
+    asset.detected_os = record.get("Detected OS")
+    asset.os_confidence = record.get("OS Confidence")
+    asset.body_snippet = record.get("Body Snippet")
+    asset.certification_status = record.get("Certification_Status")
+    asset.oid_reference = record.get("OID Reference")
+    asset.error = record.get("Error")
+    asset.latency_ms = record.get("Handshake Latency")
+    asset.scan_status = record.get("Scan Status")
+
+    if index is not None:
+        asset.source_index = index
+
+    asset.record_data = record
+
+
 def load_cbom_data(session: Session, json_path: Path) -> int:
     """Load enriched CBOM asset records into the database."""
     print(f"Loading enriched CBOM data from {json_path}...")
@@ -91,57 +154,7 @@ def load_cbom_data(session: Session, json_path: Path) -> int:
             asset = Asset(id=asset_id)
             session.add(asset)
 
-        cert_info = record.get("Certificate Validity (Not Before/After)", {}) or {}
-
-        asset.fqdn = record.get("Asset")
-        asset.ip_address = record.get("IP Address")
-        asset.port = record.get("Port", 443)
-
-        asset.tls_supported = record.get("TLS Supported", True)
-        asset.supported_tls_versions = record.get("Supported TLS Versions", [])
-        asset.min_tls = record.get("Minimum Supported TLS")
-        asset.max_tls = record.get("Maximum Supported TLS")
-        asset.active_tls_version = record.get("TLS Version")
-
-        asset.cipher_suite = record.get("Cipher Suite")
-        asset.key_exchange = record.get("Key Exchange Algorithm")
-        asset.encryption = record.get("Encryption Algorithm")
-        asset.hash_algorithm = record.get("Hash Algorithm")
-        asset.public_key_algo = record.get("Public Key Algorithm")
-        asset.signature_algo = record.get("Signature Algorithm")
-        asset.authentication_algorithm = record.get("Authentication Algorithm")
-
-        asset.key_size = record.get("Key Size (Bits)")
-        asset.pfs_enabled = record.get("PFS Status") == "Yes"
-
-        asset.issuer_ca = record.get("Issuer CA")
-        asset.subject_cn = record.get("Subject CN")
-        asset.cert_not_before = parse_iso_datetime(cert_info.get("Not Before"))
-        asset.cert_not_after = parse_iso_datetime(cert_info.get("Not After"))
-
-        asset.asset_type = record.get("Asset Type")
-        asset.hei_score = record.get("HEI_Score")
-        asset.mds_score = record.get("MDS_Score")
-        asset.risk_category = record.get("Risk_Category")
-        asset.pqc_readiness = record.get("NIST PQC Readiness Label", "")
-        asset.remediation_priority = record.get("Remediation_Priority")
-        asset.scoring_confidence = record.get("Scoring_Confidence")
-
-        asset.http_scheme = record.get("HTTP Scheme")
-        asset.http_url = record.get("HTTP URL")
-        asset.http_status = record.get("HTTP Status")
-        asset.page_title = record.get("Page Title")
-        asset.web_server = record.get("Web Server")
-        asset.detected_os = record.get("Detected OS")
-        asset.os_confidence = record.get("OS Confidence")
-        asset.body_snippet = record.get("Body Snippet")
-        asset.certification_status = record.get("Certification_Status")
-        asset.oid_reference = record.get("OID Reference")
-        asset.error = record.get("Error")
-        asset.latency_ms = record.get("Handshake Latency")
-        asset.scan_status = record.get("Scan Status")
-        asset.source_index = index
-        asset.record_data = record
+        apply_record_to_asset(asset, record, index)
 
         imported += 1
         if imported % 250 == 0:
